@@ -744,8 +744,8 @@ async function handleUpload(event, slug) {
 
 function dosyaOzeti(dosyalar) {
     if (dosyalar.length === 0) return null;
-    if (dosyalar.length === 1) return '1 fotoğraf seçildi';
-    return `${dosyalar.length} fotoğraf seçildi`;
+    if (dosyalar.length === 1) return '1 Fotoğraf Seçildi';
+    return `${dosyalar.length} Fotoğraf Seçildi`;
 }
 
 let onizlemeAdresleri = [];
@@ -804,8 +804,8 @@ function yuklemeAlaniniKur() {
     const dokunmatik = window.matchMedia('(pointer: coarse)').matches;
 
     const bosMetin = dokunmatik
-        ? 'Galeriden fotoğraf seç'
-        : 'Fotoğraf seç veya buraya sürükle';
+        ? 'Galeriden Fotoğraf Seç'
+        : 'Fotoğraf Seç veya Buraya Sürükle';
 
     // Telefonda "sürükle" anlamsız; kamera düğmesi de yalnızca orada gerekli.
     // capture niteliği iOS'ta galeriyi tamamen kapattığı için ayrı bir giriş:
