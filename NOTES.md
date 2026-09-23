@@ -64,7 +64,8 @@ Genel çözüm `style.css` içinde duruyor, silme:
 Davetli QR'dan `etkinlik.html?slug=...` adresine gelir, fotoğraf yükler
 (galeriden seçer ya da telefonda kamerayla çeker), isterse **"sadece etkinlik
 sahipleri görsün"** işaretler. Onaylanan fotoğraflar galeride üç görünümde
-gezilir: **ağaç** (varsayılan), **küre**, **ızgara**.
+gezilir: **ızgara** (varsayılan), **ağaç**, **küre**. Varsayılan ızgara:
+ağaç ve küre telefonda küçük kalıyor.
 
 Bilmesi gerekenler:
 
@@ -90,6 +91,22 @@ Bilmesi gerekenler:
 - Ağaçta fotoğraf boyu, dal uçlarının arasındaki mesafeden hesaplanıyor.
   Sabit boy verilirse ya üst üste biniyor ya da ağaç boş duruyor.
 
+## Misafir defteri
+
+Galerinin altında davetliler adıyla not bırakıyor. Notlar fotoğraflarla
+**aynı moderasyondan** geçiyor: gönderilen not `pending` düşüyor, panelden
+onaylanınca listede görünüyor.
+
+- Not formunun **kendi KVKK onay kutusu** var ama **aynı diyaloğu** açıyor;
+  rıza sürümünün tek kaynağı yine `#kvkkKutu`'nun `data-surum`'u. Metni
+  değiştirirsen sürümü güncelle — metin artık fotoğrafları da notları da
+  kapsıyor, ikisini ayrı ayrı yazma.
+- Onay verilmeden "Notu Gönder" kapalı; sunucu da rızasız isteği 400'le
+  reddediyor.
+- Liste **20'şerlik sayfalar**, en yeni üstte; toplam `X-Total-Count`'tan.
+- Not metni `textContent` ile basılıyor (HTML olarak değil) ve
+  `white-space: pre-wrap` ile satır sonları korunuyor.
+
 ## Davetiye sayfaları
 
 `davetiye.html` **vitrindeki demo**: isimler, aileler ve mekân kurgusaldır,
@@ -108,7 +125,7 @@ iki sayfa da aynı `davetiye.js`'i paylaşır.
 
 - Etkinlik sahibine e-posta/bildirim yok; onay bekleyen fotoğrafı görmek için
   panele bakmak gerekiyor.
-- Yükleme sınırı cihaz jetonuna bağlı (kişi başı 5/saat) — jeton silinebilir,
+- Yükleme sınırı cihaz jetonuna bağlı (kişi başı 30/saat) — jeton silinebilir,
   yani nezaket sınırı. Gerçek kontrol isteniyorsa kişiye özel davet linki
   gerekir.
 - Galeride fotoğrafı yükleyenin adı gösterilmiyor; ad yalnızca panelde
