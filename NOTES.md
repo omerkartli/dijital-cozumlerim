@@ -23,7 +23,7 @@ sonra hatırlanması gereken şeyleri tutar. Koddan ya da git geçmişinden kola
 | Admin paneli | https://omerkartli.github.io/dijital-cozumlerim/admin.html |
 | Kişisel sayfa (ayrı repo) | https://omerkartli.github.io/kisisel-sayfam/ |
 | Etkinlik galerisi | `.../etkinlik.html?slug=SLUG` |
-| API | https://api-production-137f.up.railway.app |
+| API | https://web-production-7a710.up.railway.app |
 
 ## Tekrar düşmemek gereken tuzaklar
 

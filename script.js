@@ -3,7 +3,7 @@
 const YEREL_MI = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 const API_BASE_URL = YEREL_MI
     ? 'http://127.0.0.1:8000'
-    : 'https://api-production-137f.up.railway.app';
+    : 'https://web-production-7a710.up.railway.app';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
