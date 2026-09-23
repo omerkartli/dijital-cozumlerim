@@ -19,9 +19,9 @@ sonra hatırlanması gereken şeyleri tutar. Koddan ya da git geçmişinden kola
 
 | Ne | Adres |
 |---|---|
-| Vitrin | https://omerkartlimarmara.github.io/dijital-cozumlerim/ |
-| Admin paneli | https://omerkartlimarmara.github.io/dijital-cozumlerim/admin.html |
-| Kişisel sayfa (ayrı repo) | https://omerkartlimarmara.github.io/kisisel-sayfam/ |
+| Vitrin | https://omerkartli.github.io/dijital-cozumlerim/ |
+| Admin paneli | https://omerkartli.github.io/dijital-cozumlerim/admin.html |
+| Kişisel sayfa (ayrı repo) | https://omerkartli.github.io/kisisel-sayfam/ |
 | Etkinlik galerisi | `.../etkinlik.html?slug=SLUG` |
 | API | https://api-production-137f.up.railway.app |
 
