@@ -30,6 +30,7 @@ async function loadEvent(slug) {
         const response = await fetch(`${API_BASE_URL}/events/${encodeURIComponent(slug)}`);
         if (!response.ok) {
             setHeadingText(titleEl, 'Etkinlik bulunamadı');
+            statusEl.hidden = false;
             statusEl.textContent = 'Bu bağlantı geçerli bir etkinliğe ait değil.';
             document.getElementById('uploadForm').hidden = true;
             document.getElementById('sahne').hidden = true;
@@ -37,8 +38,12 @@ async function loadEvent(slug) {
         }
         const event = await response.json();
         setHeadingText(titleEl, event.name);
-        statusEl.textContent = 'Fotoğrafını yükle; onaylandıktan sonra aşağıda görünecek.';
+        // Bu satır artık yalnızca hata kanalı; normal akışta boş duruyor,
+        // yerini "Fotoğrafları gör" düğmesi aldı.
+        statusEl.textContent = '';
+        statusEl.hidden = true;
     } catch (err) {
+        statusEl.hidden = false;
         statusEl.textContent = 'Sunucuya bağlanılamadı.';
     }
 }
@@ -604,12 +609,11 @@ async function loadPhotos(slug) {
 
         durum.textContent = '';
 
-        const ipucu = document.getElementById('galeriIpucu');
-        document.getElementById('galeriIpucuMetin').textContent =
-            `${toplamFotograf} fotoğrafı gör`;
-        ipucu.hidden = false;
-        ipucu.addEventListener('click', (e) => {
-            e.preventDefault();
+        const dugme = document.getElementById('galeriDugme');
+        document.getElementById('galeriDugmeMetin').textContent =
+            toplamFotograf === 1 ? '1 fotoğrafı gör' : `${toplamFotograf} fotoğrafı gör`;
+        dugme.hidden = false;
+        dugme.addEventListener('click', () => {
             document.getElementById('sahne').scrollIntoView({
                 behavior: prefersReducedMotion ? 'auto' : 'smooth',
                 block: 'start',

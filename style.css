@@ -566,39 +566,7 @@ body.sayfa-hero {
     margin-bottom: 20px;
 }
 
-.galeri-ipucu {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 18px;
-    padding: 9px 20px;
-    border-radius: 999px;
-    border: 1px solid var(--cizgi);
-    background: var(--kart);
-    color: var(--baslik);
-    text-decoration: none;
-    font-size: 0.88rem;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.galeri-ipucu:hover {
-    border-color: var(--baslik);
-    transform: translateY(2px);
-}
-
-.galeri-ipucu-ok {
-    animation: ipucu-in 1.8s ease-in-out infinite;
-}
-
-@keyframes ipucu-in {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(3px); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .galeri-ipucu-ok {
-        animation: none;
-    }
 }
 
 .yukleme {
@@ -1433,4 +1401,44 @@ body.lb-acik {
 
 .onizleme-sil:hover {
     background: rgba(20, 18, 17, 0.85);
+}
+
+/* --- Galeriye götüren ana çağrı --- */
+
+.galeri-dugme {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 22px;
+    padding: 13px 28px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--vurgu);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(91, 85, 112, 0.28);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.galeri-dugme:hover {
+    background: var(--vurgu-koyu);
+    transform: translateY(-1px);
+}
+
+.galeri-dugme-ok {
+    animation: dugme-in 1.8s ease-in-out infinite;
+}
+
+@keyframes dugme-in {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .galeri-dugme-ok {
+        animation: none;
+    }
 }
