@@ -740,8 +740,55 @@ async function handleUpload(event, slug) {
 
 function dosyaOzeti(dosyalar) {
     if (dosyalar.length === 0) return null;
-    if (dosyalar.length === 1) return dosyalar[0].name;
+    if (dosyalar.length === 1) return '1 fotoğraf seçildi';
     return `${dosyalar.length} fotoğraf seçildi`;
+}
+
+let onizlemeAdresleri = [];
+
+function onizlemeTemizle() {
+    // Tarayıcı bu adresleri kendiliğinden bırakmıyor; bırakmazsak seçim
+    // değiştikçe bellek birikir.
+    onizlemeAdresleri.forEach((adres) => URL.revokeObjectURL(adres));
+    onizlemeAdresleri = [];
+}
+
+function onizlemeCiz(dosyalar, cikar) {
+    const kap = document.getElementById('onizleme');
+    onizlemeTemizle();
+    kap.innerHTML = '';
+    kap.hidden = dosyalar.length === 0;
+
+    dosyalar.forEach((dosya, sira) => {
+        const kutu = document.createElement('div');
+        kutu.className = 'onizleme-kare';
+
+        const adres = URL.createObjectURL(dosya);
+        onizlemeAdresleri.push(adres);
+
+        const img = document.createElement('img');
+        img.src = adres;
+        img.alt = '';
+        // HEIC'i her tarayıcı gösteremiyor; gösteremezse dosya adına düşüyoruz.
+        img.addEventListener('error', () => {
+            img.remove();
+            const ad = document.createElement('span');
+            ad.className = 'onizleme-ad';
+            ad.textContent = dosya.name;
+            kutu.appendChild(ad);
+        });
+        kutu.appendChild(img);
+
+        const sil = document.createElement('button');
+        sil.type = 'button';
+        sil.className = 'onizleme-sil';
+        sil.setAttribute('aria-label', `${dosya.name} seçimini kaldır`);
+        sil.textContent = '×';
+        sil.addEventListener('click', () => cikar(sira));
+        kutu.appendChild(sil);
+
+        kap.appendChild(kutu);
+    });
 }
 
 function yuklemeAlaniniKur() {
@@ -768,6 +815,13 @@ function yuklemeAlaniniKur() {
         secilenDosyalar = Array.from(dosyalar || []);
         alan.classList.toggle('is-secili', secilenDosyalar.length > 0);
         etiket.textContent = dosyaOzeti(secilenDosyalar) || bosMetin;
+        onizlemeCiz(secilenDosyalar, (sira) => {
+            const kalan = secilenDosyalar.filter((_, i) => i !== sira);
+            // Girdileri de sıfırla: aynı dosya tekrar seçilebilsin
+            girdi.value = '';
+            kamera.value = '';
+            dosyalarSecildi(kalan);
+        });
     }
 
     girdi.addEventListener('change', () => dosyalarSecildi(girdi.files));
