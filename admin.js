@@ -278,6 +278,17 @@ function renderEvents(events) {
             actions.appendChild(indirBtn);
         }
 
+        const notBtn = document.createElement('button');
+        notBtn.type = 'button';
+        notBtn.className = 'btn btn-kucuk';
+        notBtn.textContent = 'Notlar';
+        notBtn.addEventListener('click', () => {
+            document.getElementById('noteSlug').value = event.slug;
+            loadNotes(event.slug);
+            document.getElementById('notYonetimListesi').scrollIntoView({ behavior: 'smooth' });
+        });
+        actions.appendChild(notBtn);
+
         const qrBtn = document.createElement('button');
         qrBtn.type = 'button';
         qrBtn.className = 'btn btn-kucuk';
@@ -564,6 +575,181 @@ async function reviewPhoto(photoId, action, slug) {
     }
 }
 
+/* --- Notlar --- */
+
+let notDurumu = 'pending';
+
+function notSilOnayi(not, slug, satir, actions) {
+    const onay = document.createElement('div');
+    onay.className = 'event-onay';
+
+    const mesaj = document.createElement('span');
+    mesaj.className = 'event-onay-mesaj';
+    mesaj.textContent = `${not.author_name} adlı misafirin notu kalıcı olarak silinsin mi?`;
+    onay.appendChild(mesaj);
+
+    const evet = document.createElement('button');
+    evet.type = 'button';
+    evet.className = 'btn btn-kucuk btn-tehlike';
+    evet.textContent = 'Evet, sil';
+    evet.addEventListener('click', async () => {
+        satir.classList.add('is-siliniyor');
+        const silindi = await notSil(not.id);
+        if (silindi) {
+            loadNotes(slug);
+        } else {
+            satir.classList.remove('is-siliniyor');
+            mesaj.textContent = 'Silinemedi, tekrar dene.';
+        }
+    });
+    onay.appendChild(evet);
+
+    const vazgec = document.createElement('button');
+    vazgec.type = 'button';
+    vazgec.className = 'btn btn-kucuk';
+    vazgec.textContent = 'Vazgeç';
+    vazgec.addEventListener('click', () => {
+        onay.hidden = true;
+        actions.hidden = false;
+    });
+    onay.appendChild(vazgec);
+
+    onay.hidden = true;
+    return onay;
+}
+
+function renderNotes(notlar, slug) {
+    const kap = document.getElementById('notYonetimListesi');
+    kap.innerHTML = '';
+
+    if (notlar.length === 0) {
+        kap.innerHTML = notDurumu === 'pending'
+            ? '<p class="bio">Onay bekleyen not yok.</p>'
+            : '<p class="bio">Onaylanmış not yok.</p>';
+        return;
+    }
+
+    notlar.forEach((not) => {
+        const satir = document.createElement('div');
+        satir.className = 'not-yonetim-satir';
+
+        const govde = document.createElement('p');
+        govde.className = 'not-yonetim-govde';
+        govde.textContent = not.body;
+        satir.appendChild(govde);
+
+        const meta = document.createElement('span');
+        meta.className = 'event-meta';
+        meta.textContent = `${not.author_name} · ${formatDate(not.created_at)}`;
+        satir.appendChild(meta);
+
+        const actions = document.createElement('div');
+        actions.className = 'event-actions';
+
+        if (notDurumu === 'pending') {
+            const onaylaBtn = document.createElement('button');
+            onaylaBtn.type = 'button';
+            onaylaBtn.className = 'btn btn-kucuk';
+            onaylaBtn.textContent = 'Onayla';
+            onaylaBtn.addEventListener('click', () => notOnayla(not.id, slug));
+            actions.appendChild(onaylaBtn);
+        }
+
+        const silBtn = document.createElement('button');
+        silBtn.type = 'button';
+        silBtn.className = 'btn btn-kucuk btn-tehlike';
+        silBtn.textContent = 'Sil';
+        actions.appendChild(silBtn);
+
+        satir.appendChild(actions);
+
+        const onay = notSilOnayi(not, slug, satir, actions);
+        silBtn.addEventListener('click', () => {
+            actions.hidden = true;
+            onay.hidden = false;
+        });
+        satir.appendChild(onay);
+
+        kap.appendChild(satir);
+    });
+}
+
+async function loadNotes(slug) {
+    const kap = document.getElementById('notYonetimListesi');
+    kap.innerHTML = '<p class="bio">Yükleniyor...</p>';
+
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/admin/events/${encodeURIComponent(slug)}/notes?status=${notDurumu}`,
+            { headers: { Authorization: `Bearer ${getToken()}` } },
+        );
+
+        if (response.status === 401) {
+            logout();
+            return;
+        }
+        if (!response.ok) {
+            kap.innerHTML = '<p class="bio">Etkinlik bulunamadı.</p>';
+            return;
+        }
+
+        renderNotes(await response.json(), slug);
+    } catch (err) {
+        kap.innerHTML = '<p class="bio">Sunucuya bağlanılamadı.</p>';
+    }
+}
+
+async function notOnayla(noteId, slug) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/admin/notes/${noteId}/approve`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${getToken()}` },
+        });
+
+        if (response.status === 401) {
+            logout();
+            return;
+        }
+        loadNotes(slug);
+    } catch (err) {
+        // Sunucuya ulaşılamadı; kullanıcı tekrar deneyebilir.
+    }
+}
+
+async function notSil(noteId) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/admin/notes/${noteId}`, {
+            method: 'DELETE',
+            headers: { Authorization: `Bearer ${getToken()}` },
+        });
+
+        if (response.status === 401) {
+            logout();
+            return false;
+        }
+        return response.status === 204 || response.status === 404;
+    } catch (err) {
+        return false;
+    }
+}
+
+function notDurumSeciciKur() {
+    const dugmeler = {
+        pending: document.getElementById('notBekleyenBtn'),
+        approved: document.getElementById('notOnayliBtn'),
+    };
+
+    Object.entries(dugmeler).forEach(([durum, el]) => {
+        el.addEventListener('click', () => {
+            notDurumu = durum;
+            Object.entries(dugmeler).forEach(([k, d]) => d.classList.toggle('is-secili', k === durum));
+
+            const slug = document.getElementById('noteSlug').value.trim();
+            if (slug) loadNotes(slug);
+        });
+    });
+}
+
 function durumSeciciKur() {
     const dugmeler = {
         pending: document.getElementById('bekleyenBtn'),
@@ -601,11 +787,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     qrKur();
     durumSeciciKur();
+    notDurumSeciciKur();
     document.getElementById('loadEventsBtn').addEventListener('click', loadEvents);
 
     document.getElementById('loadPendingForm').addEventListener('submit', (event) => {
         event.preventDefault();
         const slug = document.getElementById('reviewSlug').value.trim();
         loadPending(slug);
+    });
+
+    document.getElementById('loadNotesForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const slug = document.getElementById('noteSlug').value.trim();
+        loadNotes(slug);
     });
 });

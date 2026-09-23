@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="style.css?v=21">
+    <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
     <header class="site-bar">
@@ -66,6 +66,22 @@
 
             <div id="pendingGrid" class="gallery-grid gallery-grid-admin"></div>
         </section>
+
+        <section class="panel-bolum">
+            <div class="bolum-baslik">
+                <h2 class="skills-title">Notlar</h2>
+                <div class="sahne-gorunum durum-secici" role="group" aria-label="Not durumu">
+                    <button type="button" class="gorunum-btn is-secili" id="notBekleyenBtn">Bekleyenler</button>
+                    <button type="button" class="gorunum-btn" id="notOnayliBtn">Onaylananlar</button>
+                </div>
+            </div>
+            <form id="loadNotesForm" class="upload-form">
+                <input type="text" id="noteSlug" placeholder="Etkinlik slug'ı" required>
+                <button type="submit" class="btn">Getir</button>
+            </form>
+
+            <div id="notYonetimListesi" class="not-yonetim"></div>
+        </section>
     </div>
 
     </main>
@@ -85,6 +101,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script src="script.js?v=7"></script>
-    <script src="admin.js?v=13"></script>
+    <script src="admin.js?v=14"></script>
 </body>
 </html>

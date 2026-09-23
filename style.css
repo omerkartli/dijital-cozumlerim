@@ -1460,3 +1460,150 @@ body.sayfa-etkinlik::before {
     opacity: 0.12;
     pointer-events: none;
 }
+
+/* --- Misafir defteri --- */
+
+.notlar-bolum {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 64px) clamp(40px, 6vw, 72px);
+    text-align: center;
+}
+
+.notlar-baslik {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: var(--baslik);
+    margin-bottom: 6px;
+}
+
+.notlar-aciklama {
+    color: var(--soluk);
+    font-size: 0.92rem;
+    margin-bottom: 22px;
+}
+
+.not-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.not-ad,
+.not-metin {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--cizgi-alan);
+    border-radius: var(--radius-sm);
+    background: var(--kart);
+    font-size: 0.92rem;
+    font-family: inherit;
+    color: var(--metin);
+}
+
+.not-metin {
+    resize: vertical;
+    min-height: 88px;
+    line-height: 1.5;
+}
+
+.not-ad:focus,
+.not-metin:focus {
+    outline: none;
+    border-color: var(--baslik);
+}
+
+.not-form button[type="submit"] {
+    align-self: center;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.not-form button[type="submit"][disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.not-listesi {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.not-kart {
+    padding: 16px 18px;
+    border: 1px solid var(--cizgi);
+    border-radius: var(--radius-sm);
+    background: var(--kart);
+    box-shadow: var(--golge-sm);
+}
+
+.not-govde {
+    color: var(--metin);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.not-imza {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--baslik);
+}
+
+.not-imza::before {
+    content: '— ';
+    color: var(--silik);
+}
+
+.not-durum {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: var(--soluk);
+}
+
+/* Bu bölüm açık zeminde; koyu sahnedeki "daha fazla" rengi burada okunmuyor. */
+.notlar-bolum .daha-fazla {
+    background: var(--yumusak);
+    color: var(--metin-koyu);
+}
+
+.notlar-bolum .daha-fazla:hover {
+    background: var(--etiket);
+}
+
+/* --- Panelde not yönetimi --- */
+
+.not-yonetim {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.not-yonetim-satir {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--cizgi);
+    border-radius: var(--radius-sm);
+    background: var(--kart-ic);
+}
+
+.not-yonetim-govde {
+    color: var(--metin);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.not-yonetim-satir.is-siliniyor {
+    opacity: 0.5;
+    pointer-events: none;
+}
