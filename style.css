@@ -22,8 +22,8 @@
     --etiket: #ece7df;
     --cizgi: #ded7cc;
     --cizgi-alan: #d6cec2;
-    --cagri: #e8845c;
-    --cagri-koyu: #dd6f42;
+    --cagri: #ff7f50;
+    --cagri-koyu: #f26a3d;
     --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
     --whatsapp: #25d366;
     --whatsapp-koyu: #1fb855;
@@ -1420,7 +1420,7 @@ body.lb-acik {
     font-size: 0.98rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(232, 132, 92, 0.34);
+    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.34);
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
