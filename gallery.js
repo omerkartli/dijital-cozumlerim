@@ -649,7 +649,10 @@ async function tekDosyaYukle(slug, dosya, ad, ozelMi) {
     if (response.status === 400) return { tamam: false, durdur: true, sebep: 'onay' };
     if (response.status === 415) return { tamam: false, sebep: 'tur' };
     if (response.status === 413) return { tamam: false, sebep: 'boyut' };
-    return { tamam: false, sebep: 'bilinmiyor' };
+    if (response.status === 404) return { tamam: false, durdur: true, sebep: 'etkinlik' };
+    // 5xx ve tanımadığımız her durum sunucu kaynaklı: kullanıcıya dosyasında
+    // sorun varmış gibi söylemek onu boşuna uğraştırır.
+    return { tamam: false, durdur: response.status >= 500, sebep: 'sunucu' };
 }
 
 async function handleUpload(event, slug) {
@@ -688,7 +691,7 @@ async function handleUpload(event, slug) {
                 sinirDoldu = sonuc.sebep;
                 break;
             } else {
-                hatalar.push(dosya.name);
+                hatalar.push({ ad: dosya.name, sebep: sonuc.sebep });
             }
         } catch (err) {
             message.textContent = 'Sunucuya bağlanılamadı.';
@@ -708,8 +711,21 @@ async function handleUpload(event, slug) {
     if (sinirDoldu === 'onay') {
         parcalar.push('Sunucu onayı doğrulayamadı, sayfayı yenileyip tekrar dene.');
     }
+    if (sinirDoldu === 'etkinlik') {
+        parcalar.push('Bu etkinlik bulunamadı; bağlantı geçersiz olabilir.');
+    }
+    if (sinirDoldu === 'sunucu') {
+        parcalar.push('Sunucuda bir sorun var, fotoğrafların bir hatası yok. Biraz sonra tekrar dene.');
+    }
     if (hatalar.length) {
-        parcalar.push(`${hatalar.length} dosya gönderilemedi (desteklenmeyen tür ya da 15MB üstü).`);
+        const dosyaHatasi = hatalar.filter((h) => h.sebep !== 'sunucu');
+        const sunucuHatasi = hatalar.filter((h) => h.sebep === 'sunucu');
+        if (dosyaHatasi.length) {
+            parcalar.push(`${dosyaHatasi.length} dosya gönderilemedi (desteklenmeyen tür ya da 15MB üstü).`);
+        }
+        if (sunucuHatasi.length) {
+            parcalar.push(`${sunucuHatasi.length} fotoğraf sunucu hatası yüzünden gönderilemedi.`);
+        }
     }
     message.textContent = parcalar.join(' ') || 'Bir şeyler ters gitti, tekrar dene.';
 
