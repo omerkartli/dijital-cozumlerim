@@ -621,7 +621,7 @@ async function loadPhotos(slug) {
         });
 
         kureyiCalistir();
-        gorunumSec('agac');
+        gorunumSec('izgara');
         gorunumleriTazele();
 
         document.getElementById('dahaFazla').addEventListener('click', () => sonrakiSayfa(slug));

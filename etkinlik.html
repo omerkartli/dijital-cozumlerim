@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
     <header class="site-bar">
@@ -76,13 +76,13 @@
         <div class="sahne-ust">
             <span class="sahne-sayi" id="galeriSayi"></span>
             <div class="sahne-gorunum" role="group" aria-label="Görünüm">
-                <button type="button" class="gorunum-btn is-secili" id="agacBtn">Ağaç</button>
+                <button type="button" class="gorunum-btn" id="agacBtn">Ağaç</button>
                 <button type="button" class="gorunum-btn" id="kureBtn">Küre</button>
-                <button type="button" class="gorunum-btn" id="izgaraBtn">Izgara</button>
+                <button type="button" class="gorunum-btn is-secili" id="izgaraBtn">Izgara</button>
             </div>
         </div>
 
-        <div class="agac-alan" id="agacAlan">
+        <div class="agac-alan" id="agacAlan" hidden>
             <svg class="agac-dallar" id="agacDallar" aria-hidden="true"></svg>
             <div class="agac-meyveler" id="agacMeyveler"></div>
         </div>
@@ -93,7 +93,7 @@
 
         <p class="sahne-ipucu" id="sahneIpucu">Döndürmek için sürükle &middot; Büyütmek için dokun</p>
 
-        <div class="izgara" id="izgara" hidden></div>
+        <div class="izgara" id="izgara"></div>
 
         <div class="sahne-alt">
             <button type="button" class="gorunum-btn daha-fazla" id="dahaFazla" hidden></button>
@@ -166,6 +166,6 @@
     </div>
 
     <script src="script.js?v=7"></script>
-    <script src="gallery.js?v=16"></script>
+    <script src="gallery.js?v=17"></script>
 </body>
 </html>
