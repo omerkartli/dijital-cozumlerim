@@ -53,6 +53,28 @@ body.sayfa-mektup {
     overflow: hidden;
 }
 
+/* ---------- Arka plan buketi ---------- */
+
+/* Görselin zemini beyaz; multiply beyazı sayfanın krem rengine eritiyor,
+   böylece buket kutu gibi değil, kâğıda boyanmış gibi duruyor. */
+.arka-buket {
+    position: fixed;
+    inset: 0;
+    background: url("mektup-buket.jpg") center / contain no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Perdeler buketin üstünde kalsın */
+.sahne,
+.cagri,
+.mektup {
+    position: relative;
+    z-index: 1;
+}
+
 /* ---------- 1. Perde: zarf ---------- */
 
 .sahne {
