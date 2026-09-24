@@ -9,51 +9,99 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="mektup.css?v=3">
+    <link rel="stylesheet" href="mektup.css?v=4">
 </head>
 <body class="sayfa-mektup">
 
     <svg class="cicek-kasa" aria-hidden="true" focusable="false" width="0" height="0">
       <defs>
-      <g id="m-gul">
-        <path d="M0.0,-31.0 A16.1,16.1 0 0 1 24.2,-19.3 A16.1,16.1 0 0 1 30.2,6.9 A16.1,16.1 0 0 1 13.5,27.9 A16.1,16.1 0 0 1 -13.5,27.9 A16.1,16.1 0 0 1 -30.2,6.9 A16.1,16.1 0 0 1 -24.2,-19.3 A16.1,16.1 0 0 1 0.0,-31.0 Z" fill="#f0dcd8" stroke="#c58f8a" stroke-width="1.8" stroke-linejoin="round"/>
-        <path d="M0.0,-21.0 A12.2,12.2 0 0 1 18.2,-10.5 A12.2,12.2 0 0 1 18.2,10.5 A12.2,12.2 0 0 1 0.0,21.0 A12.2,12.2 0 0 1 -18.2,10.5 A12.2,12.2 0 0 1 -18.2,-10.5 A12.2,12.2 0 0 1 0.0,-21.0 Z" fill="none" stroke="#c58f8a" stroke-width="1.5" transform="rotate(26)"/>
-        <g fill="none" stroke="#c58f8a" stroke-width="1.7" stroke-linecap="round">
-          <path d="M11,-6 C5,-13 -5,-13 -10,-7 C-15,-1 -13,8 -6,11 C1,14 9,10 11,3"/>
-          <path d="M5,-2 C1,-6 -4,-4 -5,0 C-6,4 -3,7 1,6"/>
+      <!-- Suluboya hissi: taç yapraklar dipte koyu pembe, uçta açık. -->
+      <linearGradient id="mg-arka" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#e7a9b1"/>
+        <stop offset="1" stop-color="#fbe7ea"/>
+      </linearGradient>
+      <linearGradient id="mg-on" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#d98791"/>
+        <stop offset="0.55" stop-color="#f3c6cc"/>
+        <stop offset="1" stop-color="#fdeef0"/>
+      </linearGradient>
+      <linearGradient id="mg-ic" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#b95e6a"/>
+        <stop offset="1" stop-color="#e59ea8"/>
+      </linearGradient>
+      <linearGradient id="mg-gonca" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#d27f8a"/>
+        <stop offset="1" stop-color="#f8dce0"/>
+      </linearGradient>
+      <linearGradient id="mg-yaprak" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3f7a3c"/>
+        <stop offset="1" stop-color="#8dbd72"/>
+      </linearGradient>
+      <linearGradient id="mg-inci" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="1" stop-color="#ddd7ea"/>
+      </linearGradient>
+
+      <!-- Açmış manolya -->
+      <g id="m-manolya">
+        <g stroke="#c47a84" stroke-width="1.3" stroke-linejoin="round">
+          <g fill="url(#mg-arka)">
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(-30)"/>
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(30)"/>
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(-95)"/>
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(95)"/>
+          </g>
+          <g fill="url(#mg-on)">
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(-140) scale(0.95)"/>
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(140) scale(0.95)"/>
+            <path d="M0,0 C16,-8 21,-28 8,-42 C5,-45 2,-47 0,-49 C-2,-47 -5,-45 -8,-42 C-21,-28 -16,-8 0,0 Z" transform="rotate(180)"/>
+          </g>
+        </g>
+        <g transform="translate(0,2) scale(1.4)">
+          <path d="M-13,2 C-16,-10 -8,-20 0,-21 C8,-20 16,-10 13,2 C8,7 -8,7 -13,2 Z" fill="url(#mg-ic)" stroke="#a9505c" stroke-width="1.2"/>
+          <path d="M-3,-1 C-4,-9 -2,-15 0,-17 C2,-15 4,-9 3,-1 Z" fill="#e6bb6c" stroke="#c4914a" stroke-width="1"/>
+          <path d="M-13,2 C-6,-4 6,-4 13,2 C8,9 -8,9 -13,2 Z" fill="#f2c3ca" stroke="#c47a84" stroke-width="1.2"/>
         </g>
       </g>
-      <g id="m-papatya">
-        <g fill="#f6e6df" stroke="#c9a29a" stroke-width="1.8" stroke-linejoin="round">
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(0)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(45)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(90)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(135)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(180)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(225)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(270)"/>
-          <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(315)"/>
+
+      <!-- Manolya goncası -->
+      <g id="m-manolya-gonca">
+        <path d="M0,6 C-1,16 -3,26 -6,34" fill="none" stroke="#8b715c" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0,4 C-14,-8 -12,-30 0,-46 C6,-30 6,-10 0,4 Z" fill="url(#mg-gonca)" stroke="#c47a84" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M0,4 C13,-6 13,-26 3,-42 C-4,-28 -5,-10 0,4 Z" fill="url(#mg-on)" stroke="#c47a84" stroke-width="1.3" stroke-linejoin="round"/>
+        <g fill="#c7d2c0" stroke="#93a58c" stroke-width="1.2" stroke-linejoin="round">
+          <path d="M0,7 C-10,4 -15,-6 -14,-16 C-8,-10 -3,-3 0,5 Z"/>
+          <path d="M0,7 C10,4 15,-6 14,-16 C8,-10 3,-3 0,5 Z"/>
         </g>
-        <circle r="9" fill="#c9a29a" fill-opacity="0.55" stroke="#c9a29a" stroke-width="1.8"/>
-        <circle r="5" fill="none" stroke="#c9a29a" stroke-width="1.2" stroke-dasharray="2 3"/>
       </g>
-      <g id="m-gonca">
-        <path d="M0,0 C-13,-7 -14,-25 0,-34 C14,-25 13,-7 0,0 Z" fill="#f0dcd8" stroke="#c58f8a" stroke-width="1.7" stroke-linejoin="round"/>
-        <path d="M0,-3 C-5,-12 -5,-24 0,-31" fill="none" stroke="#c58f8a" stroke-width="1.2"/>
-        <path d="M0,0 C1,10 1,20 0,28" fill="none" stroke="#9aab93" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M0,9 C-9,8 -15,14 -16,22 C-7,23 -1,18 0,11 Z" fill="#dde5d7" stroke="#9aab93" stroke-width="1.4" stroke-linejoin="round"/>
+
+      <!-- İnci çiçeği dalı -->
+      <g id="m-inci">
+        <path d="M-12,36 C-10,10 -2,-18 16,-38" fill="none" stroke="#6f9c5c" stroke-width="1.8" stroke-linecap="round"/>
+        <g fill="none" stroke="#6f9c5c" stroke-width="1.2" stroke-linecap="round">
+          <path d="M-10,20 C-6,19 -2,20 0,24"/>
+          <path d="M-6,4 C-2,3 2,4 4,8"/>
+          <path d="M0,-10 C4,-11 8,-10 10,-6"/>
+          <path d="M7,-23 C11,-24 14,-23 16,-19"/>
+          <path d="M14,-33 C17,-34 20,-33 21,-30"/>
+        </g>
+        <g fill="url(#mg-inci)" stroke="#a79ec2" stroke-width="1.1" stroke-linejoin="round">
+          <path d="M-5,0 C-6,3 -6,7 -7,10 C-4,8.5 -2,11 0,9.5 C2,11 4,8.5 7,10 C6,7 6,3 5,0 C3,-2 -3,-2 -5,0 Z" transform="translate(0,24)"/>
+          <path d="M-5,0 C-6,3 -6,7 -7,10 C-4,8.5 -2,11 0,9.5 C2,11 4,8.5 7,10 C6,7 6,3 5,0 C3,-2 -3,-2 -5,0 Z" transform="translate(4,8) scale(0.92)"/>
+          <path d="M-5,0 C-6,3 -6,7 -7,10 C-4,8.5 -2,11 0,9.5 C2,11 4,8.5 7,10 C6,7 6,3 5,0 C3,-2 -3,-2 -5,0 Z" transform="translate(10,-6) scale(0.82)"/>
+          <path d="M-5,0 C-6,3 -6,7 -7,10 C-4,8.5 -2,11 0,9.5 C2,11 4,8.5 7,10 C6,7 6,3 5,0 C3,-2 -3,-2 -5,0 Z" transform="translate(16,-19) scale(0.68)"/>
+          <ellipse cx="21" cy="-27" rx="2.6" ry="3.4"/>
+        </g>
+        <g fill="#e2a04c">
+          <circle cx="0" cy="33" r="1.1"/>
+          <circle cx="4" cy="16.5" r="1"/>
+        </g>
       </g>
+
+      <!-- İnci çiçeğinin geniş yeşil yaprağı -->
       <g id="m-yaprak">
-        <path d="M0,0 C11,-9 26,-9 36,0 C26,9 11,9 0,0 Z" fill="#dde5d7" stroke="#9aab93" stroke-width="1.6" stroke-linejoin="round"/>
-        <path d="M2,0 L33,0" fill="none" stroke="#9aab93" stroke-width="1.1"/>
-      </g>
-      <g id="m-dal">
-        <path d="M0,0 C12,-26 14,-56 4,-84" fill="none" stroke="#9aab93" stroke-width="1.8" stroke-linecap="round"/>
-        <ellipse cx="10" cy="0" rx="11" ry="8" transform="translate(5,-13) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
-        <ellipse cx="11" cy="0" rx="12" ry="9" transform="translate(9,-28) rotate(32) scale(-1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
-        <ellipse cx="10" cy="0" rx="11" ry="8" transform="translate(10,-43) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
-        <ellipse cx="10" cy="0" rx="10" ry="7" transform="translate(10,-58) rotate(32) scale(-1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
-        <ellipse cx="8" cy="0" rx="8" ry="6" transform="translate(7,-73) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+        <path d="M0,0 C16,-15 50,-15 74,-2 C50,9 18,11 0,0 Z" fill="url(#mg-yaprak)" stroke="#3a6a36" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M3,0 C24,-4 48,-5 71,-2" fill="none" stroke="#c3dcae" stroke-width="1" stroke-linecap="round"/>
       </g>
       </defs>
     </svg>
@@ -65,7 +113,7 @@
             <span class="zarf-on"></span>
             <span class="zarf-kapak"></span>
             <span class="muhur" aria-hidden="true">
-                <svg viewBox="-34 -34 68 68" class="muhur-cicek"><use href="#m-gul"/></svg>
+                <svg viewBox="-50 -50 100 100" class="muhur-cicek"><use href="#m-manolya"/></svg>
             </span>
         </button>
 
@@ -87,9 +135,9 @@
     <main class="mektup" id="mektup" hidden>
         <article class="kagit">
             <div class="kagit-ust" aria-hidden="true">
-                <svg viewBox="-4 -14 44 28" class="sus-yaprak sus-sol"><use href="#m-yaprak"/></svg>
-                <svg viewBox="-34 -34 68 68" class="sus-gul"><use href="#m-gul"/></svg>
-                <svg viewBox="-4 -14 44 28" class="sus-yaprak"><use href="#m-yaprak"/></svg>
+                <svg viewBox="-2 -16 78 30" class="sus-yaprak sus-sol"><use href="#m-yaprak"/></svg>
+                <svg viewBox="-50 -50 100 100" class="sus-gul"><use href="#m-manolya"/></svg>
+                <svg viewBox="-2 -16 78 30" class="sus-yaprak"><use href="#m-yaprak"/></svg>
             </div>
 
             <!-- ============================================================
@@ -133,6 +181,6 @@
     </button>
 
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="mektup.js?v=2"></script>
+    <script src="mektup.js?v=3"></script>
 </body>
 </html>
