@@ -13,6 +13,12 @@
     display: none;
 }
 
+/* .cagri ve .mektup display:flex veriyor; bu, tarayıcının [hidden] kuralını
+   eziyordu. Gizli perdeler görünmez halde yer kaplayıp zarfı yukarı itiyordu. */
+[hidden] {
+    display: none !important;
+}
+
 :root {
     --kagit: #f6eedd;
     --kagit-ic: #fbf6ea;
