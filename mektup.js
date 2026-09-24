@@ -95,11 +95,12 @@ function sesiDegistir() {
 // Her motifin kendi çerçevesi var; <use> ile çağıran svg'nin viewBox'ı
 // buna eşit olmazsa çiçek kayık ve küçük çizilir.
 const MOTIFLER = [
-    { id: '#m-gul', kutu: '-34 -34 68 68', oran: 1 },
-    { id: '#m-papatya', kutu: '-46 -46 92 92', oran: 1 },
-    { id: '#m-gonca', kutu: '-22 -40 44 74', oran: 0.62 },
-    { id: '#m-yaprak', kutu: '-4 -14 44 28', oran: 1.5 },
-    { id: '#m-dal', kutu: '-26 -96 52 104', oran: 0.52 },
+    // Manolya iki kez: bulutun çoğu onlardan oluşsun, yeşil ve inci serpiştirilsin.
+    { id: '#m-manolya', kutu: '-50 -50 100 100', oran: 1 },
+    { id: '#m-manolya', kutu: '-50 -50 100 100', oran: 1 },
+    { id: '#m-manolya-gonca', kutu: '-24 -52 48 88', oran: 0.55 },
+    { id: '#m-inci', kutu: '-20 -42 48 82', oran: 0.6 },
+    { id: '#m-yaprak', kutu: '-2 -16 78 30', oran: 2.2 },
 ];
 
 function araliktaSayi(en, boy) {
