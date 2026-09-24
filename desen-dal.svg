@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+<defs>
+  <g id="papatya">
+    <g fill="#f6e6df" stroke="#c9a29a" stroke-width="1.8">
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(0)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(45)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(90)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(135)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(180)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(225)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(270)"/>
+      <path d="M0,-11 C9,-21.15 9.9,-28.799999999999997 0,-40 C-9.9,-28.799999999999997 -9,-21.15 0,-11 Z" transform="rotate(315)"/>
+    </g>
+    <circle cx="0" cy="0" r="9" fill="#c9a29a" fill-opacity="0.55" stroke="#c9a29a" stroke-width="1.8"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#c9a29a" stroke-width="1.2" stroke-dasharray="2 3"/>
+  </g>
+  <g id="gul">
+    <!-- Dış hat fistolu: her çıkıntı bir taç yaprağın ucu -->
+    <path d="M0.0,-31.0 A16.1,16.1 0 0 1 24.2,-19.3 A16.1,16.1 0 0 1 30.2,6.9 A16.1,16.1 0 0 1 13.5,27.9 A16.1,16.1 0 0 1 -13.5,27.9 A16.1,16.1 0 0 1 -30.2,6.9 A16.1,16.1 0 0 1 -24.2,-19.3 A16.1,16.1 0 0 1 0.0,-31.0 Z" fill="#f0dcd8" stroke="#c58f8a" stroke-width="1.8"/>
+    <path d="M0.0,-21.0 A12.2,12.2 0 0 1 18.2,-10.5 A12.2,12.2 0 0 1 18.2,10.5 A12.2,12.2 0 0 1 0.0,21.0 A12.2,12.2 0 0 1 -18.2,10.5 A12.2,12.2 0 0 1 -18.2,-10.5 A12.2,12.2 0 0 1 0.0,-21.0 Z" fill="none" stroke="#c58f8a" stroke-width="1.5" transform="rotate(26)"/>
+    <!-- İçteki sarmal göbek -->
+    <g fill="none" stroke="#c58f8a" stroke-width="1.7" stroke-linecap="round">
+      <path d="M11,-6 C5,-13 -5,-13 -10,-7 C-15,-1 -13,8 -6,11 C1,14 9,10 11,3"/>
+      <path d="M5,-2 C1,-6 -4,-4 -5,0 C-6,4 -3,7 1,6"/>
+    </g>
+  </g>
+  <g id="yaprak">
+    <path d="M0,0 C11,-9 26,-9 36,0 C26,9 11,9 0,0 Z"
+          fill="#dde5d7" stroke="#9aab93" stroke-width="1.6"/>
+    <path d="M2,0 L33,0" fill="none" stroke="#9aab93" stroke-width="1.1"/>
+  </g>
+  <g id="okaliptus">
+    <path d="M0,0 C12,-26 14,-56 4,-84" fill="none" stroke="#9aab93" stroke-width="1.8" stroke-linecap="round"/>
+    <ellipse cx="10" cy="0" rx="11" ry="8" transform="translate(5,-13) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+    <ellipse cx="11" cy="0" rx="12" ry="9" transform="translate(9,-28) rotate(32) scale(-1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+    <ellipse cx="10" cy="0" rx="11" ry="8" transform="translate(10,-43) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+    <ellipse cx="10" cy="0" rx="10" ry="7" transform="translate(10,-58) rotate(32) scale(-1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+    <ellipse cx="8" cy="0" rx="8" ry="6" transform="translate(7,-73) rotate(-32) scale(1,1)" fill="#dde5d7" stroke="#9aab93" stroke-width="1.5"/>
+  </g>
+  <g id="gonca">
+    <path d="M0,0 C-13,-7 -14,-25 0,-34 C14,-25 13,-7 0,0 Z"
+          fill="#f0dcd8" stroke="#c58f8a" stroke-width="1.7"/>
+    <path d="M0,-3 C-5,-12 -5,-24 0,-31" fill="none" stroke="#c58f8a" stroke-width="1.2"/>
+    <path d="M0,0 C1,10 1,20 0,28" fill="none" stroke="#9aab93" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M0,9 C-9,8 -15,14 -16,22 C-7,23 -1,18 0,11 Z" fill="#dde5d7" stroke="#9aab93" stroke-width="1.4"/>
+  </g>
+</defs>
+<g stroke-linejoin="round" stroke-linecap="round">
+  <use href="#okaliptus" transform="translate(234,250) rotate(24) scale(0.7)"/>
+  <use href="#gonca" transform="translate(64,238) rotate(-18) scale(0.75)"/>
+  <use href="#papatya" transform="translate(150,96) rotate(30) scale(0.5)"/>
+  <use href="#yaprak" transform="translate(246,74) rotate(-40) scale(0.7)"/>
+  <use href="#yaprak" transform="translate(38,104) rotate(140) scale(0.6)"/>
+</g>
+</svg>
