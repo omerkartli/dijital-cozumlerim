@@ -630,6 +630,70 @@ async function loadPhotos(slug) {
     }
 }
 
+// Sunucudaki sınır cihaz başına saatte 30 fotoğraf (tek seferlik değil,
+// saat içindeki toplam). Sunucu bunu ancak istek geldiğinde söyleyebiliyor;
+// davetli 40 fotoğraf seçip yarısı reddedilince şaşırmasın diye aynı sayımı
+// tarayıcıda da tutuyoruz. Bu bir kopya: asıl sayan sunucu.
+const SAATLIK_SINIR = 30;
+const SAAT_MS = 60 * 60 * 1000;
+const GECMIS_ANAHTARI = 'yukleme_gecmisi';
+
+function yuklemeGecmisi() {
+    try {
+        const ham = JSON.parse(localStorage.getItem(GECMIS_ANAHTARI) || '[]');
+        const esik = Date.now() - SAAT_MS;
+        return ham.filter((an) => Number.isFinite(an) && an > esik);
+    } catch (err) {
+        return []; // depolama kapalıysa sayaç tutulamaz, uyarı da çıkmaz
+    }
+}
+
+function yuklemeSayildi() {
+    // Sunucuya ulaşan her istek sınırdan düşüyor, reddedilenler dahil.
+    try {
+        const gecmis = yuklemeGecmisi();
+        gecmis.push(Date.now());
+        localStorage.setItem(GECMIS_ANAHTARI, JSON.stringify(gecmis));
+    } catch (err) {
+        /* gizli sekmede yazamayabiliriz; sunucu yine sayıyor */
+    }
+}
+
+function kalanHak() {
+    return Math.max(0, SAATLIK_SINIR - yuklemeGecmisi().length);
+}
+
+function sinirUyarisiniTazele() {
+    const uyari = document.getElementById('sinirUyari');
+    if (!uyari) return;
+
+    const secim = secilenDosyalar.length;
+    const kalan = kalanHak();
+
+    if (kalan === 0) {
+        uyari.textContent = `Bu cihazdan son bir saatte ${SAATLIK_SINIR} fotoğraf `
+            + 'gönderildi ve saatlik sınır doldu. Yeni fotoğrafları bir saat sonra '
+            + 'gönderebilirsin.';
+        uyari.hidden = false;
+        return;
+    }
+
+    if (secim > kalan) {
+        // Hiç yükleme yapılmamışken "30 hakkın kaldı" demek tuhaf kaçıyor;
+        // kalan hak ancak sınırdan yendiyse söylenmeye değer.
+        const giris = kalan === SAATLIK_SINIR
+            ? `Saatlik sınır cihaz başına ${SAATLIK_SINIR} fotoğraf.`
+            : `Saatlik sınır cihaz başına ${SAATLIK_SINIR} fotoğraf; bu saat için `
+              + `${kalan} hakkın kaldı.`;
+        uyari.textContent = `${giris} Seçtiğin ${secim} fotoğrafın ilk ${kalan} tanesi `
+            + `gidecek, kalan ${secim - kalan} tanesi için bir saat beklemen gerekiyor.`;
+        uyari.hidden = false;
+        return;
+    }
+
+    uyari.hidden = true;
+}
+
 async function tekDosyaYukle(slug, dosya, ad, ozelMi) {
     const formData = new FormData();
     formData.append('file', dosya);
@@ -647,6 +711,9 @@ async function tekDosyaYukle(slug, dosya, ad, ozelMi) {
         headers: jeton ? { 'X-Cihaz': jeton } : {},
         body: formData,
     });
+
+    // İstek sunucuya ulaştı: sonucu ne olursa olsun sınırdan düştü.
+    yuklemeSayildi();
 
     if (response.status === 201) return { tamam: true };
     if (response.status === 429) return { tamam: false, durdur: true, sebep: 'sinir' };
@@ -732,6 +799,7 @@ async function handleUpload(event, slug) {
         }
     }
     message.textContent = parcalar.join(' ') || 'Bir şeyler ters gitti, tekrar dene.';
+    sinirUyarisiniTazele();
 
     if (basarili > 0) {
         event.target.reset();
@@ -819,6 +887,7 @@ function yuklemeAlaniniKur() {
         secilenDosyalar = Array.from(dosyalar || []);
         alan.classList.toggle('is-secili', secilenDosyalar.length > 0);
         etiket.textContent = dosyaOzeti(secilenDosyalar) || bosMetin;
+        sinirUyarisiniTazele();
         onizlemeCiz(secilenDosyalar, (sira) => {
             const kalan = secilenDosyalar.filter((_, i) => i !== sira);
             // Girdileri de sıfırla: aynı dosya tekrar seçilebilsin
@@ -878,6 +947,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     secimiSifirla = yuklemeAlaniniKur();
+    // Sayfa açılırken sınır zaten dolmuş olabilir; uyarı seçim beklemesin.
+    sinirUyarisiniTazele();
     kvkkKur();
     lightboxKur();
     gorunumKur();
