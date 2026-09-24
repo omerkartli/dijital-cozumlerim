@@ -1450,15 +1450,26 @@ body.sayfa-etkinlik {
     position: relative;
 }
 
+/* İki döşeme üst üste: büyük olan gül/papatya, küçük olan dal ve gonca.
+   Boyları birbirinin katı olmadığı için tekrar eden ızgara hissi kayboluyor. */
 body.sayfa-etkinlik::before {
     content: '';
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22420%22%20height%3D%22420%22%20viewBox%3D%220%200%20420%20420%22%3E%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%231f1c1a%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%20%3Cpath%20d%3D%22M70%20400%20C70%20320%2078%20262%20104%20214%22/%3E%20%3Cpath%20d%3D%22M84%20330%20C56%20322%2038%20300%2034%20272%20C66%20276%2084%20294%2088%20320%22/%3E%20%3Cpath%20d%3D%22M96%20268%20C118%20250%20128%20224%20124%20196%20C98%20208%2086%20232%2090%20258%22/%3E%20%3Cg%20transform%3D%22translate%28108%2C180%29%22%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%2226%22/%3E%20%3Cpath%20d%3D%22M0%20-26%20C16%20-16%2022%200%2014%2016%20M0%20-26%20C-16%20-16%20-22%200%20-14%2016%20M-24%20-6%20C-10%208%2012%2010%2026%20-2%22/%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%229%22/%3E%20%3C/g%3E%20%3Cpath%20d%3D%22M320%20410%20C322%20340%20314%20292%20292%20252%22/%3E%20%3Cpath%20d%3D%22M306%20340%20C334%20334%20354%20314%20358%20286%20C326%20288%20308%20304%20302%20330%22/%3E%20%3Cg%20transform%3D%22translate%28288%2C222%29%22%3E%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%2220%22/%3E%20%3Cpath%20d%3D%22M0%20-20%20C12%20-12%2017%200%2011%2012%20M0%20-20%20C-12%20-12%20-17%200%20-11%2012%22/%3E%20%3C/g%3E%20%3Cpath%20d%3D%22M188%2092%20C214%2068%20250%2064%20280%2078%20C258%20110%20220%20118%20190%20106%22/%3E%20%3Cpath%20d%3D%22M202%2098%20C224%2088%20248%2084%20270%2088%22/%3E%20%3Cpath%20d%3D%22M196%2092%20C186%2070%20190%2046%20206%2030%22/%3E%20%3C/g%3E%20%3C/svg%3E");
-    background-size: 420px 420px;
-    opacity: 0.12;
+    background-image: url("desen-dal.svg"), url("desen-cicek.svg");
+    background-size: 300px 300px, 440px 440px;
+    background-position: 90px 40px, 0 0;
+    opacity: 0.55;
     pointer-events: none;
+}
+
+/* Mobilde desen büyük kalırsa yazının arkasını kalabalıklaştırıyor. */
+@media (max-width: 560px) {
+    body.sayfa-etkinlik::before {
+        background-size: 210px 210px, 300px 300px;
+        opacity: 0.45;
+    }
 }
 
 /* --- Misafir defteri --- */
@@ -1606,4 +1617,92 @@ body.sayfa-etkinlik::before {
 .not-yonetim-satir.is-siliniyor {
     opacity: 0.5;
     pointer-events: none;
+}
+
+/* --- Misafir defteri çağrısı ve sayfalar arası dönüş --- */
+
+/* Galeri ve defter düğmeleri başlığın hemen altında yan yana; dar ekranda alt alta. */
+.bas-dugmeler {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 22px;
+}
+
+.bas-dugmeler .galeri-dugme {
+    margin: 0;
+}
+
+/* Defter düğmesi turuncu çağrıyla yarışmasın diye sakin bir varyant. */
+.galeri-dugme-ikincil {
+    border: 1px solid var(--cizgi-alan);
+    background: var(--kart);
+    color: var(--metin);
+    box-shadow: none;
+}
+
+.galeri-dugme-ikincil:hover {
+    border-color: var(--baslik);
+    background: var(--kart-ic);
+}
+
+/* .galeri-dugme buton için yazılmıştı; sayfalar arası geçişte <a> oluyor. */
+a.galeri-dugme {
+    text-decoration: none;
+}
+
+.galeri-dugme-alt {
+    margin: 0;
+}
+
+/* Aşağı inen ok yerine yana giden ok: bu düğmeler sayfa değiştiriyor. */
+.galeri-dugme-alt .galeri-dugme-ok {
+    animation-name: dugme-yana;
+}
+
+@keyframes dugme-yana {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+.geri-dugme {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 9px 18px;
+    border: 1px solid var(--cizgi-alan);
+    border-radius: 999px;
+    background: var(--kart);
+    color: var(--metin);
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.geri-dugme:hover {
+    border-color: var(--baslik);
+    background: var(--kart-ic);
+}
+
+.notlar-bolum .galeri-dugme-alt {
+    margin-top: 28px;
+}
+
+/* Not sayfasında başlık ile form arasındaki boşluk iki bölümün
+   padding'i üst üste binince fazla açılıyordu. */
+.etkinlik-bas + .notlar-bolum {
+    padding-top: 8px;
+}
+
+/* Geri düğmesinin oku sola bakıyor; kıpırtısı da sola olmalı. */
+.galeri-dugme-geri .galeri-dugme-ok {
+    animation-name: dugme-geri;
+}
+
+@keyframes dugme-geri {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
 }

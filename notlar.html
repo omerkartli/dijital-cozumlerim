@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misafir Defteri - Dijital Çözümlerim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+    <link rel="stylesheet" href="style.css?v=26">
+</head>
+<body class="sayfa-etkinlik">
+    <header class="site-bar">
+        <a href="index.html" class="marka">Dijital Çözümlerim</a>
+        <nav class="site-nav">
+            <a href="https://wa.me/905545520912?text=Merhaba%20dijital%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
+               target="_blank" rel="noopener" class="pill pill-wa">WhatsApp</a>
+        </nav>
+    </header>
+
+    <section class="etkinlik-bas">
+        <a class="geri-dugme" id="geriUst" href="etkinlik.html">
+            <span class="geri-ok" aria-hidden="true">&larr;</span>
+            <span>Fotoğraflara Dön</span>
+        </a>
+
+        <h1 id="eventTitle">Misafir Defteri</h1>
+        <p class="etkinlik-durum" id="eventStatus">Yükleniyor...</p>
+
+        <div class="bas-dugmeler">
+            <button type="button" class="galeri-dugme" id="notlarDugme" hidden>
+                <span id="notlarDugmeMetin">Bırakılan Notları Gör</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="notlar-bolum" id="notlarBolum">
+        <h2 class="notlar-baslik">Bir Not Bırak</h2>
+        <p class="notlar-aciklama">Birkaç satır yaz; onaylandıktan sonra aşağıda görünecek.</p>
+
+        <form id="notForm" class="not-form">
+            <input type="text" id="notAd" class="not-ad" placeholder="Nickname" maxlength="60"
+                   autocomplete="name" required>
+            <textarea id="notMetin" class="not-metin" placeholder="Mesajın" maxlength="600"
+                      rows="3" required></textarea>
+
+            <div class="ozel-secim kvkk-satir">
+                <label class="kvkk-etiket" for="notKvkkOnay">
+                    <input type="checkbox" id="notKvkkOnay">
+                    <span>Adımın ve notumun KVKK kapsamında işlenmesine izin veriyorum</span>
+                </label>
+                <button type="button" class="metin-link" id="notKvkkAc">Aydınlatma metnini oku</button>
+            </div>
+
+            <button type="submit" class="pill pill-koyu" id="notGonder" disabled>Notu Gönder</button>
+        </form>
+        <p id="notMesaj" class="yukleme-mesaj"></p>
+
+        <div class="not-listesi" id="notListesi"></div>
+        <p class="not-durum" id="notDurum"></p>
+        <div class="sahne-alt">
+            <button type="button" class="gorunum-btn daha-fazla" id="notDahaFazla" hidden></button>
+        </div>
+
+        <a class="galeri-dugme galeri-dugme-alt galeri-dugme-geri" id="geriAlt" href="etkinlik.html">
+            <span class="galeri-dugme-ok" aria-hidden="true">&larr;</span>
+            <span>Fotoğraflara Dön</span>
+        </a>
+    </section>
+
+    <script src="script.js?v=7"></script>
+    <script src="kvkk.js?v=1"></script>
+    <script src="notlar.js?v=2"></script>
+</body>
+</html>

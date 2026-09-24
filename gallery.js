@@ -34,13 +34,12 @@ async function loadEvent(slug) {
             statusEl.textContent = 'Bu bağlantı geçerli bir etkinliğe ait değil.';
             document.getElementById('uploadForm').hidden = true;
             document.getElementById('sahne').hidden = true;
-            document.getElementById('notlarBolum').hidden = true;
             return;
         }
         const event = await response.json();
         setHeadingText(titleEl, event.name);
         // Bu satır artık yalnızca hata kanalı; normal akışta boş duruyor,
-        // yerini "Fotoğrafları gör" düğmesi aldı.
+        // yerini "Paylaşılan Fotoğrafları Gör" düğmesi aldı.
         statusEl.textContent = '';
         statusEl.hidden = true;
     } catch (err) {
@@ -612,7 +611,7 @@ async function loadPhotos(slug) {
 
         const dugme = document.getElementById('galeriDugme');
         document.getElementById('galeriDugmeMetin').textContent =
-            toplamFotograf === 1 ? '1 fotoğrafı gör' : `${toplamFotograf} fotoğrafı gör`;
+            'Paylaşılan Fotoğrafları Gör';
         dugme.hidden = false;
         dugme.addEventListener('click', () => {
             document.getElementById('sahne').scrollIntoView({
@@ -638,9 +637,9 @@ async function tekDosyaYukle(slug, dosya, ad, ozelMi) {
     if (ozelMi) formData.append('is_private', 'true');
 
     // Rıza sunucuda kayda geçiyor; sürüm, metin değişirse kimin neye onay
-    // verdiğini ayırt etmek için. Sürümün tek kaynağı diyaloğun kendisi.
+    // verdiğini ayırt etmek için. Sürümün tek kaynağı kvkk.js.
     formData.append('kvkk_onay', 'true');
-    formData.append('kvkk_surum', document.getElementById('kvkkKutu').dataset.surum || '');
+    formData.append('kvkk_surum', KVKK_SURUM);
 
     const jeton = cihazJetonu();
     const response = await fetch(`${API_BASE_URL}/events/${encodeURIComponent(slug)}/photos`, {
@@ -855,161 +854,16 @@ function yuklemeAlaniniKur() {
 }
 
 
-/* --- Misafir defteri --- */
-
-const NOT_SAYFA_BOYU = 20;
-let notOfset = 0;
-let notToplam = 0;
-
-function kvkkSurumu() {
-    // Sürümün tek kaynağı diyaloğun kendisi; metin değişirse oradan değişir.
-    return document.getElementById('kvkkKutu').dataset.surum || '';
-}
-
-function notKarti(not) {
-    const kart = document.createElement('article');
-    kart.className = 'not-kart';
-
-    const metin = document.createElement('p');
-    metin.className = 'not-govde';
-    metin.textContent = not.body;
-    kart.appendChild(metin);
-
-    const alt = document.createElement('p');
-    alt.className = 'not-imza';
-    alt.textContent = not.author_name;
-    kart.appendChild(alt);
-
-    return kart;
-}
-
-function notlariCiz(liste, ekle) {
-    const kap = document.getElementById('notListesi');
-    if (!ekle) kap.innerHTML = '';
-    liste.forEach((not) => kap.appendChild(notKarti(not)));
-
-    const dahaFazla = document.getElementById('notDahaFazla');
-    const kalan = notToplam - notOfset;
-    dahaFazla.hidden = kalan <= 0;
-    if (kalan > 0) dahaFazla.textContent = `${kalan} not daha`;
-}
-
-async function notlariYukle(slug, ekle = false) {
-    const durum = document.getElementById('notDurum');
-
-    try {
-        const response = await fetch(
-            `${API_BASE_URL}/events/${encodeURIComponent(slug)}/notes`
-            + `?limit=${NOT_SAYFA_BOYU}&offset=${ekle ? notOfset : 0}`,
-        );
-        if (!response.ok) {
-            durum.textContent = ekle ? 'Sonraki notlar alınamadı.' : '';
-            return;
-        }
-
-        const liste = await response.json();
-        const toplam = Number(response.headers.get('X-Total-Count'));
-        notToplam = Number.isFinite(toplam) && toplam > 0 ? toplam : liste.length;
-        notOfset = (ekle ? notOfset : 0) + liste.length;
-
-        notlariCiz(liste, ekle);
-        durum.textContent = notToplam === 0 ? 'Henüz not yok. İlk notu sen bırak.' : '';
-    } catch (err) {
-        durum.textContent = ekle ? 'Sonraki notlar alınamadı.' : '';
-    }
-}
-
-async function notuGonder(event, slug) {
-    event.preventDefault();
-
-    const mesaj = document.getElementById('notMesaj');
-    const btn = document.getElementById('notGonder');
-    const ad = document.getElementById('notAd').value.trim();
-    const metin = document.getElementById('notMetin').value.trim();
-
-    if (!document.getElementById('notKvkkOnay').checked) {
-        mesaj.textContent = 'Not bırakmak için aydınlatma metnini onaylaman gerekiyor.';
-        return;
-    }
-    if (ad.length < 2 || metin.length < 2) {
-        mesaj.textContent = 'Adını ve birkaç kelimelik bir not yaz.';
-        return;
-    }
-
-    btn.disabled = true;
-    mesaj.textContent = 'Gönderiliyor...';
-
-    const jeton = cihazJetonu();
-    try {
-        const response = await fetch(`${API_BASE_URL}/events/${encodeURIComponent(slug)}/notes`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                ...(jeton ? { 'X-Cihaz': jeton } : {}),
-            },
-            body: JSON.stringify({
-                author_name: ad,
-                body: metin,
-                kvkk_onay: true,
-                kvkk_surum: kvkkSurumu(),
-            }),
-        });
-
-        if (response.status === 201) {
-            mesaj.textContent = 'Notun alındı, onaylandıktan sonra burada görünecek.';
-            document.getElementById('notForm').reset();
-            document.getElementById('notKvkkOnay').checked = false;
-            return; // düğme onay kutusu tekrar işaretlenene kadar kapalı kalsın
-        }
-        if (response.status === 429) {
-            mesaj.textContent = 'Saatlik not sınırına ulaşıldı, birazdan tekrar dene.';
-        } else if (response.status === 422) {
-            mesaj.textContent = 'Ad en fazla 60, not en fazla 600 karakter olabilir.';
-        } else if (response.status === 400) {
-            mesaj.textContent = 'Sunucu onayı doğrulayamadı, sayfayı yenileyip tekrar dene.';
-        } else if (response.status === 404) {
-            mesaj.textContent = 'Bu etkinlik bulunamadı; bağlantı geçersiz olabilir.';
-        } else {
-            mesaj.textContent = 'Sunucuda bir sorun var, notunda bir hata yok. Biraz sonra dene.';
-        }
-    } catch (err) {
-        mesaj.textContent = 'Sunucuya bağlanılamadı.';
-    }
-
-    btn.disabled = false;
-}
-
-function notlariKur(slug) {
-    document.getElementById('notForm')
-        .addEventListener('submit', (event) => notuGonder(event, slug));
-    document.getElementById('notDahaFazla')
-        .addEventListener('click', () => notlariYukle(slug, true));
-    notlariYukle(slug);
+function notSayfasiBaglantisi(slug) {
+    // Misafir defteri ayrı sayfada; bağlantı slug'ı taşımazsa oraya giden
+    // davetli hangi etkinlikte olduğunu kaybeder.
+    document.getElementById('notlarLink').href =
+        `notlar.html?slug=${encodeURIComponent(slug)}`;
 }
 
 function kvkkKur() {
-    const kutu = document.getElementById('kvkkKutu');
-
-    // Düğmeler onay verilene kadar kapalı: kullanıcı neden gönderemediğini
-    // denemeden görsün. Sunucudaki kontrol yine de yerinde duruyor.
-    // Fotoğraf ve not için ayrı onay kutusu var; ikisi de aynı metne bakıyor.
-    [
-        ['kvkkOnay', 'yukleBtn'],
-        ['notKvkkOnay', 'notGonder'],
-    ].forEach(([onayId, btnId]) => {
-        const onay = document.getElementById(onayId);
-        const btn = document.getElementById(btnId);
-        const durumuTazele = () => { btn.disabled = !onay.checked; };
-        onay.addEventListener('change', durumuTazele);
-        durumuTazele();
-    });
-
-    document.getElementById('kvkkAc').addEventListener('click', () => kutu.showModal());
-    document.getElementById('notKvkkAc').addEventListener('click', () => kutu.showModal());
-    document.getElementById('kvkkKapat').addEventListener('click', () => kutu.close());
-    kutu.addEventListener('click', (e) => {
-        if (e.target === kutu) kutu.close();
-    });
+    // Diyalog ve onay kapısı kvkk.js'te; metin iki sayfada da aynı.
+    kvkkKapisiKur('kvkkOnay', 'yukleBtn', 'kvkkAc');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1020,7 +874,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setHeadingText(document.getElementById('eventTitle'), 'Etkinlik belirtilmedi');
         document.getElementById('eventStatus').textContent = 'Bağlantıda ?slug=... parametresi eksik.';
         form.hidden = true;
-        document.getElementById('notlarBolum').hidden = true;
         return;
     }
 
@@ -1031,6 +884,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadEvent(slug);
     loadPhotos(slug);
-    notlariKur(slug);
+    notSayfasiBaglantisi(slug);
     form.addEventListener('submit', (event) => handleUpload(event, slug));
 });

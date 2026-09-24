@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="style.css?v=23">
+    <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body class="sayfa-etkinlik">
     <header class="site-bar">
@@ -22,10 +22,17 @@
         <h1 id="eventTitle">Etkinlik</h1>
         <p class="etkinlik-durum" id="eventStatus">Yükleniyor...</p>
 
-        <button type="button" class="galeri-dugme" id="galeriDugme" hidden>
-            <span id="galeriDugmeMetin">Fotoğrafları gör</span>
-            <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
-        </button>
+        <div class="bas-dugmeler">
+            <button type="button" class="galeri-dugme" id="galeriDugme" hidden>
+                <span id="galeriDugmeMetin">Paylaşılan Fotoğrafları Gör</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
+            </button>
+
+            <a class="galeri-dugme galeri-dugme-alt galeri-dugme-ikincil" id="notlarLink" href="notlar.html">
+                <span>Anı Defterini Aç</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
 
         <form id="uploadForm" class="yukleme">
             <label class="yukleme-alan" for="photoInput" id="dropZone">
@@ -64,7 +71,7 @@
             </div>
 
             <div class="yukleme-satir">
-                <input type="text" id="uploaderName" placeholder="Adın" autocomplete="name">
+                <input type="text" id="uploaderName" placeholder="Nickname" autocomplete="name">
                 <button type="submit" class="pill pill-koyu" id="yukleBtn" disabled>Yükle</button>
             </div>
         </form>
@@ -102,89 +109,6 @@
         <p class="sahne-durum" id="galeriDurum"></p>
     </main>
 
-    <section class="notlar-bolum" id="notlarBolum">
-        <h2 class="notlar-baslik">Misafir Defteri</h2>
-        <p class="notlar-aciklama">Birkaç satır bırak; onaylandıktan sonra burada görünecek.</p>
-
-        <form id="notForm" class="not-form">
-            <input type="text" id="notAd" class="not-ad" placeholder="Adın" maxlength="60"
-                   autocomplete="name" required>
-            <textarea id="notMetin" class="not-metin" placeholder="Mesajın" maxlength="600"
-                      rows="3" required></textarea>
-
-            <div class="ozel-secim kvkk-satir">
-                <label class="kvkk-etiket" for="notKvkkOnay">
-                    <input type="checkbox" id="notKvkkOnay">
-                    <span>Adımın ve notumun KVKK kapsamında işlenmesine izin veriyorum</span>
-                </label>
-                <button type="button" class="metin-link" id="notKvkkAc">Aydınlatma metnini oku</button>
-            </div>
-
-            <button type="submit" class="pill pill-koyu" id="notGonder" disabled>Notu Gönder</button>
-        </form>
-        <p id="notMesaj" class="yukleme-mesaj"></p>
-
-        <div class="not-listesi" id="notListesi"></div>
-        <p class="not-durum" id="notDurum"></p>
-        <div class="sahne-alt">
-            <button type="button" class="gorunum-btn daha-fazla" id="notDahaFazla" hidden></button>
-        </div>
-    </section>
-
-    <dialog class="kvkk-kutu" id="kvkkKutu" data-surum="2026-09-23">
-        <article class="kvkk-icerik">
-            <h2>Kişisel Verilerin Korunması Aydınlatma Metni</h2>
-
-            <p>
-                Bu sayfa üzerinden yüklediğiniz fotoğraflar ve misafir defterine
-                bıraktığınız notlar, 6698 sayılı Kişisel Verilerin Korunması Kanunu
-                (KVKK) kapsamında kişisel veri niteliği taşıyabilir.
-                Aşağıda bu verilerin kim tarafından, hangi amaçla ve nasıl işlendiği
-                açıklanmaktadır.
-            </p>
-
-            
-            <h3>İşlenen veriler</h3>
-            <ul>
-                <li>Yüklediğiniz fotoğraf ve fotoğrafın teknik bilgileri (dosya türü, boyut, yüklenme zamanı)</li>
-                <li>İsteğe bağlı olarak yazdığınız ad</li>
-                <li>Misafir defterine bıraktıysanız adınız ve not metniniz</li>
-                <li>Kötüye kullanımı önlemek için IP adresi ve tarayıcınızda oluşturulan cihaz tanımlayıcısı</li>
-            </ul>
-
-            <h3>İşleme amacı ve hukuki sebep</h3>
-            <p>
-                Fotoğraflar ve notlar yalnızca ilgili etkinliğin sayfasında gösterilmek,
-                etkinlik sahipleriyle paylaşılmak ve içerik denetimi yapılmak üzere işlenir.
-                İşlemenin hukuki sebebi <strong>açık rızanızdır</strong> (KVKK m.5/1).
-                Onay kutusunu işaretlemeden fotoğraf yükleyemez, not bırakamazsınız.
-            </p>
-
-            <p>
-                &ldquo;Sadece etkinlik sahipleri görsün&rdquo; seçeneğini işaretlerseniz
-                fotoğrafınız herkese açık galeride yayımlanmaz; yalnızca etkinlik
-                sahiplerine iletilir.
-            </p>
-
-            <h3>Saklama süresi</h3>
-            <p>
-                Fotoğraflar ve notlar, etkinlik sahibi silinmesini isteyene kadar saklanır.
-                Etkinlik silindiğinde ikisi de kalıcı olarak silinir.
-            </p>
-
-            <h3>Haklarınız</h3>
-            <p>
-                KVKK m.11 uyarınca kişisel verilerinizin işlenip işlenmediğini öğrenme,
-                düzeltilmesini veya silinmesini isteme ve rızanızı geri alma haklarına
-                sahipsiniz. Talepleriniz için etkinlik sahipleriyle iletişime geçebilirsiniz.
-                Etkinlik sahipleri, talebiniz üzerine fotoğraflarınızı ve notunuzu kaldırır.
-            </p>
-
-
-            <button type="button" class="pill pill-koyu" id="kvkkKapat">Kapat</button>
-        </article>
-    </dialog>
-
     <div class="lightbox" id="lightbox" hidden>
         <button type="button" class="lb-kapat" id="lbKapat" aria-label="Kapat">&times;</button>
         <button type="button" class="lb-ok lb-onceki" id="lbOnceki" aria-label="Önceki fotoğraf">&lsaquo;</button>
@@ -197,6 +121,7 @@
     </div>
 
     <script src="script.js?v=7"></script>
-    <script src="gallery.js?v=19"></script>
+    <script src="kvkk.js?v=1"></script>
+    <script src="gallery.js?v=21"></script>
 </body>
 </html>
