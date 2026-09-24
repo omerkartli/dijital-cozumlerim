@@ -1,0 +1,459 @@
+/* Kişiye özel mektup sayfası — bağımsız stil dosyası.
+   Geçici: bir süre sonra kaldırılacak, siteye hiçbir yerden bağlanmıyor. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* SVG'de hidden niteliği hem doğrulayıcıya takılıyor hem de tarayıcının
+   [hidden] kuralı oraya geçmiyordu; ikonları sınıfla gizliyoruz. */
+.gizli {
+    display: none;
+}
+
+:root {
+    --kagit: #f6eedd;
+    --kagit-ic: #fbf6ea;
+    --murekkep: #4a3c2b;
+    --murekkep-soluk: #8a7862;
+    --altin: #b08d4f;
+    --cizgi: #e0d3ba;
+    --gul: #c58f8a;
+    --yaprak: #9aab93;
+}
+
+body.sayfa-mektup {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 18% 12%, #fdf9f0 0%, transparent 55%),
+        radial-gradient(circle at 82% 88%, #f4e9d6 0%, transparent 55%),
+        #efe4d1;
+    color: var(--murekkep);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 18px 40px;
+    overflow-x: hidden;
+}
+
+.cicek-kasa {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* ---------- 1. Perde: zarf ---------- */
+
+.sahne {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    perspective: 1400px;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sahne.is-gitti {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+    pointer-events: none;
+    position: absolute;
+}
+
+.zarf {
+    position: relative;
+    width: min(330px, 84vw);
+    aspect-ratio: 3 / 2;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 18px 30px rgba(89, 71, 46, 0.22));
+    transition: transform 0.4s ease;
+}
+
+.zarf:hover {
+    transform: translateY(-4px);
+}
+
+.zarf:focus-visible {
+    outline: 2px solid var(--altin);
+    outline-offset: 10px;
+    border-radius: 8px;
+}
+
+.zarf-govde,
+.zarf-on,
+.zarf-kapak {
+    position: absolute;
+    inset: 0;
+}
+
+.zarf-govde {
+    background: linear-gradient(160deg, #f7efe1 0%, #ecdfc9 100%);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Ön cep: ortasındaki V girintisi çiçeklerin çıktığı ağzı veriyor */
+.zarf-on {
+    background: linear-gradient(200deg, #f2e6d2 0%, #e6d6bb 100%);
+    border-radius: 8px;
+    clip-path: polygon(0 0, 50% 42%, 100% 0, 100% 100%, 0 100%);
+    z-index: 3;
+}
+
+.zarf-kapak {
+    bottom: auto;
+    height: 62%;
+    background: linear-gradient(180deg, #f5ebd9 0%, #e8d9bd 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-radius: 8px 8px 0 0;
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: transform 1s cubic-bezier(0.6, 0.05, 0.3, 1);
+    z-index: 4;
+}
+
+.sahne.is-acik .zarf-kapak {
+    transform: rotateX(-176deg);
+    background: linear-gradient(180deg, #e8d9bd 0%, #dccaa8 100%);
+}
+
+/* Kapak açıldıktan sonra çiçeklerin arkasına geçsin */
+.sahne.is-kapak-arkada .zarf-kapak {
+    z-index: 0;
+}
+
+.muhur {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #c9a463 0%, #a8803f 60%, #8d6931 100%);
+    box-shadow: 0 6px 14px rgba(94, 68, 24, 0.35), inset 0 -2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.muhur-cicek {
+    width: 54px;
+    height: 54px;
+    opacity: 0.92;
+}
+
+.sahne.is-acik .muhur {
+    transform: translate(-50%, -50%) scale(0.35) rotate(-28deg);
+    opacity: 0;
+}
+
+.ipucu {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--murekkep-soluk);
+    animation: nefes 2.6s ease-in-out infinite;
+}
+
+.sahne.is-acik .ipucu {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes nefes {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+}
+
+/* ---------- Zarftan fışkıran çiçekler ---------- */
+
+.cicek-yagmuri {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 6;
+}
+
+/* Her çiçeğin kendi yönü, dönüşü ve gecikmesi JS'ten değişken olarak geliyor;
+   böylece tek bir @keyframes hepsine farklı bir yol çizebiliyor. */
+.cicek {
+    position: absolute;
+    /* Kaynak noktası zarfın ağzı; JS patlama anında ölçüp yazıyor. */
+    left: var(--kaynak-x, 50%);
+    top: var(--kaynak-y, 50%);
+    width: var(--en, 46px);
+    height: var(--boy, 46px);
+    margin-left: calc(var(--en, 46px) / -2);
+    margin-top: calc(var(--boy, 46px) / -2);
+    opacity: 0;
+    animation: cicek-ucus var(--sure, 2.4s) cubic-bezier(0.18, 0.7, 0.35, 1) var(--gecikme, 0s) forwards;
+}
+
+.cicek svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+@keyframes cicek-ucus {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg) scale(0.3);
+    }
+    12% {
+        opacity: 1;
+    }
+    55% {
+        transform:
+            translate(calc(var(--x) * 0.62), calc(var(--tepe) * 1.02))
+            rotate(calc(var(--donus) * 0.6)) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform:
+            translate(var(--x), var(--dus))
+            rotate(var(--donus)) scale(0.92);
+    }
+}
+
+/* ---------- 2. Perde: çağrı ---------- */
+
+.cagri {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.cagri.is-icinde {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cagri-ust {
+    font-family: "Caveat", Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--murekkep-soluk);
+}
+
+.cagri-dugme {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.02rem;
+    color: #fdf6e6;
+    background: linear-gradient(180deg, #bb9558 0%, #a8803f 100%);
+    border: 0;
+    border-radius: 999px;
+    padding: 15px 30px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(94, 68, 24, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cagri-dugme:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(94, 68, 24, 0.34);
+}
+
+.cagri-dugme:focus-visible {
+    outline: 2px solid var(--murekkep);
+    outline-offset: 4px;
+}
+
+/* ---------- 3. Perde: mektup ---------- */
+
+.mektup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.32, 0.82, 0.3, 1);
+}
+
+.mektup.is-icinde {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.kagit {
+    position: relative;
+    width: min(560px, 100%);
+    padding: clamp(30px, 6vw, 54px) clamp(24px, 6vw, 52px) clamp(34px, 6vw, 48px);
+    background:
+        linear-gradient(180deg, var(--kagit-ic) 0%, var(--kagit) 100%);
+    border: 1px solid var(--cizgi);
+    border-radius: 4px;
+    box-shadow:
+        0 20px 46px rgba(89, 71, 46, 0.18),
+        inset 0 0 60px rgba(176, 141, 79, 0.07);
+}
+
+/* Kâğıdın kenarındaki yıpranma hissi: köşelerde hafif koyulaşma */
+.kagit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(140, 110, 60, 0.13) 0%, transparent 22%),
+        radial-gradient(circle at 100% 0%, rgba(140, 110, 60, 0.11) 0%, transparent 20%),
+        radial-gradient(circle at 0% 100%, rgba(140, 110, 60, 0.11) 0%, transparent 20%),
+        radial-gradient(circle at 100% 100%, rgba(140, 110, 60, 0.13) 0%, transparent 22%);
+}
+
+.kagit-ust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    opacity: 0.8;
+}
+
+.sus-yaprak {
+    width: 40px;
+    height: 25px;
+}
+
+/* Soldaki yaprak sağdakinin aynası olsun */
+.sus-sol {
+    transform: scaleX(-1);
+}
+
+.sus-gul {
+    width: 34px;
+    height: 34px;
+}
+
+.hitap {
+    font-family: "Caveat", Georgia, serif;
+    font-size: clamp(1.7rem, 5vw, 2.1rem);
+    color: var(--murekkep);
+    margin-bottom: 18px;
+}
+
+/* Defter çizgisi hissi: satır yüksekliği ile çizgi aralığı birebir aynı,
+   yoksa yazı çizginin üstünde yüzüyor gibi duruyor. */
+.govde {
+    --satir: 38px;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent calc(var(--satir) - 1px),
+        rgba(176, 141, 79, 0.22) calc(var(--satir) - 1px),
+        rgba(176, 141, 79, 0.22) var(--satir)
+    );
+}
+
+.satir {
+    font-family: "Caveat", Georgia, serif;
+    font-size: clamp(1.32rem, 4vw, 1.5rem);
+    line-height: 38px;
+    color: var(--murekkep);
+    margin: 0;
+}
+
+.satir + .satir {
+    margin-top: 38px;
+}
+
+.imza {
+    font-family: "Caveat", Georgia, serif;
+    font-size: clamp(1.4rem, 4.2vw, 1.65rem);
+    color: var(--murekkep);
+    text-align: right;
+    margin-top: 34px;
+}
+
+.tarih {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    color: var(--murekkep-soluk);
+    text-align: right;
+    margin-top: 6px;
+}
+
+/* ---------- Müzik ---------- */
+
+/* Görünmez ama gerçekten çizilen bir oynatıcı: opacity:0 ya da 1x1 kutu
+   bazı tarayıcılarda oynatmayı engelliyor, ekran dışına almak engellemiyor. */
+.muzik-kutu {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    width: 300px;
+    height: 200px;
+    pointer-events: none;
+}
+
+.muzik-dugme {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cizgi);
+    border-radius: 50%;
+    background: rgba(253, 248, 238, 0.92);
+    backdrop-filter: blur(8px);
+    color: var(--murekkep);
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(89, 71, 46, 0.16);
+    z-index: 30;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.muzik-dugme:hover {
+    background: #fdf8ee;
+    transform: translateY(-1px);
+}
+
+.muzik-dugme:focus-visible {
+    outline: 2px solid var(--altin);
+    outline-offset: 3px;
+}
+
+.muzik-ikon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ---------- Hareket azaltma ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .sahne,
+    .zarf,
+    .zarf-kapak,
+    .muhur,
+    .cagri,
+    .mektup,
+    .muzik-dugme {
+        transition: none;
+    }
+
+    .ipucu {
+        animation: none;
+        opacity: 0.8;
+    }
+}
