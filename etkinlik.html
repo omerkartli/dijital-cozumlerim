@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body class="sayfa-etkinlik">
     <header class="site-bar">
@@ -22,10 +22,17 @@
         <h1 id="eventTitle">Etkinlik</h1>
         <p class="etkinlik-durum" id="eventStatus">Yükleniyor...</p>
 
-        <button type="button" class="galeri-dugme" id="galeriDugme" hidden>
-            <span id="galeriDugmeMetin">Fotoğrafları gör</span>
-            <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
-        </button>
+        <div class="bas-dugmeler">
+            <button type="button" class="galeri-dugme" id="galeriDugme" hidden>
+                <span id="galeriDugmeMetin">Paylaşılan Fotoğrafları Gör</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
+            </button>
+
+            <a class="galeri-dugme galeri-dugme-alt galeri-dugme-ikincil" id="notlarLink" href="notlar.html">
+                <span>Anı Defterini Aç</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
 
         <form id="uploadForm" class="yukleme">
             <label class="yukleme-alan" for="photoInput" id="dropZone">
@@ -64,7 +71,7 @@
             </div>
 
             <div class="yukleme-satir">
-                <input type="text" id="uploaderName" placeholder="Adın" autocomplete="name">
+                <input type="text" id="uploaderName" placeholder="Nickname" autocomplete="name">
                 <button type="submit" class="pill pill-koyu" id="yukleBtn" disabled>Yükle</button>
             </div>
         </form>
@@ -102,15 +109,6 @@
         <p class="sahne-durum" id="galeriDurum"></p>
     </main>
 
-    <section class="not-cagri">
-        <h2 class="notlar-baslik">Misafir Defteri</h2>
-        <p class="notlar-aciklama">Çifte birkaç satır bırakmak ister misin?</p>
-        <a class="galeri-dugme galeri-dugme-alt" id="notlarLink" href="notlar.html">
-            <span>Not Bırak</span>
-            <span class="galeri-dugme-ok" aria-hidden="true">&rarr;</span>
-        </a>
-    </section>
-
     <div class="lightbox" id="lightbox" hidden>
         <button type="button" class="lb-kapat" id="lbKapat" aria-label="Kapat">&times;</button>
         <button type="button" class="lb-ok lb-onceki" id="lbOnceki" aria-label="Önceki fotoğraf">&lsaquo;</button>
@@ -124,6 +122,6 @@
 
     <script src="script.js?v=7"></script>
     <script src="kvkk.js?v=1"></script>
-    <script src="gallery.js?v=20"></script>
+    <script src="gallery.js?v=21"></script>
 </body>
 </html>

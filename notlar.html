@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body class="sayfa-etkinlik">
     <header class="site-bar">
@@ -26,6 +26,13 @@
 
         <h1 id="eventTitle">Misafir Defteri</h1>
         <p class="etkinlik-durum" id="eventStatus">Yükleniyor...</p>
+
+        <div class="bas-dugmeler">
+            <button type="button" class="galeri-dugme" id="notlarDugme" hidden>
+                <span id="notlarDugmeMetin">Bırakılan Notları Gör</span>
+                <span class="galeri-dugme-ok" aria-hidden="true">&darr;</span>
+            </button>
+        </div>
     </section>
 
     <section class="notlar-bolum" id="notlarBolum">
@@ -33,7 +40,7 @@
         <p class="notlar-aciklama">Birkaç satır yaz; onaylandıktan sonra aşağıda görünecek.</p>
 
         <form id="notForm" class="not-form">
-            <input type="text" id="notAd" class="not-ad" placeholder="Adın" maxlength="60"
+            <input type="text" id="notAd" class="not-ad" placeholder="Nickname" maxlength="60"
                    autocomplete="name" required>
             <textarea id="notMetin" class="not-metin" placeholder="Mesajın" maxlength="600"
                       rows="3" required></textarea>
@@ -64,6 +71,6 @@
 
     <script src="script.js?v=7"></script>
     <script src="kvkk.js?v=1"></script>
-    <script src="notlar.js?v=1"></script>
+    <script src="notlar.js?v=2"></script>
 </body>
 </html>

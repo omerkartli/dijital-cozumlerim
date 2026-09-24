@@ -39,7 +39,7 @@ async function loadEvent(slug) {
         const event = await response.json();
         setHeadingText(titleEl, event.name);
         // Bu satır artık yalnızca hata kanalı; normal akışta boş duruyor,
-        // yerini "Fotoğrafları gör" düğmesi aldı.
+        // yerini "Paylaşılan Fotoğrafları Gör" düğmesi aldı.
         statusEl.textContent = '';
         statusEl.hidden = true;
     } catch (err) {
@@ -611,7 +611,7 @@ async function loadPhotos(slug) {
 
         const dugme = document.getElementById('galeriDugme');
         document.getElementById('galeriDugmeMetin').textContent =
-            toplamFotograf === 1 ? '1 fotoğrafı gör' : `${toplamFotograf} fotoğrafı gör`;
+            'Paylaşılan Fotoğrafları Gör';
         dugme.hidden = false;
         dugme.addEventListener('click', () => {
             document.getElementById('sahne').scrollIntoView({

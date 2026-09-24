@@ -83,6 +83,23 @@ function notlariCiz(liste, ekle) {
     const kalan = notToplam - notOfset;
     dahaFazla.hidden = kalan <= 0;
     if (kalan > 0) dahaFazla.textContent = `${kalan} not daha`;
+
+    notDugmesiniTazele();
+}
+
+function notDugmesiniTazele() {
+    // Notlar formun altında kalıyor; etkinlik sayfasındaki gibi üstten
+    // oraya indiren bir düğme koyuyoruz. Not yoksa düğme de anlamsız.
+    document.getElementById('notlarDugme').hidden = notToplam === 0;
+}
+
+function notDugmesiniKur() {
+    document.getElementById('notlarDugme').addEventListener('click', () => {
+        document.getElementById('notListesi').scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start',
+        });
+    });
 }
 
 async function notlariYukle(slug, ekle = false) {
@@ -175,6 +192,7 @@ function notlariKur(slug) {
         .addEventListener('submit', (event) => notuGonder(event, slug));
     document.getElementById('notDahaFazla')
         .addEventListener('click', () => notlariYukle(slug, true));
+    notDugmesiniKur();
     notlariYukle(slug);
 }
 
