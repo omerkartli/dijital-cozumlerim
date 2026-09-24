@@ -389,11 +389,18 @@ body {
 
 /* ---------- Alt bar ---------- */
 
+/* left:50% + translateX(-50%) ile ortalanınca çubuğun kullanabileceği genişlik
+   ekranın yarısında kalıyordu: 360 piksellik telefonda 180 piksel, üç bağlantı
+   oraya sığmayıp iki satıra düşüyordu. left/right:0 + margin:auto ile ortalanınca
+   tüm genişlik açılıyor. */
 .alt-bar {
     position: fixed;
-    left: 50%;
+    left: 0;
+    right: 0;
     bottom: 16px;
-    transform: translateX(-50%);
+    margin: 0 auto;
+    width: max-content;
+    max-width: calc(100% - 24px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -408,14 +415,47 @@ body {
 }
 
 .alt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--murekkep);
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 14px;
     border-radius: 999px;
     transition: background 0.2s ease, color 0.2s ease;
+}
+
+.alt-ikon {
+    width: 16px;
+    height: 16px;
+    flex: none;
+}
+
+/* Üç yazılı bağlantı dar ekranda çubuğu iki satıra çıkarıyor ve davetiyenin
+   üstünü kapatıyordu. Yazılar gizlenince ikonlar tek satıra sığıyor; çağrı
+   olduğu için yalnızca WhatsApp'ın yazısı kalıyor. Erişilebilir adlar
+   aria-label'da durduğu için ekran okuyucuda bir şey kaybolmuyor. */
+@media (max-width: 520px) {
+    .alt-bar {
+        bottom: 12px;
+        gap: 4px;
+        padding: 5px;
+    }
+
+    .alt-link {
+        padding: 8px 11px;
+    }
+
+    .alt-link .alt-yazi {
+        display: none;
+    }
+
+    .alt-link.vurgu .alt-yazi {
+        display: inline;
+    }
 }
 
 .alt-link:hover {
