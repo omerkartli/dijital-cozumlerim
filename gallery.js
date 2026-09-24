@@ -634,6 +634,11 @@ async function loadPhotos(slug) {
 // saat içindeki toplam). Sunucu bunu ancak istek geldiğinde söyleyebiliyor;
 // davetli 40 fotoğraf seçip yarısı reddedilince şaşırmasın diye aynı sayımı
 // tarayıcıda da tutuyoruz. Bu bir kopya: asıl sayan sunucu.
+// Seçilen dosyalar: daha önce yalnızca dosyalarSecildi() içindeki atamayla
+// örtük global olarak doğuyordu, yani ilk seçime kadar hiç var olmuyordu.
+// Sayfa açılışında okuyan bir yer olunca ReferenceError veriyor.
+let secilenDosyalar = [];
+
 const SAATLIK_SINIR = 30;
 const SAAT_MS = 60 * 60 * 1000;
 const GECMIS_ANAHTARI = 'yukleme_gecmisi';
