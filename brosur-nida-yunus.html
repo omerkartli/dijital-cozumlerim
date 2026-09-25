@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Gerçek kişilerin bilgileri: arama motorlarına açılmasın -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nida &amp; Yunus Emre &mdash; QR Broşürü</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap">
+    <style>
+        /* A4 baskı broşürü. Tarayıcıda açıp Yazdır -> "Arka plan grafikleri"
+           açık, kenar boşluğu "Yok" ile bas. QR, etkinlik.html?slug=nida-yunus
+           adresini taşıyor ve sayfaya gömülü SVG; internet olmadan da basılır. */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --kagit: #fbf7f0;
+            --murekkep: #3d342b;
+            --soluk: #8b7d6b;
+            --altin: #b08d4f;
+            --gul: #b5646f;
+            --cizgi: #e3d9c8;
+        }
+
+        html {
+            background: #e9e1d3;
+        }
+
+        body {
+            font-family: "Instrument Serif", Georgia, serif;
+            color: var(--murekkep);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .sayfa {
+            position: relative;
+            width: 210mm;
+            height: 297mm;
+            margin: 10mm auto;
+            padding: 12mm;
+            background:
+                radial-gradient(circle at 20% 12%, #fffdf8 0%, transparent 55%),
+                radial-gradient(circle at 85% 90%, #f6eee0 0%, transparent 55%),
+                var(--kagit);
+            box-shadow: 0 10px 40px rgba(61, 52, 43, 0.18);
+            overflow: hidden;
+        }
+
+        @media print {
+            html { background: none; }
+            .sayfa { margin: 0; box-shadow: none; }
+        }
+
+        /* Çift altın çerçeve */
+        .cerceve {
+            height: 100%;
+            border: 1.2pt solid var(--altin);
+            outline: 0.5pt solid var(--altin);
+            outline-offset: -3.2mm;
+            padding: 8mm 14mm 9mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Beyaz zeminli suluboya; multiply ile kâğıda karışıyor */
+        .buket {
+            width: 66mm;
+            height: 74mm;
+            background: url("mektup-buket.jpg") center / contain no-repeat;
+            mix-blend-mode: multiply;
+        }
+
+        .tarih {
+            margin-top: 3mm;
+            font-family: Georgia, serif;
+            font-size: 9.5pt;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--soluk);
+        }
+
+        .isimler {
+            margin-top: 1mm;
+            font-weight: 400;
+            font-size: 44pt;
+            line-height: 1.05;
+        }
+
+        .isimler .ve {
+            font-family: "Caveat", Georgia, serif;
+            font-weight: 500;
+            color: var(--gul);
+            padding: 0 0.2em 0 0.06em;
+        }
+
+        .ayrac {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            margin: 4mm 0 5mm;
+            color: var(--altin);
+            font-size: 11pt;
+        }
+
+        .ayrac::before,
+        .ayrac::after {
+            content: "";
+            width: 26mm;
+            height: 0.6pt;
+            background: var(--altin);
+        }
+
+        .baslik {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 21pt;
+            line-height: 1.2;
+        }
+
+        .aciklama {
+            margin-top: 3mm;
+            max-width: 132mm;
+            font-family: Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.55;
+            color: var(--soluk);
+        }
+
+        .qr-kart {
+            margin-top: 7mm;
+            padding: 6mm;
+            background: #fff;
+            border: 0.8pt solid var(--cizgi);
+            border-radius: 4mm;
+            box-shadow: 0 2mm 6mm rgba(61, 52, 43, 0.08);
+        }
+
+        .qr-kart svg {
+            display: block;
+            width: 58mm;
+            height: 58mm;
+        }
+
+        .okut {
+            margin-top: 4mm;
+            font-family: "Caveat", Georgia, serif;
+            font-weight: 600;
+            font-size: 22pt;
+            color: var(--gul);
+        }
+
+        .adimlar {
+            display: flex;
+            justify-content: center;
+            gap: 9mm;
+            margin-top: 4mm;
+            list-style: none;
+            font-family: Georgia, serif;
+            font-size: 9.5pt;
+            color: var(--murekkep);
+        }
+
+        .adimlar li {
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+        }
+
+        .adimlar b {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 5.4mm;
+            height: 5.4mm;
+            border: 0.7pt solid var(--altin);
+            border-radius: 50%;
+            font-weight: 400;
+            font-size: 8.5pt;
+            color: var(--altin);
+        }
+
+        .kapanis {
+            margin-top: auto;
+            padding-top: 5mm;
+            font-style: italic;
+            font-size: 14pt;
+            color: var(--soluk);
+        }
+    </style>
+</head>
+<body>
+    <main class="sayfa">
+        <div class="cerceve">
+            <div class="buket" role="img" aria-label="Suluboya manolya ve inci çiçeği buketi"></div>
+
+            <p class="tarih">26 Eylül 2026</p>
+            <h1 class="isimler">Nida<span class="ve">&amp;</span>Yunus Emre</h1>
+
+            <div class="ayrac" aria-hidden="true">&#10086;</div>
+
+            <h2 class="baslik">Bu güzel günün anılarını<br>bizimle paylaşır mısınız?</h2>
+            <p class="aciklama">
+                Düğünümüzde çektiğiniz fotoğrafları yüklemek ve bize
+                bir not bırakmak için QR kodu telefonunuzun kamerasıyla okutun.
+            </p>
+
+            <div class="qr-kart">
+                <!-- https://omerkartli.github.io/dijital-cozumlerim/etkinlik.html?slug=nida-yunus -->
+                <svg role="img" aria-label="Etkinlik sayfasının QR kodu" viewBox="0 0 49 49" shape-rendering="crispEdges"><path stroke="#3d342b" d="M0 0.5h7m2 0h2m4 0h2m1 0h2m2 0h2m2 0h1m1 0h1m1 0h1m4 0h2m3 0h1m1 0h7M0 1.5h1m5 0h1m2 0h4m2 0h1m4 0h2m2 0h5m5 0h1m3 0h3m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m1 0h5m4 0h1m2 0h1m1 0h1m3 0h3m2 0h1m1 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m7 0h1m1 0h1m1 0h1m1 0h4m1 0h1m1 0h1m1 0h3m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h2m2 0h1m2 0h5m4 0h3m3 0h1m4 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h2m1 0h4m1 0h1m1 0h1m2 0h1m3 0h1m3 0h2m3 0h4m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m1 0h1m1 0h1m3 0h1m2 0h1m3 0h2m2 0h1m3 0h2m1 0h1m1 0h1M2 8.5h2m2 0h3m1 0h3m3 0h13m3 0h5m1 0h1m2 0h2m1 0h1M0 9.5h2m2 0h1m2 0h3m1 0h2m1 0h2m4 0h1m1 0h3m3 0h3m6 0h1m3 0h2m1 0h3M0 10.5h4m1 0h3m2 0h1m2 0h1m1 0h7m5 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h4m1 0h3M0 11.5h2m1 0h2m2 0h1m1 0h3m1 0h2m2 0h1m3 0h4m3 0h1m2 0h4m1 0h1m1 0h4m1 0h2m1 0h2M1 12.5h1m2 0h1m1 0h2m1 0h1m2 0h1m1 0h1m2 0h1m4 0h5m1 0h1m2 0h1m2 0h7m1 0h2m1 0h3M1 13.5h2m1 0h2m1 0h1m2 0h3m1 0h2m2 0h1m1 0h1m2 0h1m4 0h2m1 0h2m4 0h2m4 0h2m2 0h2M1 14.5h7m1 0h1m1 0h1m2 0h3m4 0h1m1 0h2m1 0h5m1 0h2m1 0h1m2 0h1m3 0h5M0 15.5h4m5 0h1m1 0h1m2 0h1m2 0h1m6 0h3m2 0h1m3 0h1m5 0h4m1 0h2m1 0h1M0 16.5h2m2 0h1m1 0h1m2 0h3m4 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m2 0h1m3 0h1m1 0h2m2 0h2m1 0h1m1 0h1M0 17.5h1m3 0h2m3 0h8m1 0h2m1 0h4m3 0h2m1 0h1m2 0h4m1 0h3m1 0h1m3 0h2M0 18.5h1m1 0h9m2 0h3m6 0h1m9 0h1m10 0h3m1 0h2M0 19.5h4m1 0h1m1 0h2m1 0h2m2 0h1m1 0h1m3 0h1m1 0h2m1 0h1m1 0h1m2 0h4m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1M0 20.5h3m1 0h7m1 0h1m1 0h1m1 0h2m1 0h1m2 0h4m2 0h1m2 0h1m1 0h3m2 0h2m5 0h1M0 21.5h1m1 0h1m2 0h1m1 0h3m2 0h2m2 0h1m1 0h2m4 0h1m1 0h2m1 0h1m1 0h2m2 0h2m2 0h1m1 0h2m2 0h1M4 22.5h5m2 0h3m1 0h1m1 0h2m2 0h6m2 0h1m1 0h1m1 0h2m1 0h1m3 0h5m1 0h1M0 23.5h1m1 0h3m3 0h1m2 0h1m2 0h3m4 0h2m3 0h6m2 0h5m1 0h1m3 0h4M0 24.5h1m3 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h3m1 0h1m1 0h1m1 0h1m1 0h1m2 0h7m2 0h1m1 0h1m1 0h1m1 0h2M0 25.5h5m3 0h2m7 0h1m1 0h1m2 0h1m3 0h4m5 0h1m1 0h4m3 0h5M3 26.5h11m1 0h3m1 0h1m2 0h8m2 0h1m3 0h1m1 0h1m1 0h6m1 0h1M0 27.5h3m2 0h1m4 0h2m3 0h5m1 0h1m4 0h1m2 0h2m1 0h1m1 0h1m6 0h1m1 0h1m4 0h1M1 28.5h1m1 0h4m1 0h2m2 0h1m3 0h1m2 0h2m1 0h1m1 0h1m2 0h1m1 0h6m2 0h2m1 0h4m2 0h1M0 29.5h1m1 0h1m1 0h2m4 0h4m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1m1 0h1m4 0h4m4 0h1m3 0h1m2 0h1M0 30.5h3m1 0h3m3 0h2m2 0h2m1 0h3m1 0h2m2 0h5m2 0h1m1 0h2m2 0h1m1 0h1m1 0h2m1 0h1m1 0h2M0 31.5h1m6 0h1m1 0h1m2 0h1m2 0h2m2 0h5m1 0h1m5 0h4m2 0h6m2 0h1M4 32.5h4m2 0h1m1 0h1m2 0h1m1 0h1m2 0h1m1 0h6m2 0h2m10 0h1m1 0h1m3 0h1M1 33.5h1m1 0h3m2 0h1m1 0h3m1 0h6m4 0h1m1 0h1m2 0h1m1 0h1m3 0h3m1 0h1m3 0h1m2 0h1M1 34.5h3m2 0h5m1 0h1m4 0h2m2 0h1m4 0h2m1 0h2m1 0h1m1 0h2m1 0h1m1 0h1m4 0h1m1 0h1M0 35.5h2m1 0h1m1 0h1m1 0h1m3 0h2m3 0h2m1 0h2m3 0h3m2 0h5m1 0h3m1 0h1m2 0h6M0 36.5h1m1 0h3m1 0h4m1 0h5m3 0h1m2 0h1m4 0h2m2 0h1m3 0h5m3 0h6M0 37.5h3m1 0h1m4 0h3m1 0h2m1 0h1m3 0h2m1 0h2m2 0h2m1 0h1m2 0h1m1 0h1m1 0h4m2 0h6M1 38.5h1m3 0h2m2 0h1m3 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h4m1 0h1m2 0h5m1 0h1m3 0h3M1 39.5h3m5 0h1m1 0h2m1 0h2m2 0h1m1 0h4m5 0h2m1 0h1m1 0h1m2 0h2m4 0h1m3 0h2M0 40.5h3m3 0h4m1 0h1m2 0h4m1 0h1m2 0h5m1 0h2m1 0h2m1 0h1m5 0h9M8 41.5h1m2 0h1m1 0h1m2 0h1m1 0h5m3 0h1m2 0h1m1 0h1m1 0h1m4 0h3m3 0h3m1 0h1M0 42.5h7m1 0h2m1 0h2m2 0h4m2 0h2m1 0h1m1 0h1m1 0h6m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2M0 43.5h1m5 0h1m2 0h1m4 0h1m1 0h1m5 0h1m3 0h2m1 0h1m1 0h1m3 0h3m2 0h1m3 0h2m2 0h1M0 44.5h1m1 0h3m1 0h1m3 0h2m2 0h2m5 0h8m9 0h1m1 0h6m2 0h1M0 45.5h1m1 0h3m1 0h1m1 0h5m1 0h1m1 0h1m2 0h1m6 0h1m3 0h1m1 0h1m3 0h2m2 0h2m2 0h1m3 0h1M0 46.5h1m1 0h3m1 0h1m1 0h2m2 0h2m4 0h7m1 0h5m3 0h1m1 0h1m2 0h1m3 0h2M0 47.5h1m5 0h1m3 0h1m1 0h3m1 0h3m1 0h3m8 0h3m2 0h1m4 0h1m1 0h1m1 0h2M0 48.5h7m2 0h2m1 0h2m2 0h1m2 0h1m4 0h1m1 0h2m1 0h3m1 0h4m3 0h1m2 0h1m1 0h4"/></svg>
+            </div>
+
+            <p class="okut">QR kodu okutunuz</p>
+
+            <ol class="adimlar">
+                <li><b>1</b> Kamerayı aç</li>
+                <li><b>2</b> Fotoğraf yükle</li>
+                <li><b>3</b> Not bırak</li>
+            </ol>
+
+            <p class="kapanis">Sevginiz ve anılarınız için teşekkür ederiz</p>
+        </div>
+    </main>
+</body>
+</html>
