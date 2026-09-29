@@ -371,6 +371,16 @@ body.sayfa-mektup {
     height: 40px;
 }
 
+/* Süsün altında, doğum tarihi: küçük, aralıklı büyük harf */
+.dogum-tarihi {
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--altin);
+    margin: -8px 0 22px;
+}
+
 .hitap {
     font-family: "Caveat", Georgia, serif;
     font-size: clamp(1.7rem, 5vw, 2.1rem);
