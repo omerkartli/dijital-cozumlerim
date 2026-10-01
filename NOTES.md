@@ -121,6 +121,19 @@ Gerçek kişilerin adı, tarihi ve adresi vitrine düşmesin diye.
 Geri sayım tarihi `#invite` üzerindeki `data-tarih` özniteliğinden okunur;
 iki sayfa da aynı `davetiye.js`'i paylaşır.
 
+## Çiçekçi sayfaları
+
+Davetiyedeki ayrımın aynısı: `cicekci.html` **vitrindeki demo**, dükkân adı,
+telefon ve adres kurgusal; sipariş formu mesajı göndermez, sadece ekranda
+gösterir. Görselleri `cicekci/` altında ve içlerinde gerçek dükkânın tabelası
+ya da logosu görünen fotoğraf yok.
+
+`dunya-flowers/` gerçek müşteri sayfası: vitrinden bağlantı verilmez,
+`noindex, nofollow` taşır, sipariş formu mesajı dükkânın gerçek WhatsApp
+hattına (0533 422 29 94) açar. Ürün adları ve fiyatları (1.000–1.500 ₺)
+şimdilik tarafımızdan konuldu; dükkânla teyit edilince `PRODUCTS` listesinden
+güncellenir.
+
 ## Yapılmayanlar / sıradakiler
 
 - Etkinlik sahibine e-posta/bildirim yok; onay bekleyen fotoğrafı görmek için

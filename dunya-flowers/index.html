@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dünya Flowers · Çekmeköy Çiçekçi</title>
+<meta name="description" content="Dünya Flowers – Çekmeköy'de taze buketler, güller ve saksı çiçekleri. Sipariş verin, hazırlayalım; gelip alın ya da adresinize gönderelim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf7f5;
+    --surface:#ffffff;
+    --lilac:#e9d3ec;
+    --lilac-soft:#f5eaf6;
+    --plum:#5b2a63;
+    --plum-deep:#3a1740;
+    --gold:#b08a45;
+    --ink:#2a1f2c;
+    --muted:#76687a;
+    --line:#ecdfee;
+    --wa:#1fa855;
+    --radius:18px;
+    --shadow:0 10px 30px -12px rgba(58,23,64,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:rgba(251,247,245,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .logo{display:flex;align-items:baseline;gap:6px;color:var(--plum-deep)}
+  .logo b{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;letter-spacing:.06em}
+  .logo i{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold)}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:500}
+  .nav ul a:hover{color:var(--plum)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px;transition:transform .15s,background .15s,box-shadow .15s}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--plum);color:#fff}
+  .btn-primary:hover{background:var(--plum-deep)}
+  .btn-ghost{background:transparent;color:var(--plum);border:1.5px solid var(--plum)}
+  .btn-ghost:hover{background:var(--lilac-soft)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn svg{width:18px;height:18px}
+
+  /* Hero */
+  .hero{padding:56px 0 72px;background:radial-gradient(ellipse at 85% 10%,var(--lilac) 0,transparent 55%),radial-gradient(ellipse at 0% 100%,var(--lilac-soft) 0,transparent 50%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(42px,6vw,72px);line-height:1.02;color:var(--plum-deep);margin:14px 0 18px}
+  .hero h1 em{color:var(--plum);font-style:italic}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:480px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 28px}
+  .rating{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+  .stars{color:#f4b400;letter-spacing:2px;font-size:16px}
+  .rating strong{color:var(--ink)}
+  .hero-media{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .hero-media img{border-radius:var(--radius);object-fit:cover;width:100%;box-shadow:var(--shadow)}
+  .hero-media .tall{grid-row:span 2;height:100%;aspect-ratio:auto}
+  .hero-media .sq{aspect-ratio:1/1.05}
+  .badge-price{position:absolute;left:-18px;bottom:28px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);font-size:13px;color:var(--muted)}
+  .badge-price b{display:block;font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--plum-deep);line-height:1.1}
+
+  /* Steps */
+  .steps{padding:64px 0;background:var(--surface);border-block:1px solid var(--line)}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .step{display:flex;gap:16px;align-items:flex-start}
+  .step .num{flex:none;width:48px;height:48px;border-radius:50%;background:var(--lilac-soft);color:var(--plum);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600}
+  .step h3{font-size:17px;margin-bottom:4px}
+  .step p{font-size:14.5px;color:var(--muted)}
+
+  /* Products */
+  section.block{padding:84px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+  .head h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(34px,4.5vw,48px);line-height:1.1;color:var(--plum-deep)}
+  .head p{color:var(--muted);max-width:460px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+  .chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+  .chip:hover{border-color:var(--lilac)}
+  .chip.on{background:var(--plum);border-color:var(--plum);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+  .card{background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--lilac-soft)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .ph img{transform:scale(1.04)}
+  .tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--plum);font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px}
+  .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card h3{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;line-height:1.15;color:var(--plum-deep)}
+  .card .desc{font-size:14px;color:var(--muted);flex:1}
+  .card .row{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:10px}
+  .price{font-size:20px;font-weight:700;color:var(--ink)}
+  .price small{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px}
+  .card .btn{padding:10px 18px;font-size:14px}
+
+  /* Custom order banner */
+  .custom{margin-top:44px;border-radius:24px;background:linear-gradient(120deg,var(--plum-deep),var(--plum));color:#fff;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .custom h3{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:600;line-height:1.15}
+  .custom p{opacity:.85;max-width:520px;margin-top:6px}
+  .custom .btn-light{background:#fff;color:var(--plum-deep)}
+
+  /* Delivery */
+  .delivery{background:var(--surface);border-block:1px solid var(--line)}
+  .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .opt{border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:var(--bg)}
+  .opt .ic{width:52px;height:52px;border-radius:14px;background:var(--lilac);display:grid;place-items:center;color:var(--plum-deep);margin-bottom:16px}
+  .opt .ic svg{width:26px;height:26px}
+  .opt h3{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;color:var(--plum-deep);margin-bottom:8px}
+  .opt ul{list-style:none;display:grid;gap:8px;margin-top:14px;font-size:15px}
+  .opt li{display:flex;gap:10px;align-items:flex-start}
+  .opt li::before{content:"✿";color:var(--gold);flex:none}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:stretch}
+  .info{display:grid;gap:18px;align-content:start}
+  .info-item{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+  .info-item svg{flex:none;width:22px;height:22px;color:var(--plum);margin-top:2px}
+  .info-item b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:2px}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:360px}
+  .map iframe{width:100%;height:100%;min-height:360px;border:0}
+
+  footer{background:var(--plum-deep);color:#e8d9ea;padding:40px 0 100px;font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .logo b,footer .logo{color:#fff}
+
+  /* Floating WhatsApp */
+  .fab{position:fixed;right:20px;bottom:20px;z-index:50;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(31,168,85,.55)}
+  .fab svg{width:30px;height:30px}
+
+  /* Mobile bar */
+  .mbar{display:none}
+
+  /* Modal */
+  .overlay{position:fixed;inset:0;z-index:100;background:rgba(42,31,44,.55);display:none;align-items:center;justify-content:center;padding:20px}
+  .overlay.open{display:flex}
+  .modal{background:var(--surface);border-radius:24px;width:100%;max-width:820px;max-height:calc(100vh - 40px);overflow:auto;display:grid;grid-template-columns:300px 1fr}
+  .modal .m-img{position:relative;background:var(--lilac-soft)}
+  .modal .m-img img{width:100%;height:100%;object-fit:cover;min-height:100%}
+  .modal .m-img .cap{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(transparent,rgba(42,31,44,.8));color:#fff}
+  .modal .m-img .cap b{font-family:"Cormorant Garamond",serif;font-size:26px;display:block;line-height:1.1}
+  .m-form{padding:28px;position:relative}
+  .close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--lilac-soft);color:var(--plum-deep);font-size:22px;line-height:1}
+  .m-form h3{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--plum-deep);font-weight:600;margin-bottom:4px}
+  .m-form .sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .seg label{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:flex;gap:10px;align-items:center;font-weight:600;font-size:14.5px}
+  .seg label small{display:block;font-weight:500;color:var(--muted);font-size:12.5px}
+  .seg input{accent-color:var(--plum)}
+  .seg label:has(input:checked){border-color:var(--plum);background:var(--lilac-soft)}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fields .full{grid-column:1/-1}
+  .f label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+  .f input,.f select,.f textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+  .f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--plum)}
+  .f textarea{resize:vertical;min-height:70px}
+  .deliv-only{display:contents}
+  .deliv-only[hidden]{display:none}
+  .sec-title{grid-column:1/-1;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+  .summary{display:flex;justify-content:space-between;align-items:center;margin:18px 0 14px;padding-top:16px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
+  .summary b{font-size:22px;color:var(--ink)}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px;text-align:center}
+  .m-form .btn{width:100%}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .badge-price{left:12px}
+    .steps-grid{grid-template-columns:1fr;gap:20px}
+    .opt-grid,.contact-grid{grid-template-columns:1fr}
+    .nav ul{display:none}
+    .modal{grid-template-columns:1fr}
+    .modal .m-img{height:200px}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .hero{padding:32px 0 48px}
+    section.block{padding:56px 0}
+    .grid{grid-template-columns:1fr 1fr;gap:12px}
+    .card .body{padding:12px}
+    .card h3{font-size:19px}
+    .card .desc{display:none}
+    .card .row{flex-direction:column;align-items:stretch;gap:8px}
+    .price{font-size:17px}
+    .custom{padding:28px 22px}
+    .fields{grid-template-columns:1fr}
+    .m-form{padding:22px 18px}
+    .fab{display:none}
+    .nav .btn{display:none}
+    .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px;background:rgba(255,255,255,.96);border-top:1px solid var(--line)}
+    .mbar .btn{padding:12px}
+    .overlay{padding:0;align-items:flex-end}
+    .modal{border-radius:24px 24px 0 0;max-height:94vh}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><b>DÜNYA</b><i>Flowers</i></a>
+    <ul>
+      <li><a href="#urunler">Çiçekler</a></li>
+      <li><a href="#teslimat">Teslimat</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#urunler">Sipariş Ver</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">✿ Çekmeköy'ün çiçekçisi</span>
+        <h1 class="serif">Sevdiklerinize <em>en taze</em> haliyle.</h1>
+        <p class="lead">Buketinizi seçin, siparişinizi verin; biz özenle hazırlayalım. İster dükkânımıza gelip alın, ister adresinize iletelim.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#urunler">Çiçekleri İncele</a>
+          <a class="btn btn-ghost" href="tel:+905334222994">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            0533 422 29 94
+          </a>
+        </div>
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span><strong>5,0</strong> · Google'da 14 yorum</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img class="tall" src="images/4.webp" alt="Dünya Flowers dükkânı önünde karışık buket">
+        <img class="sq" src="images/13.webp" alt="Kırmızı gül buketi">
+        <img class="sq" src="images/3.webp" alt="Pembe gül ve krizantem buketi">
+        <div class="badge-price">Buketler<b>1.000 – 1.500 ₺</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="steps">
+    <div class="wrap steps-grid">
+      <div class="step"><div class="num">1</div><div><h3>Çiçeğinizi seçin</h3><p>Buket, gül ya da saksı çiçeği — beğendiğinize "Sipariş Ver" deyin.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Biz hazırlayalım</h3><p>Siparişiniz WhatsApp'tan bize ulaşır, onaylar ve taze çiçeklerle hazırlarız.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>Gelin alın ya da iletelim</h3><p>Dükkândan teslim alın veya istediğiniz adrese gönderelim.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="block" id="urunler">
+    <div class="wrap">
+      <div class="head">
+        <h2>Çiçeklerimiz</h2>
+        <p>Tüm tasarımlar o gün taze çiçeklerle hazırlanır; mevsime göre çiçek türlerinde küçük değişiklikler olabilir.</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+
+      <div class="custom">
+        <div>
+          <h3>Aklınızda başka bir tasarım mı var?</h3>
+          <p>Renk, bütçe ya da özel gün fark etmez — bize yazın, size özel hazırlayalım.</p>
+        </div>
+        <a class="btn btn-light" target="_blank" rel="noopener" href="https://wa.me/905334222994?text=Merhaba%2C%20%C3%B6zel%20bir%20%C3%A7i%C3%A7ek%20tasar%C4%B1m%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum.">WhatsApp'tan Yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery -->
+  <section class="block delivery" id="teslimat">
+    <div class="wrap">
+      <div class="head">
+        <h2>Nasıl teslim alırsınız?</h2>
+        <p>Sipariş verirken size uygun olanı seçmeniz yeterli.</p>
+      </div>
+      <div class="opt-grid">
+        <div class="opt">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v7h14v-7"/><path d="M10 20v-4h4v4"/></svg></div>
+          <h3>Gelip Alın</h3>
+          <p>Siparişinizi verin, saatinde hazır olsun. Dükkâna uğrayıp hemen teslim alın.</p>
+          <ul>
+            <li>Demokrasi Cd. No:15/A, Cumhuriyet Mah., Çekmeköy</li>
+            <li>Hazır olduğunda size haber veririz</li>
+            <li>Ek ücret yok</li>
+          </ul>
+        </div>
+        <div class="opt">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Adrese Gönderelim</h3>
+          <p>Sevdiklerinize sürpriz yapın; çiçeğinizi istediğiniz adrese biz ulaştıralım.</p>
+          <ul>
+            <li>Çekmeköy ve çevresine teslimat</li>
+            <li>İsterseniz kartınıza özel notunuzu yazarız</li>
+            <li>Teslimat ücreti adrese göre sipariş onayında bildirilir</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="block" id="iletisim">
+    <div class="wrap">
+      <div class="head"><h2>Bize ulaşın</h2></div>
+      <div class="contact-grid">
+        <div class="info">
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><b>Adres</b>Cumhuriyet Mah., Demokrasi Cd. No:15/A<br>34000 Çekmeköy / İstanbul</div>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            <div><b>Telefon / WhatsApp</b><a href="tel:+905334222994">0533 422 29 94</a></div>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>Çalışma saatleri</b>Kapanış saati: 21:00</div>
+          </div>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=D%C3%BCnya+Flowers+Demokrasi+Cd.+15%2FA+%C3%87ekmek%C3%B6y">Yol Tarifi Al</a>
+        </div>
+        <div class="map">
+          <iframe loading="lazy" title="Dünya Flowers konumu" src="https://maps.google.com/maps?q=D%C3%BCnya%20Flowers%2C%20Demokrasi%20Cd.%2015%2FA%2C%20%C3%87ekmek%C3%B6y%2C%20%C4%B0stanbul&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#" class="logo"><b>DÜNYA</b><i>Flowers</i></a>
+    <span>Demokrasi Cd. No:15/A, Çekmeköy · 0533 422 29 94</span>
+    <span>© <span id="yr"></span> Dünya Flowers · <a href="../index.html">Dijital Çözümlerim ile hazırlandı</a></span>
+  </div>
+</footer>
+
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="WhatsApp" href="https://wa.me/905334222994">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 0 1 12 2.2a9.8 9.8 0 0 1 9.8 9.8c0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.4-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.2-3.5-8.5z"/></svg>
+</a>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+905334222994">Hemen Ara</a>
+  <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/905334222994">WhatsApp</a>
+</div>
+
+<!-- Order modal -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="m-img">
+      <img id="mImg" src="images/4.webp" alt="">
+      <div class="cap"><b id="mName"></b><span id="mPrice"></span></div>
+    </div>
+    <form class="m-form" id="orderForm" novalidate>
+      <button type="button" class="close" id="closeBtn" aria-label="Kapat">×</button>
+      <h3 id="mTitle">Sipariş Ver</h3>
+      <p class="sub">Formu doldurun, siparişiniz WhatsApp üzerinden bize iletilsin.</p>
+
+      <div class="seg">
+        <label><input type="radio" name="method" value="pickup" checked><span>Gelip Alacağım<small>Dükkândan teslim</small></span></label>
+        <label><input type="radio" name="method" value="delivery"><span>Adrese Gönderin<small>Biz iletelim</small></span></label>
+      </div>
+
+      <div class="fields">
+        <div class="f"><label for="fName">Adınız Soyadınız</label><input id="fName" required autocomplete="name"></div>
+        <div class="f"><label for="fPhone">Telefonunuz</label><input id="fPhone" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx"></div>
+        <div class="f"><label for="fDate" id="lDate">Teslim alma tarihi</label><input id="fDate" type="date" required></div>
+        <div class="f"><label for="fTime">Saat aralığı</label>
+          <select id="fTime">
+            <option>10:00 – 12:00</option>
+            <option>12:00 – 14:00</option>
+            <option>14:00 – 16:00</option>
+            <option>16:00 – 18:00</option>
+            <option>18:00 – 21:00</option>
+          </select>
+        </div>
+
+        <div class="deliv-only" id="delivFields" hidden>
+          <div class="sec-title">Alıcı bilgileri</div>
+          <div class="f"><label for="fRName">Alıcının adı</label><input id="fRName"></div>
+          <div class="f"><label for="fRPhone">Alıcının telefonu</label><input id="fRPhone" type="tel"></div>
+          <div class="f full"><label for="fAddr">Teslimat adresi</label><textarea id="fAddr" placeholder="Mahalle, cadde/sokak, bina no, daire, ilçe"></textarea></div>
+        </div>
+
+        <div class="f full"><label for="fNote">Kart notu <span style="font-weight:400;color:var(--muted)">(isteğe bağlı)</span></label><textarea id="fNote" placeholder="Örn: İyi ki doğdun! ♥"></textarea></div>
+      </div>
+
+      <div class="summary"><span id="sumLabel">Ürün tutarı</span><b id="sumPrice"></b></div>
+      <button class="btn btn-wa" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 0 1 12 2.2a9.8 9.8 0 0 1 9.8 9.8c0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.4-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.2-3.5-8.5z"/></svg>
+        Siparişi WhatsApp'tan Gönder
+      </button>
+      <p class="note" id="note">Siparişiniz onaylandığında hazırlamaya başlıyoruz.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  const PHONE = "905334222994";
+
+  const PRODUCTS = [
+    { id:"kirmizi-ask",   name:"Kırmızı Aşk",        img:"13.webp",      price:1500, cat:"gul",    tag:"En çok tercih edilen", desc:"Siyah özel ambalajda bol kırmızı gül buketi." },
+    { id:"klasik-gul",    name:"Klasik Kırmızı Gül", img:"unnamed.webp", price:1250, cat:"gul",    desc:"Kraft ambalajda kırmızı güller ve beyaz detaylar." },
+    { id:"bahar",         name:"Bahar Esintisi",     img:"10.webp",      price:1300, cat:"buket",  desc:"Beyaz lilyum, pembe gül ve mor krizantem." },
+    { id:"pembe-ruya",    name:"Pembe Rüya",         img:"11.webp",      price:1100, cat:"buket",  desc:"Papatya, pembe gül ve mor krizantem; pembe ambalaj." },
+    { id:"lila-masal",    name:"Lila Masal",         img:"3.webp",       price:1200, cat:"buket",  desc:"Pudra güller, lila krizantem ve okaliptüs." },
+    { id:"dunya-ozel",    name:"Dünya Özel",         img:"4.webp",       price:1450, cat:"ozel",   tag:"İmza tasarım", desc:"Lilyum, gül, papatya ve kuru otlarla gösterişli buket." },
+    { id:"beyaz-zarafet", name:"Beyaz Zarafet",      img:"2.webp",       price:1350, cat:"buket",  desc:"Beyaz ve krem tonlarında şık karışık buket." },
+    { id:"gelin-beyazi",  name:"Gelin Beyazı",       img:"9.webp",       price:1500, cat:"ozel",   desc:"Beyaz krizantem, pudra gül ve palmiye yapraklarıyla büyük tasarım." },
+    { id:"fusya-vazo",    name:"Fuşya Vazo",         img:"5.webp",       price:1400, cat:"vazo",   desc:"Seramik vazoda pembe lilyum, gül ve yeşillikler." },
+    { id:"baris-cicegi",  name:"Barış Çiçeği",       img:"12.webp",      price:1000, cat:"vazo",   desc:"Saksıda Spathiphyllum; uzun ömürlü, bakımı kolay." },
+    { id:"mor-bahce",     name:"Mor Bahçe",          img:"6.webp",       price:1150, cat:"buket",  desc:"Mor ambalajda gerbera, karanfil ve krizantem." },
+    { id:"mor-turuncu",   name:"Gün Batımı",         img:"mor.webp",     price:1100, cat:"gul",    desc:"Turuncu güller ve mor krizantemler." },
+    { id:"mercan",        name:"Mercan Neşesi",      img:"8.webp",       price:1050, cat:"buket",  desc:"Turuncu gül, pembe karanfil ve papatyalar." },
+    { id:"kis-masali",    name:"Kış Masalı",         img:"7.webp",       price:1250, cat:"ozel",   tag:"Yeni yıl", desc:"Kutuda kırmızı meyveler, kozalak ve minik ayıcık." },
+    { id:"yilbasi",       name:"Yılbaşı Buketi",     img:"88.webp",      price:1300, cat:"ozel",   tag:"Yeni yıl", desc:"Kurutulmuş portakal, kozalak ve kırmızı meyvelerle." }
+  ];
+
+  const CATS = [
+    { id:"all",   label:"Tümü" },
+    { id:"buket", label:"Buketler" },
+    { id:"gul",   label:"Güller" },
+    { id:"vazo",  label:"Vazo & Saksı" },
+    { id:"ozel",  label:"Özel Tasarım" }
+  ];
+
+  const fmt = n => n.toLocaleString("tr-TR") + " ₺";
+  const $ = s => document.querySelector(s);
+
+  const grid = $("#grid"), filters = $("#filters");
+  let current = null;
+
+  function renderFilters(active){
+    filters.innerHTML = CATS.map(c =>
+      `<button class="chip${c.id===active?" on":""}" data-cat="${c.id}">${c.label}</button>`).join("");
+  }
+  function renderGrid(cat){
+    const list = cat==="all" ? PRODUCTS : PRODUCTS.filter(p => p.cat===cat);
+    grid.innerHTML = list.map(p => `
+      <article class="card">
+        <div class="ph">
+          <img loading="lazy" src="images/${p.img}" alt="${p.name}">
+          ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
+        </div>
+        <div class="body">
+          <h3>${p.name}</h3>
+          <p class="desc">${p.desc}</p>
+          <div class="row">
+            <span class="price">${p.price.toLocaleString("tr-TR")}<small>₺</small></span>
+            <button class="btn btn-primary" data-order="${p.id}">Sipariş Ver</button>
+          </div>
+        </div>
+      </article>`).join("");
+  }
+  filters.addEventListener("click", e => {
+    const b = e.target.closest("[data-cat]"); if(!b) return;
+    renderFilters(b.dataset.cat); renderGrid(b.dataset.cat);
+  });
+  grid.addEventListener("click", e => {
+    const b = e.target.closest("[data-order]"); if(!b) return;
+    openOrder(PRODUCTS.find(p => p.id===b.dataset.order));
+  });
+
+  // Modal
+  const overlay = $("#overlay"), form = $("#orderForm"), delivFields = $("#delivFields");
+  const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  const todayStr = today.toISOString().slice(0,10);
+  $("#fDate").min = todayStr;
+
+  function openOrder(p){
+    current = p;
+    $("#mImg").src = "images/" + p.img; $("#mImg").alt = p.name;
+    $("#mName").textContent = p.name;
+    $("#mPrice").textContent = fmt(p.price);
+    $("#sumPrice").textContent = fmt(p.price);
+    if(!$("#fDate").value) $("#fDate").value = todayStr;
+    overlay.classList.add("open"); overlay.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => $("#fName").focus(), 50);
+  }
+  function closeOrder(){
+    overlay.classList.remove("open"); overlay.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+  $("#closeBtn").addEventListener("click", closeOrder);
+  overlay.addEventListener("click", e => { if(e.target===overlay) closeOrder(); });
+  document.addEventListener("keydown", e => { if(e.key==="Escape") closeOrder(); });
+
+  function syncMethod(){
+    const delivery = form.method.value === "delivery";
+    delivFields.hidden = !delivery;
+    ["#fRName","#fRPhone","#fAddr"].forEach(s => $(s).required = delivery);
+    $("#lDate").textContent = delivery ? "Teslimat tarihi" : "Teslim alma tarihi";
+    $("#sumLabel").textContent = delivery ? "Ürün tutarı (+ teslimat)" : "Ürün tutarı";
+    $("#note").textContent = delivery
+      ? "Teslimat ücreti adrese göre sipariş onayında bildirilir."
+      : "Siparişiniz hazır olduğunda size haber veririz.";
+  }
+  form.addEventListener("change", e => { if(e.target.name==="method") syncMethod(); });
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const req = [...form.querySelectorAll("[required]")];
+    const bad = req.find(el => !el.value.trim());
+    req.forEach(el => el.style.borderColor = el.value.trim() ? "" : "#d64545");
+    if(bad){ bad.focus(); return; }
+
+    const delivery = form.method.value === "delivery";
+    const d = new Date($("#fDate").value + "T00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"long",weekday:"long"});
+    const lines = [
+      "🌸 *Yeni Sipariş – Dünya Flowers*",
+      "",
+      `*Ürün:* ${current.name} (${fmt(current.price)})`,
+      `*Teslim şekli:* ${delivery ? "Adrese gönderim" : "Gelip alacağım"}`,
+      `*Tarih:* ${d}, ${$("#fTime").value}`,
+      "",
+      `*Sipariş veren:* ${$("#fName").value.trim()}`,
+      `*Telefon:* ${$("#fPhone").value.trim()}`
+    ];
+    if(delivery){
+      lines.push("", `*Alıcı:* ${$("#fRName").value.trim()}`, `*Alıcı tel:* ${$("#fRPhone").value.trim()}`, `*Adres:* ${$("#fAddr").value.trim()}`);
+    }
+    const note = $("#fNote").value.trim();
+    if(note) lines.push("", `*Kart notu:* ${note}`);
+
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
+  });
+
+  renderFilters("all"); renderGrid("all"); syncMethod();
+  $("#yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -7,6 +7,8 @@ yüklediği moderasyonlu galeri ve bunları yöneten panel.
 |---|---|
 | `index.html` | Vitrin: hangi çözümler var |
 | `davetiye.html` | Dijital davetiye demosu (kurgusal bilgiler) |
+| `cicekci.html` | Çiçekçi sitesi demosu (kurgusal bilgiler, görseller `cicekci/`) |
+| `dunya-flowers/` | Dünya Flowers'ın gerçek sitesi — vitrinden bağlantı verilmez |
 | `etkinlik.html?slug=…` | Davetlilerin fotoğraf yüklediği ve galeriyi gezdiği sayfa |
 | `admin.html` | Etkinlik, onay ve arşiv yönetimi |
 
