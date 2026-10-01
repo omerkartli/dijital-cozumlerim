@@ -67,7 +67,7 @@
 
   .demo-bar{background:var(--tint-strong);color:var(--heading);font-size:13px;text-align:center;padding:8px 16px;font-weight:500}
 
-  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:40;background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
   .logo{display:flex;align-items:baseline;gap:6px;color:var(--heading)}
   .logo b{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:.04em}
@@ -217,7 +217,7 @@
     .fields{grid-template-columns:1fr}
     .m-body{padding:22px 18px}
     .nav .btn{display:none}
-    .mbar{display:grid;grid-template-columns:1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--glass);border-top:1px solid var(--line)}
+    .mbar{display:grid;grid-template-columns:1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px;background:var(--glass);border-top:1px solid var(--line)}
     .overlay{padding:0;align-items:flex-end}
     .modal{border-radius:24px 24px 0 0;max-height:94vh}
   }
