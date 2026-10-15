@@ -266,7 +266,7 @@
       <div class="hero-art" aria-hidden="true">
         <div class="arch a1"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40c-9-6-14-12-14-19a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 7-5 13-14 19z"/></svg></div>
         <div class="arch a2"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c6 7 10 12 10 18a10 10 0 0 1-20 0c0-6 4-11 10-18z"/><path d="M24 30v12M18 36c3 0 6-2 6-6M30 38c-3 0-6-2-6-6"/></svg></div>
-        <div class="badge">İlk ziyarete özel<b>%15 indirim</b></div>
+        <div class="badge" id="heroBadge">İlk ziyarete özel<b>%15 indirim</b></div>
       </div>
     </div>
   </section>
@@ -283,7 +283,7 @@
     <div class="wrap">
       <div class="head">
         <h2>Hizmetlerimiz</h2>
-        <p>Tüm uygulamalar uzman ekibimiz tarafından, hijyenik ve size özel hazırlanır. Fiyatlar başlangıç fiyatıdır; uygulama öncesi netleşir.</p>
+        <p id="svcNote">Tüm uygulamalar uzman ekibimiz tarafından, hijyenik ve size özel hazırlanır.</p>
       </div>
       <div class="filters" id="filters"></div>
       <div class="grid" id="grid"></div>
@@ -381,9 +381,6 @@
           <div class="f"><label for="fExp">Uzman tercihi <span>(isteğe bağlı)</span></label>
             <select id="fExp">
               <option>Fark etmez</option>
-              <option>Elif Hanım</option>
-              <option>Selin Hanım</option>
-              <option>Merve Hanım</option>
             </select>
           </div>
           <div class="f full">
@@ -393,10 +390,10 @@
           <div class="f full"><label for="fNote">Notunuz <span>(isteğe bağlı)</span></label><textarea id="fNote" placeholder="Örn: Hassas cildim var, alerjim var..."></textarea></div>
         </div>
 
-        <div class="summary"><span>Başlangıç tutarı</span><b id="sumPrice"></b></div>
+        <div class="summary" id="sumRow"><span>Başlangıç tutarı</span><b id="sumPrice"></b></div>
         <button class="btn btn-wa wide" type="submit">Randevu Talebini Hazırla</button>
         <p class="err" id="err" hidden>Kırmızı işaretli alanları doldurun ve bir saat seçin.</p>
-        <p class="note">Randevunuz, onay mesajımızla kesinleşir.</p>
+        <p class="note">Seçtiğiniz saat bu cihazda ayrılır; randevunuz onay mesajımızla kesinleşir.</p>
       </form>
 
       <div id="done" hidden>
@@ -414,6 +411,11 @@
 </div>
 
 <script>
+  // Fiyatları göstermek/gizlemek için: false yapın (ya da adrese ?fiyat=0 ekleyin)
+  const SHOW_PRICES = new URLSearchParams(location.search).get("fiyat") !== "0" ;
+  const EXPERTS = ["Elif Hanım","Selin Hanım","Merve Hanım"];
+  const STORE_KEY = "gz_randevular";
+
   const ICONS = {
     face:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M17 20h.01M31 20h.01M18 29c2 3 4 4 6 4s4-1 6-4"/></svg>',
     spark:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.5 11.5L39 21l-11.5 3.5L24 36l-3.5-11.5L9 21l11.5-3.5z"/><path d="M38 34l1.2 3.8L43 39l-3.8 1.2L38 44l-1.2-3.8L33 39l3.8-1.2z"/></svg>',
@@ -474,7 +476,7 @@
           <h3>${p.name}</h3>
           <p class="desc">${p.desc}</p>
           <div class="row">
-            <span class="price"><small>başlayan</small> ${p.price.toLocaleString("tr-TR")}<small>₺</small></span>
+            ${SHOW_PRICES ? `<span class="price"><small>başlayan</small> ${p.price.toLocaleString("tr-TR")}<small>₺</small></span>` : `<span class="price"><small>${p.min} dk</small></span>`}
             <button type="button" class="btn btn-primary" data-order="${p.id}">Randevu Al</button>
           </div>
         </div>
@@ -495,9 +497,21 @@
   const todayStr = t.toISOString().slice(0,10);
   $("#fDate").min = todayStr;
 
-  function priceText(p){ return p.price ? fmt(p.price) + "'den başlayan" : "Ücretsiz"; }
+  function priceText(p){ if(!p.price) return "Ücretsiz"; return SHOW_PRICES ? fmt(p.price) + "'den başlayan" : p.min + " dk"; }
 
-  // Pazar günü kapalı; bugünse geçmiş saatler pasif
+  // Randevu kayıtları (demo: tarayıcıda tutulur; gerçek sitede sunucu/takvimle bağlanır)
+  const loadBookings = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch(_) { return []; } };
+  const saveBooking = b => { try { localStorage.setItem(STORE_KEY, JSON.stringify([...loadBookings(), b])); } catch(_) {} };
+  // Demo için bazı saatler "dolu" görünsün (tarih+saat'ten türetilen sabit değer)
+  const demoBusy = (date, s) => { let h = 0; for(const c of date + s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h % 5 === 0; };
+  function isTaken(date, s, expert){
+    if(demoBusy(date, s)) return true;
+    const same = loadBookings().filter(b => b.date === date && b.slot === s);
+    if(expert === "Fark etmez") return new Set(same.map(b => b.expert).filter(e => e !== "Fark etmez")).size + same.filter(b => b.expert === "Fark etmez").length >= EXPERTS.length;
+    return same.some(b => b.expert === expert || b.expert === "Fark etmez" && same.length >= EXPERTS.length);
+  }
+
+  // Pazar günü kapalı; bugünse geçmiş saatler ve dolu saatler pasif
   function renderSlots(){
     const v = $("#fDate").value;
     const day = v ? new Date(v + "T00:00").getDay() : -1;
@@ -506,7 +520,8 @@
     slotsEl.innerHTML = SLOTS.map(s => {
       const h = +s.slice(0,2);
       const past = v === todayStr && h <= now.getHours();
-      return `<button type="button" class="slot${s===slot?" on":""}" data-slot="${s}" ${closed||past?"disabled":""}>${s}</button>`;
+      const taken = v && isTaken(v, s, $("#fExp").value);
+      return `<button type="button" class="slot${s===slot?" on":""}" data-slot="${s}" ${closed||past||taken?"disabled":""}>${s}</button>`;
     }).join("");
     if(slot && slotsEl.querySelector(`[data-slot="${slot}"]`)?.disabled) slot = null;
     if(closed) slotsEl.insertAdjacentHTML("beforeend", '<span class="sub" style="margin:0;align-self:center">Pazar günleri kapalıyız, başka bir gün seçin.</span>');
@@ -516,14 +531,17 @@
     slot = b.dataset.slot; renderSlots();
   });
   $("#fDate").addEventListener("change", renderSlots);
+  $("#fExp").addEventListener("change", renderSlots);
 
   function openOrder(p){
     current = p; slot = null;
+    $("#fExp").innerHTML = ["Fark etmez", ...EXPERTS].map(x => `<option>${x}</option>`).join("");
     $("#mImg").style.background = GRAD[p.cat];
     $("#mIcon").innerHTML = ICONS[p.icon];
     $("#mName").textContent = p.name;
     $("#mPrice").textContent = priceText(p);
     $("#sumPrice").textContent = p.price ? fmt(p.price) : "Ücretsiz";
+    $("#sumRow").hidden = !SHOW_PRICES;
     $("#fNote").placeholder = p.price ? "Örn: Hassas cildim var, alerjim var..." : "Cildinizi ya da istediğiniz bakımı kısaca anlatın";
     if(!$("#fDate").value) $("#fDate").value = todayStr;
     renderSlots();
@@ -558,7 +576,7 @@
     const lines = [
       "✨ Yeni Randevu Talebi",
       "",
-      `Hizmet: ${current.name} (${priceText(current)})`,
+      `Hizmet: ${current.name}${SHOW_PRICES ? " (" + priceText(current) + ")" : ""}`,
       `Kişi sayısı: ${two ? "2 kişi" : "1 kişi"}`,
       `Tarih: ${d}, ${slot}`,
       `Uzman: ${$("#fExp").value}`,
@@ -569,12 +587,13 @@
     const note = $("#fNote").value.trim();
     if(note) lines.push("", `Not: ${note}`);
 
+    saveBooking({ date: $("#fDate").value, slot, expert: $("#fExp").value, service: current.id });
     $("#msg").textContent = lines.join("\n");
     form.hidden = true; done.hidden = false;
     $("#copyBtn").textContent = "Mesajı Kopyala";
   });
 
-  $("#editBtn").addEventListener("click", () => { done.hidden = true; form.hidden = false; });
+  $("#editBtn").addEventListener("click", () => { done.hidden = true; form.hidden = false; slot = null; renderSlots(); });
   $("#copyBtn").addEventListener("click", () => {
     const text = $("#msg").textContent;
     const selectFallback = () => {
@@ -589,6 +608,7 @@
     } catch(_) { selectFallback(); }
   });
 
+  if(!SHOW_PRICES){ $("#svcNote").textContent += ""; } else { $("#svcNote").textContent += " Fiyatlar başlangıç fiyatıdır; uygulama öncesi netleşir."; }
   renderFilters("all"); renderGrid("all");
 </script>
 </body>
