@@ -98,7 +98,7 @@
 
   .hero-art{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
   .arch{border-radius:999px 999px var(--radius) var(--radius);overflow:hidden;box-shadow:var(--shadow);display:grid;place-items:center}
-  .arch svg{width:52%;height:auto;opacity:.9}
+  .arch img{width:100%;height:100%;object-fit:cover;display:block}
   .arch.a1{aspect-ratio:3/5;background:linear-gradient(170deg,#e8c9bc,#c98c7c)}
   .arch.a2{aspect-ratio:3/4;background:linear-gradient(170deg,#cfe0d6,#7fa592);margin-bottom:34px}
   .badge{position:absolute;left:-18px;bottom:14px;background:var(--surface);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);font-size:13px;color:var(--muted)}
@@ -133,6 +133,7 @@
   .price{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
   .price small{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px}
   .card .btn{padding:10px 18px;font-size:14px}
+  .card .row .btn:only-child{margin-left:auto}
 
   .custom{margin-top:44px;border-radius:24px;background:var(--tint-strong);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
   .custom>div{min-width:0}
@@ -147,6 +148,12 @@
   .why-item h3{font-family:var(--display);font-size:28px;font-weight:600;color:var(--heading);margin-bottom:8px}
   .why-item p{font-size:15px;color:var(--muted)}
 
+  .salon{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .salon>*{min-width:0}
+  .salon img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);display:block}
+  .salon h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,42px);line-height:1.1;color:var(--heading);margin:10px 0 14px}
+  .salon p{color:var(--muted);margin-bottom:22px}
+  a.info-item:hover{border-color:var(--accent)}
   .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .info-item{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
   .info-item svg{flex:none;width:22px;height:22px;color:var(--accent);margin-top:2px}
@@ -203,7 +210,8 @@
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .badge{left:12px}
-    .steps-grid,.why-grid,.contact-grid{grid-template-columns:1fr}
+    .steps-grid,.why-grid,.contact-grid,.salon{grid-template-columns:1fr}
+    .salon{gap:28px}
     .steps-grid{gap:20px}
     .nav ul{display:none}
     .modal{grid-template-columns:1fr}
@@ -234,7 +242,7 @@
 </head>
 <body>
 
-<div class="demo-bar">Tuğçe Demir Güzellik Merkezi için hazırlanmış örnek tasarım · Hizmetler, fiyatlar ve iletişim bilgileri örnektir. <a href="index.html"><u>Dijital Çözümlerim</u></a></div>
+<div class="demo-bar">Tuğçe Demir Güzellik Merkezi için hazırlanmış örnek tasarım <a href="index.html"><u>Dijital Çözümlerim</u></a></div>
 
 <header>
   <div class="wrap nav">
@@ -252,23 +260,23 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">✿ Kendinize ayıracağınız zaman, Tuğçe Demir'de</span>
+        <span class="eyebrow">✿ Çekmeköy'de güzellik merkezi</span>
         <h1>Işıltınız <em>bize</em> emanet.</h1>
-        <p class="lead">Cilt bakımından lazer epilasyona, manikürden kaş &amp; kirpiğe kadar tüm bakımlar tek çatı altında. Hizmetinizi seçin, saatinizi ayırtın; gerisini biz düşünelim.</p>
+        <p class="lead">Lazer epilasyon, manikür ve protez tırnak, kaş &amp; kirpik, cilt ve ayak bakımı... Hizmetinizi seçin, saatinizi ayırtın; gerisini biz düşünelim.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#hizmetler">Randevu Al</a>
           <a class="btn btn-ghost" href="#neden">Neden Biz?</a>
         </div>
         <div class="trust">
-          <div><b>12+</b>yıllık deneyim</div>
-          <div><b>6.000+</b>mutlu müşteri</div>
-          <div><b>%100</b>tek kullanımlık ürün</div>
+          <div><b>4,7 ★</b>Google puanı</div>
+          <div><b>446</b>Google yorumu</div>
+          <div><b>12</b>farklı hizmet</div>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <div class="arch a1"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40c-9-6-14-12-14-19a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 7-5 13-14 19z"/></svg></div>
-        <div class="arch a2"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c6 7 10 12 10 18a10 10 0 0 1-20 0c0-6 4-11 10-18z"/><path d="M24 30v12M18 36c3 0 6-2 6-6M30 38c-3 0-6-2-6-6"/></svg></div>
-        <div class="badge" id="heroBadge">İlk ziyarete özel<b>%15 indirim</b></div>
+        <div class="arch a1"><img src="tugce-demir/tirnak-mavi.webp" alt=""></div>
+        <div class="arch a2"><img src="tugce-demir/tirnak-nude.webp" alt=""></div>
+        <div class="badge" id="heroBadge">Google'da<b>4,7 ★ · 446 yorum</b></div>
       </div>
     </div>
   </section>
@@ -285,17 +293,17 @@
     <div class="wrap">
       <div class="head">
         <h2>Hizmetlerimiz</h2>
-        <p id="svcNote">Tüm uygulamalar uzman ekibimiz tarafından, hijyenik ve size özel hazırlanır.</p>
+        <p id="svcNote">Hizmetlerimizi seçin, uygun gün ve saati ayırtın.</p>
       </div>
       <div class="filters" id="filters"></div>
       <div class="grid" id="grid"></div>
 
       <div class="custom">
         <div>
-          <h3>Hangi bakım size uygun, emin değil misiniz?</h3>
-          <p>Cildinizi ve isteğinizi anlatın, uzmanımız size en uygun bakımı önersin. Ücretsiz ön görüşme.</p>
+          <h3>Hangi hizmet size uygun, emin değil misiniz?</h3>
+          <p>İsteğinizi anlatın, size en uygun uygulamayı birlikte belirleyelim.</p>
         </div>
-        <button class="btn btn-primary" type="button" id="customBtn">Ücretsiz Danışın</button>
+        <button class="btn btn-primary" type="button" id="customBtn">Bize Danışın</button>
       </div>
     </div>
   </section>
@@ -326,21 +334,33 @@
     </div>
   </section>
 
+  <section class="block why" id="salon">
+    <div class="wrap salon">
+      <img src="tugce-demir/salon.webp" alt="Tuğçe Demir Güzellik Merkezi uygulama odası" loading="lazy">
+      <div>
+        <span class="eyebrow">✿ Salonumuz</span>
+        <h2>Size ayrılmış, sakin bir oda.</h2>
+        <p>Çekmeköy Güngören'de, her gün 09:00 – 19:00 arası sizi bekliyoruz. Yol tarifi ve iletişim bilgileri aşağıda.</p>
+        <a class="btn btn-ghost" href="#iletisim">Yol Tarifi &amp; İletişim</a>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="iletisim">
     <div class="wrap">
       <div class="head"><h2>Bize ulaşın</h2></div>
       <div class="contact-grid">
-        <div class="info-item">
+        <a class="info-item" href="https://www.google.com/maps/search/?api=1&query=Tolgahan+Sk.+No%3A1+G%C3%BCng%C3%B6ren+%C3%87ekmek%C3%B6y+%C4%B0stanbul" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><b>Adres</b>Adres bilgisi eklenecek</div>
-        </div>
-        <div class="info-item">
+          <div><b>Adres</b>Güngören, Tolgahan Sk. No:1 K:1<br>İç Kapı No:12, 34788 Çekmeköy / İstanbul</div>
+        </a>
+        <a class="info-item" href="tel:+905356402258">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-          <div><b>Telefon / WhatsApp</b>0 (5XX) XXX XX XX</div>
-        </div>
+          <div><b>Telefon / WhatsApp</b>0535 640 22 58</div>
+        </a>
         <div class="info-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div><b>Çalışma saatleri</b>Pzt – Cmt 10:00 – 20:00<br>Pazar kapalı</div>
+          <div><b>Çalışma saatleri</b>Her gün 09:00 – 19:00</div>
         </div>
       </div>
     </div>
@@ -379,17 +399,12 @@
         <div class="fields">
           <div class="f"><label for="fName">Adınız Soyadınız</label><input id="fName" required autocomplete="name"></div>
           <div class="f"><label for="fPhone">Telefonunuz</label><input id="fPhone" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx"></div>
-          <div class="f"><label for="fDate">Randevu tarihi</label><input id="fDate" type="date" required></div>
-          <div class="f"><label for="fExp">Uzman tercihi <span>(isteğe bağlı)</span></label>
-            <select id="fExp">
-              <option>Fark etmez</option>
-            </select>
-          </div>
+          <div class="f full"><label for="fDate">Randevu tarihi</label><input id="fDate" type="date" required></div>
           <div class="f full">
             <label>Saat</label>
             <div class="slots" id="slots"></div>
           </div>
-          <div class="f full"><label for="fNote">Notunuz <span>(isteğe bağlı)</span></label><textarea id="fNote" placeholder="Örn: Hassas cildim var, alerjim var..."></textarea></div>
+          <div class="f full"><label for="fNote">Notunuz <span>(isteğe bağlı)</span></label><textarea id="fNote" placeholder="Örn: Varsa alerjiniz ya da özel isteğiniz"></textarea></div>
         </div>
 
         <div class="summary" id="sumRow"><span>Başlangıç tutarı</span><b id="sumPrice"></b></div>
@@ -415,7 +430,6 @@
 <script>
   // Fiyatları göstermek/gizlemek için: false yapın (ya da adrese ?fiyat=0 ekleyin)
   const SHOW_PRICES = new URLSearchParams(location.search).get("fiyat") !== "0" ;
-  const EXPERTS = ["Elif Hanım","Selin Hanım","Merve Hanım"];
   const STORE_KEY = "td_randevular";
 
   const ICONS = {
@@ -429,32 +443,34 @@
     brush:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M34 6l8 8-18 18-8-8z"/><path d="M16 24c-5 1-8 5-8 10 0 4 2 8 6 8 5 0 9-3 10-8"/></svg>'
   };
   const GRAD = {
-    cilt:"linear-gradient(150deg,#e8c9bc,#c98c7c)",
     lazer:"linear-gradient(150deg,#cfe0d6,#7fa592)",
     tirnak:"linear-gradient(150deg,#e9d3c0,#b88a64)",
     kas:"linear-gradient(150deg,#d9d2e6,#9a8bb8)",
-    vucut:"linear-gradient(150deg,#d6e2de,#5f8678)"
+    cilt:"linear-gradient(150deg,#e8c9bc,#c98c7c)"
   };
   const SERVICES = [
-    { id:"cilt-bakimi",  name:"Klasik Cilt Bakımı", cat:"cilt",   icon:"face",  price:1200, min:60,  tag:"En çok tercih edilen", desc:"Temizlik, peeling, maske ve nemlendirme ile canlı bir cilt." },
-    { id:"hydrafacial",  name:"Hydrafacial",        cat:"cilt",   icon:"drop",  price:2200, min:75,  desc:"Derin temizlik ve yoğun nem desteği. Anında ışıltı." },
-    { id:"lazer-bacak",  name:"Lazer Epilasyon",    cat:"lazer",  icon:"spark", price:1500, min:45,  desc:"Tüm vücut bölgeleri için ağrısız, kalıcı çözüm. Seans bazlı." },
-    { id:"manikur",      name:"Manikür & Kalıcı Oje", cat:"tirnak", icon:"nail",  price:700,  min:60,  desc:"Bakım, şekillendirme ve haftalarca dayanan kalıcı oje." },
-    { id:"pedikur",      name:"Medikal Pedikür",    cat:"tirnak", icon:"nail",  price:900,  min:70,  desc:"Ayak bakımı, nasır ve tırnak sorunlarına uzman dokunuş." },
-    { id:"kirpik",       name:"İpek Kirpik",        cat:"kas",    icon:"eye",   price:1300, min:90,  tag:"Yeni", desc:"Doğal ya da dolgun görünümlü, hafif ve kalıcı kirpikler." },
-    { id:"kas-tasarim",  name:"Kaş Tasarımı & Laminasyon", cat:"kas", icon:"brush", price:850, min:45, desc:"Yüz hatlarınıza uygun kaş tasarımı, dolgun ve düzgün görünüm." },
-    { id:"masaj",        name:"Rahatlatıcı Masaj",  cat:"vucut",  icon:"leaf",  price:1100, min:50,  desc:"Aromaterapi yağlarla stres atın, kaslarınız gevşesin." }
+    { id:"lazer",     name:"Lazer Epilasyon",       cat:"lazer",  icon:"spark", desc:"İstenmeyen tüylere yönelik lazer uygulaması; bölgeye göre seans planı." },
+    { id:"manikur",   name:"Manikür",               cat:"tirnak", icon:"nail",  desc:"Tırnak bakımı ve şekillendirme." },
+    { id:"protez",    name:"Protez Tırnak",         cat:"tirnak", icon:"nail",  desc:"İstediğiniz boy ve formda protez tırnak uygulaması." },
+    { id:"pedikur",   name:"Pedikür",               cat:"tirnak", icon:"nail",  desc:"Ayak ve ayak tırnaklarınız için bakım." },
+    { id:"kas",       name:"Kaş Laminasyonu",       cat:"kas",    icon:"brush", desc:"Kaşlara düzgün ve dolgun bir görünüm." },
+    { id:"kirpik-lift", name:"Kirpik Liftingi",     cat:"kas",    icon:"eye",   desc:"Kirpiklere kıvrım ve hacim." },
+    { id:"ipek",      name:"İpek Kirpik",           cat:"kas",    icon:"eye",   desc:"Kirpiklerinize ipek kirpik uygulaması." },
+    { id:"eyeliner",  name:"Eyeliner & Dipliner",   cat:"kas",    icon:"brush", desc:"Göz çizginizi belirginleştiren eyeliner ve dipliner uygulaması." },
+    { id:"cilt",      name:"Cilt Bakımı",           cat:"cilt",   icon:"face",  desc:"Cilt tipinize uygun bakım." },
+    { id:"dudak",     name:"Dudak Renklendirme",    cat:"cilt",   icon:"drop",  desc:"Dudaklara doğal bir renk kazandıran uygulama." },
+    { id:"ayak",      name:"Ayak Bakımı",           cat:"cilt",   icon:"leaf",  desc:"Ayaklarınız için bakım uygulaması." },
+    { id:"catlak",    name:"Çatlak Onarım Bakımı",  cat:"cilt",   icon:"leaf",  desc:"Çatlayan ayaklar için onarım bakımı." }
   ];
-  const CUSTOM = { id:"danis", name:"Ücretsiz Danışma", cat:"cilt", icon:"face", price:null, min:20 };
+  const CUSTOM = { id:"danis", name:"Danışma Randevusu", cat:"cilt", icon:"face" };
   const CATS = [
     { id:"all",    label:"Tümü" },
-    { id:"cilt",   label:"Cilt Bakımı" },
     { id:"lazer",  label:"Lazer" },
     { id:"tirnak", label:"Tırnak" },
     { id:"kas",    label:"Kaş & Kirpik" },
-    { id:"vucut",  label:"Vücut" }
+    { id:"cilt",   label:"Cilt & Ayak Bakımı" }
   ];
-  const SLOTS = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"];
+  const SLOTS = ["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"];
 
   const $ = s => document.querySelector(s);
   const fmt = n => n.toLocaleString("tr-TR") + " ₺";
@@ -472,13 +488,12 @@
         <div class="ph" style="background:${GRAD[p.cat]}">
           ${ICONS[p.icon]}
           ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
-          <span class="dur">${p.min} dk</span>
         </div>
         <div class="body">
           <h3>${p.name}</h3>
           <p class="desc">${p.desc}</p>
           <div class="row">
-            ${SHOW_PRICES ? `<span class="price"><small>başlayan</small> ${p.price.toLocaleString("tr-TR")}<small>₺</small></span>` : `<span class="price"><small>${p.min} dk</small></span>`}
+            ${showPrice(p) ? `<span class="price"><small>başlayan</small> ${p.price.toLocaleString("tr-TR")}<small>₺</small></span>` : ""}
             <button type="button" class="btn btn-primary" data-order="${p.id}">Randevu Al</button>
           </div>
         </div>
@@ -499,52 +514,47 @@
   const todayStr = t.toISOString().slice(0,10);
   $("#fDate").min = todayStr;
 
-  function priceText(p){ if(!p.price) return "Ücretsiz"; return SHOW_PRICES ? fmt(p.price) + "'den başlayan" : p.min + " dk"; }
+  const showPrice = p => SHOW_PRICES && !!p.price;
+  function priceText(p){ return showPrice(p) ? fmt(p.price) + "'den başlayan" : ""; }
 
   // Randevu kayıtları (demo: tarayıcıda tutulur; gerçek sitede sunucu/takvimle bağlanır)
   const loadBookings = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch(_) { return []; } };
   const saveBooking = b => { try { localStorage.setItem(STORE_KEY, JSON.stringify([...loadBookings(), b])); } catch(_) {} };
   // Demo için bazı saatler "dolu" görünsün (tarih+saat'ten türetilen sabit değer)
   const demoBusy = (date, s) => { let h = 0; for(const c of date + s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h % 5 === 0; };
-  function isTaken(date, s, expert){
-    if(demoBusy(date, s)) return true;
-    const same = loadBookings().filter(b => b.date === date && b.slot === s);
-    if(expert === "Fark etmez") return new Set(same.map(b => b.expert).filter(e => e !== "Fark etmez")).size + same.filter(b => b.expert === "Fark etmez").length >= EXPERTS.length;
-    return same.some(b => b.expert === expert || b.expert === "Fark etmez" && same.length >= EXPERTS.length);
+  function isTaken(date, s){
+    return demoBusy(date, s) || loadBookings().some(b => b.date === date && b.slot === s);
   }
 
-  // Pazar günü kapalı; bugünse geçmiş saatler ve dolu saatler pasif
+  // Bugünse geçmiş saatler ve dolu saatler pasif
   function renderSlots(){
     const v = $("#fDate").value;
     const day = v ? new Date(v + "T00:00").getDay() : -1;
-    const closed = day === 0;
+    const closed = false;
     const now = new Date();
     slotsEl.innerHTML = SLOTS.map(s => {
       const h = +s.slice(0,2);
       const past = v === todayStr && h <= now.getHours();
-      const taken = v && isTaken(v, s, $("#fExp").value);
+      const taken = v && isTaken(v, s);
       return `<button type="button" class="slot${s===slot?" on":""}" data-slot="${s}" ${closed||past||taken?"disabled":""}>${s}</button>`;
     }).join("");
     if(slot && slotsEl.querySelector(`[data-slot="${slot}"]`)?.disabled) slot = null;
-    if(closed) slotsEl.insertAdjacentHTML("beforeend", '<span class="sub" style="margin:0;align-self:center">Pazar günleri kapalıyız, başka bir gün seçin.</span>');
   }
   slotsEl.addEventListener("click", e => {
     const b = e.target.closest("[data-slot]"); if(!b || b.disabled) return;
     slot = b.dataset.slot; renderSlots();
   });
   $("#fDate").addEventListener("change", renderSlots);
-  $("#fExp").addEventListener("change", renderSlots);
 
   function openOrder(p){
     current = p; slot = null;
-    $("#fExp").innerHTML = ["Fark etmez", ...EXPERTS].map(x => `<option>${x}</option>`).join("");
     $("#mImg").style.background = GRAD[p.cat];
     $("#mIcon").innerHTML = ICONS[p.icon];
     $("#mName").textContent = p.name;
     $("#mPrice").textContent = priceText(p);
-    $("#sumPrice").textContent = p.price ? fmt(p.price) : "Ücretsiz";
-    $("#sumRow").hidden = !SHOW_PRICES;
-    $("#fNote").placeholder = p.price ? "Örn: Hassas cildim var, alerjim var..." : "Cildinizi ya da istediğiniz bakımı kısaca anlatın";
+    $("#sumPrice").textContent = showPrice(p) ? fmt(p.price) : "";
+    $("#sumRow").hidden = !showPrice(p);
+    $("#fNote").placeholder = "Varsa alerjiniz ya da özel isteğiniz";
     if(!$("#fDate").value) $("#fDate").value = todayStr;
     renderSlots();
     form.hidden = false; done.hidden = true;
@@ -578,10 +588,9 @@
     const lines = [
       "✨ Yeni Randevu Talebi",
       "",
-      `Hizmet: ${current.name}${SHOW_PRICES ? " (" + priceText(current) + ")" : ""}`,
+      `Hizmet: ${current.name}${showPrice(current) ? " (" + priceText(current) + ")" : ""}`,
       `Kişi sayısı: ${two ? "2 kişi" : "1 kişi"}`,
       `Tarih: ${d}, ${slot}`,
-      `Uzman: ${$("#fExp").value}`,
       "",
       `Ad Soyad: ${$("#fName").value.trim()}`,
       `Telefon: ${$("#fPhone").value.trim()}`
@@ -589,7 +598,7 @@
     const note = $("#fNote").value.trim();
     if(note) lines.push("", `Not: ${note}`);
 
-    saveBooking({ date: $("#fDate").value, slot, expert: $("#fExp").value, service: current.id });
+    saveBooking({ date: $("#fDate").value, slot, service: current.id });
     $("#msg").textContent = lines.join("\n");
     form.hidden = true; done.hidden = false;
     $("#copyBtn").textContent = "Mesajı Kopyala";
@@ -610,7 +619,6 @@
     } catch(_) { selectFallback(); }
   });
 
-  if(!SHOW_PRICES){ $("#svcNote").textContent += ""; } else { $("#svcNote").textContent += " Fiyatlar başlangıç fiyatıdır; uygulama öncesi netleşir."; }
   renderFilters("all"); renderGrid("all");
 </script>
 </body>
