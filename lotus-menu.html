@@ -126,7 +126,7 @@
 
 <main class="wrap">
   <div class="tools">
-    <button class="pick" type="button" id="pick" aria-haspopup="dialog">
+    <button class="pick" type="button" id="pick" aria-haspopup="dialog" disabled>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><b class="cur" id="cur"></b></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
     </button>
@@ -137,7 +137,7 @@
     <div class="chips" id="chips" hidden></div>
   </div>
 
-  <h2 class="sec-title" id="title"></h2>
+  <h2 class="sec-title" id="title">Menü yükleniyor…</h2>
   <p class="note" id="note" hidden></p>
   <div class="list" id="list"></div>
   <p class="empty" id="empty" hidden>Aramanıza uygun ürün bulunamadı.</p>
@@ -159,19 +159,30 @@
   </div>
 </div>
 
-<script src="lotus-menu-data.js?v=1"></script>
 <script>
-  const M = window.LOTUS_MENU;
+  // Menü verisi ve fotoğraflar ayrı depoda durur (omerkartli/lotus-atelier) ve Pages CMS panelinden yönetilir.
+  const MENU_URL = "https://omerkartli.github.io/lotus-atelier/menu.json";
+  let M, GROUPS, grup, alt = "all";
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const fmt = n => n.toLocaleString("tr-TR");
   const norm = s => String(s).toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ı/g,"i");
 
-  // Ürünü olmayan grup ve alt kategoriler gizlenir.
-  const count = (g, a) => M.URUNLER.filter(u => u.grup === g && (!a || u.alt === a)).length;
-  const GROUPS = M.GRUPLAR.filter(g => count(g.id)).map(g => ({...g, altlar: g.altlar.filter(a => count(g.id, a.id))}));
-
-  let grup = GROUPS[0].id, alt = "all";
+  // menu.json (kategori > alt kategori > ürünler) sayfanın kullandığı düz yapıya çevrilir; menüde gizlenen ürünler atlanır.
+  function fromJson(j){
+    const abs = f => !f ? "" : /^https?:\/\//.test(f) ? f : new URL(f, MENU_URL).href;
+    const GRUPLAR = [], URUNLER = [];
+    (j.gruplar || []).forEach((g, i) => {
+      const gid = "g" + i;
+      const add = (list, a) => (list || []).filter(u => u.aktif !== false && u.ad).forEach(u => URUNLER.push({
+        ad: u.ad, aciklama: u.aciklama || "", fiyat: Number(u.fiyat) || 0, fiyatNot: u.fiyatNot || "", foto: abs(u.foto), grup: gid, alt: a }));
+      add(g.urunler, "");
+      (g.altlar || []).forEach((a, k) => add(a.urunler, gid + "a" + k));
+      GRUPLAR.push({ id: gid, ad: g.ad, not: g.not || "", ilaveler: !!g.ilaveler,
+        altlar: (g.altlar || []).map((a, k) => ({ id: gid + "a" + k, ad: a.ad })) });
+    });
+    return { alerjen: j.alerjen || "", ILAVELER: j.ilaveler || [], GRUPLAR, URUNLER };
+  }
   const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
 
   function card(u){
@@ -228,9 +239,27 @@
   });
   $("#q").addEventListener("input", render);
 
-  $("#addonList").innerHTML = M.ILAVELER.map(i => `<li><span>${esc(i.ad)}</span><b>+${fmt(i.fiyat)} ₺</b></li>`).join("");
-  $("#alerjen").textContent = M.alerjen;
-  render();
+  async function init(){
+    try{
+      const r = await fetch(MENU_URL, { cache: "no-cache" });
+      if(!r.ok) throw new Error(r.status);
+      M = fromJson(await r.json());
+    }catch(e){
+      $("#title").textContent = "Menü yüklenemedi";
+      $("#list").innerHTML = '<p class="empty">Menü şu an yüklenemedi. Lütfen sayfayı yenileyin.</p>';
+      return;
+    }
+    // Ürünü olmayan kategori ve alt kategoriler gizlenir.
+    const count = (g, a) => M.URUNLER.filter(u => u.grup === g && (!a || u.alt === a)).length;
+    GROUPS = M.GRUPLAR.filter(g => count(g.id)).map(g => ({...g, altlar: g.altlar.filter(a => count(g.id, a.id))}));
+    if(!GROUPS.length){ $("#title").textContent = "Menü"; $("#list").innerHTML = '<p class="empty">Menü yakında burada olacak.</p>'; return; }
+    grup = GROUPS[0].id;
+    $("#addonList").innerHTML = M.ILAVELER.map(i => `<li><span>${esc(i.ad)}</span><b>+${fmt(i.fiyat)} ₺</b></li>`).join("");
+    $("#alerjen").textContent = M.alerjen;
+    $("#pick").disabled = false;
+    render();
+  }
+  init();
 </script>
 </body>
 </html>
