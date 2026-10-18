@@ -247,6 +247,11 @@
   .card .ph{aspect-ratio:16/10}
   .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .reserve .fields .f select{appearance:auto}
+  #menu .head{margin-bottom:20px}
+  .menu-fab{position:fixed;right:16px;top:84px;z-index:45;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--on-accent);border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;box-shadow:var(--shadow)}
+  .menu-fab:hover{background:var(--accent-hover)}
+  .menu-fab svg{width:18px;height:18px}
+  @media (max-width:600px){.menu-fab{top:auto;bottom:82px}}
 </style>
 </head>
 <body>
@@ -257,7 +262,7 @@
   <div class="wrap nav">
     <a href="#top" class="logo"><b>LOTUS</b><i>Atelier Chocolat</i></a>
     <ul>
-      <li><a href="#menu">Menü</a></li>
+      <li><a href="lotus-menu.html">Menü</a></li>
       <li><a href="#mekan">Mekân</a></li>
       <li><a href="#iletisim">İletişim</a></li>
     </ul>
@@ -274,7 +279,7 @@
         <p class="lead">Çikolata, tatlı ve kahveyi sevdiklerinizle paylaşın. Menüye göz atın, masanızı önceden ayırtın; gelin, keyfini çıkarın.</p>
         <div class="hero-cta">
           <button class="btn btn-primary" type="button" data-reserve>Masa Ayırt</button>
-          <a class="btn btn-ghost" href="#menu">Menüyü Gör</a>
+          <a class="btn btn-ghost" href="lotus-menu.html">Menüyü Gör</a>
         </div>
         <div class="trust">
           <div><b>4,5 ★</b>Google puanı</div>
@@ -302,10 +307,9 @@
     <div class="wrap">
       <div class="head">
         <h2>Menümüz</h2>
-        <p id="menuNote">Tatlılarımız ve içeceklerimizden bir seçki. Güncel menü ve fiyatlar için bizimle iletişime geçin.</p>
+        <p>Kahvaltı tabaklarından special tatlılara, fotoğraflı ve fiyatlı güncel menümüz tek sayfada.</p>
       </div>
-      <div class="filters" id="filters"></div>
-      <div class="grid" id="grid"></div>
+      <a class="btn btn-primary" href="lotus-menu.html">Menüyü Gör</a>
       <div class="custom">
         <div>
           <h3>Özel gün için tatlı mı arıyorsunuz?</h3>
@@ -370,6 +374,8 @@
   </div>
 </footer>
 
+<a class="menu-fab" href="lotus-menu.html" aria-label="Menüyü gör"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Menü</a>
+
 <div class="mbar">
   <button class="btn btn-primary" type="button" data-reserve>Masa Ayırt</button>
 </div>
@@ -416,72 +422,10 @@
 <script>
   // İletişim numarası (ülke koduyla, örn. 905xxxxxxxxx). Boşsa WhatsApp butonu gizlenir.
   const WA_NUMBER = "";
-  // Menü fiyatlarını göstermek için ürünlere price ekleyin; fiyatsız ürünlerde fiyat görünmez.
-  const SHOW_PRICES = true;
-
-  const ICONS = {
-    cake:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40h32M10 40V26h28v14M10 31c4 3 6-3 9 0s6 3 10 0 6 3 9 0M24 26v-6M24 12c-2 2-2 4 0 6 2-2 2-4 0-6z"/></svg>',
-    choc:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8" width="30" height="32" rx="3"/><path d="M9 19h30M9 30h30M19 8v32M29 8v32"/></svg>',
-    cup:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20h24v8a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10z"/><path d="M34 22h3a4 4 0 0 1 0 8h-3M18 8c-2 2 2 4 0 6M24 8c-2 2 2 4 0 6M30 8c-2 2 2 4 0 6"/></svg>',
-    glass:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h24l-3 28H15z"/><path d="M13 20h22M30 4l-4 14"/></svg>'
-  };
-  const GRAD = {
-    tatli:"linear-gradient(150deg,#f3dcc4,#8a5a3c)",
-    cikolata:"linear-gradient(150deg,#e6cfba,#5a3623)",
-    kahve:"linear-gradient(150deg,#e3d8c4,#7a6a50)",
-    soguk:"linear-gradient(150deg,#d9e8d3,#4f8a5d)"
-  };
-  const ITEMS = [
-    { name:"Sufle",                    cat:"tatli",    icon:"cake",  tag:"Sıcak servis", desc:"Akışkan çikolata kalpli, sıcak servis edilen klasik." },
-    { name:"Cheesecake",               cat:"tatli",    icon:"cake",  desc:"Kremamsı dokulu, meyve sosuyla." },
-    { name:"Tiramisu",                 cat:"tatli",    icon:"cake",  desc:"Kahve ve mascarpone katmanlı İtalyan klasiği." },
-    { name:"Profiterol",               cat:"tatli",    icon:"cake",  desc:"Kremalı hamur toplar, bol çikolata sosuyla." },
-    { name:"Brownie",                  cat:"tatli",    icon:"cake",  desc:"Yoğun çikolatalı, dışı çıtır içi yumuşak." },
-    { name:"Çikolata Tabağı",          cat:"cikolata", icon:"choc",  tag:"Paylaşmalık", desc:"Seçme çikolataların bir arada sunulduğu tabak." },
-    { name:"Çikolata Fondü",           cat:"cikolata", icon:"choc",  desc:"Meyve ve kurabiyelerle erimiş çikolata." },
-    { name:"Sıcak Çikolata",           cat:"cikolata", icon:"cup",   desc:"Kıvamlı, yoğun çikolata tadında sıcak içecek." },
-    { name:"Türk Kahvesi",             cat:"kahve",    icon:"cup",   desc:"Közde ya da cezvede, lokumla servis." },
-    { name:"Filtre Kahve",             cat:"kahve",    icon:"cup",   desc:"Günün çekirdeğinden taze demlenmiş." },
-    { name:"Latte",                    cat:"kahve",    icon:"cup",   desc:"Espresso ve sütün yumuşak uyumu." },
-    { name:"Limonata",                 cat:"soguk",    icon:"glass", desc:"Ev yapımı, buz gibi." },
-    { name:"Milkshake",                cat:"soguk",    icon:"glass", desc:"Dondurma ve sütle hazırlanan, kremalı." }
-  ];
-  const CATS = [
-    { id:"all",      label:"Tümü" },
-    { id:"tatli",    label:"Tatlılar" },
-    { id:"cikolata", label:"Çikolata" },
-    { id:"kahve",    label:"Kahveler" },
-    { id:"soguk",    label:"Soğuk İçecekler" }
-  ];
   const SLOTS = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"];
 
   const $ = s => document.querySelector(s);
-  const fmt = n => n.toLocaleString("tr-TR") + " ₺";
-  const grid = $("#grid"), filters = $("#filters");
   let slot = null;
-
-  function renderFilters(active){
-    filters.innerHTML = CATS.map(c => `<button type="button" class="chip${c.id===active?" on":""}" data-cat="${c.id}">${c.label}</button>`).join("");
-  }
-  function renderGrid(cat){
-    const list = cat==="all" ? ITEMS : ITEMS.filter(p => p.cat===cat);
-    grid.innerHTML = list.map(p => `
-      <article class="card">
-        <div class="ph" style="background:${GRAD[p.cat]}">
-          ${ICONS[p.icon]}
-          ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
-        </div>
-        <div class="body">
-          <h3>${p.name}</h3>
-          <p class="desc">${p.desc}</p>
-          ${SHOW_PRICES && p.price ? `<div class="row"><span class="price">${p.price.toLocaleString("tr-TR")}<small>₺</small></span></div>` : ""}
-        </div>
-      </article>`).join("");
-  }
-  filters.addEventListener("click", e => {
-    const b = e.target.closest("[data-cat]"); if(!b) return;
-    renderFilters(b.dataset.cat); renderGrid(b.dataset.cat);
-  });
 
   const overlay = $("#overlay"), form = $("#orderForm"), done = $("#done"), slotsEl = $("#slots");
   const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
@@ -561,7 +505,6 @@
     } catch(_) { selectFallback(); }
   });
 
-  renderFilters("all"); renderGrid("all");
 </script>
 </body>
 </html>

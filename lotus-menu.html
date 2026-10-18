@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menü · Lotus Atelier Chocolat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Menü sayfası: grup seçici (alt sayfa), arama, alt kategori çipleri, fotoğraflı ürün kartları */
+  :root{
+    --bg:#fbf8f2;--surface:#ffffff;--tint:#f1ebdc;--tint-strong:#e3d9c0;
+    --accent:#2f5d3a;--accent-hover:#22452b;--on-accent:#ffffff;--heading:#26402d;
+    --gold:#8a5a3c;--ink:#2a2420;--muted:#766c62;--line:#e8e0d0;
+    --scrim:rgba(38,64,45,.55);--glass:rgba(251,248,242,.9);
+    --shadow:0 10px 30px -12px rgba(38,64,45,.28);
+    --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --body:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15201a;--surface:#1e2b23;--tint:#263629;--tint-strong:#33493a;
+      --accent:#9fd3a8;--accent-hover:#bfe6c6;--on-accent:#10261a;--heading:#e6f3e8;
+      --gold:#d9a574;--ink:#ece7e2;--muted:#aaa89c;--line:#31423a;
+      --scrim:rgba(0,0,0,.65);--glass:rgba(21,32,26,.9);--shadow:0 10px 30px -12px rgba(0,0,0,.6);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15201a;--surface:#1e2b23;--tint:#263629;--tint-strong:#33493a;
+    --accent:#9fd3a8;--accent-hover:#bfe6c6;--on-accent:#10261a;--heading:#e6f3e8;
+    --gold:#d9a574;--ink:#ece7e2;--muted:#aaa89c;--line:#31423a;
+    --scrim:rgba(0,0,0,.65);--glass:rgba(21,32,26,.9);--shadow:0 10px 30px -12px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;font-family:var(--body);font-size:16px;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,p{margin:0}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .wrap{max-width:860px;margin:0 auto;padding-inline:16px}
+
+  header{position:sticky;top:0;z-index:40;background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .back{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent);padding:8px 4px}
+  .back svg{width:18px;height:18px}
+  .logo{display:flex;align-items:baseline;gap:8px;color:var(--heading);white-space:nowrap}
+  .logo b{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.06em}
+  .logo i{font-family:var(--display);font-size:17px;color:var(--gold)}
+  .nav-end{width:78px}
+
+  .tools{padding-block:14px 8px;display:grid;gap:10px}
+  .pick{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:1.5px solid var(--accent);background:var(--surface);color:var(--heading);border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+  .pick span{display:flex;align-items:center;gap:10px;min-width:0}
+  .pick svg{flex:none;width:20px;height:20px}
+  .pick .cur{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .search{position:relative}
+  .search svg{position:absolute;left:14px;top:50%;translate:0 -50%;width:20px;height:20px;color:var(--muted)}
+  .search input{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px 12px 44px;font:inherit;font-size:16px;background:var(--surface);color:var(--ink)}
+  .search input:focus{outline:none;border-color:var(--accent)}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding-block:4px 10px;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;white-space:nowrap}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+
+  main{padding-bottom:110px}
+  .sec-title{font-family:var(--display);font-weight:600;font-size:32px;line-height:1.15;color:var(--heading);margin:18px 0 12px}
+  .note{background:var(--tint);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--muted);margin-bottom:14px}
+  .list{display:grid;gap:12px}
+  .item{display:flex;gap:14px;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;min-width:0}
+  .info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+  .item h3{font-size:16.5px;font-weight:700;line-height:1.3;color:var(--ink)}
+  .desc{font-size:14px;color:var(--muted);white-space:pre-line;overflow-wrap:anywhere}
+  .price{margin-top:auto;padding-top:6px;font-weight:700;font-size:18px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .price small{font-size:13px;font-weight:600;color:var(--muted);margin-left:4px}
+  .ph{flex:none;width:104px;height:104px;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,var(--tint),var(--tint-strong));align-self:flex-start}
+  .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .empty{padding:40px 16px;text-align:center;color:var(--muted)}
+
+  .addons{margin-top:24px;background:var(--tint-strong);border-radius:20px;padding:22px}
+  .addons h3{font-family:var(--display);font-size:26px;font-weight:600;color:var(--heading);margin-bottom:10px}
+  .addons ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+  .addons li{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;border-bottom:1px dashed var(--line);padding-block:4px}
+  .addons li b{font-variant-numeric:tabular-nums}
+  .alerjen{margin-top:20px;text-align:center;font-size:13.5px;color:var(--muted)}
+
+  /* Grup seçim sayfası (alt panel) */
+  .overlay{position:fixed;inset:0;z-index:100;background:var(--scrim);display:flex;align-items:center;justify-content:center;padding:20px}
+  .sheet{background:var(--surface);border-radius:22px;width:100%;max-width:420px;max-height:calc(100vh - 40px);overflow:auto;padding:20px}
+  .sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .sheet-head h2{font-family:var(--display);font-size:28px;font-weight:600;color:var(--heading)}
+  .close{width:38px;height:38px;border-radius:50%;border:0;background:var(--tint);color:var(--heading);font-size:22px;line-height:1}
+  .groups{display:grid}
+  .groups button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:0;background:none;color:var(--ink);padding:15px 8px;font-weight:700;font-size:15.5px;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  .groups button:last-child{border-bottom:0}
+  .groups button.on{color:var(--accent)}
+  .groups button svg{flex:none;width:18px;height:18px;color:var(--muted)}
+  .groups em{font-style:normal;font-weight:600;font-size:12.5px;color:var(--muted);text-transform:none;margin-left:6px}
+
+  @media (max-width:520px){
+    .logo b{font-size:19px}.logo i{font-size:13px}
+    .nav-end{display:none}
+    .ph{width:92px;height:92px}
+    .addons ul{grid-template-columns:1fr}
+    .overlay{padding:0;align-items:flex-end}
+    .sheet{border-radius:22px 22px 0 0;max-width:none;max-height:88vh}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="back" href="lotus-atelier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Ana sayfa</a>
+    <span class="logo"><b>LOTUS</b><i>Atelier Chocolat</i></span>
+    <span class="nav-end" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tools">
+    <button class="pick" type="button" id="pick" aria-haspopup="dialog">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><b class="cur" id="cur"></b></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Menüde ara" autocomplete="off" aria-label="Menüde ara">
+    </label>
+    <div class="chips" id="chips" hidden></div>
+  </div>
+
+  <h2 class="sec-title" id="title"></h2>
+  <p class="note" id="note" hidden></p>
+  <div class="list" id="list"></div>
+  <p class="empty" id="empty" hidden>Aramanıza uygun ürün bulunamadı.</p>
+
+  <section class="addons" id="addons" hidden>
+    <h3>İlaveler</h3>
+    <ul id="addonList"></ul>
+  </section>
+  <p class="alerjen" id="alerjen"></p>
+</main>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-head">
+      <h2 id="sheetTitle">Menü Seçin</h2>
+      <button type="button" class="close" id="closeBtn" aria-label="Kapat">×</button>
+    </div>
+    <div class="groups" id="groups"></div>
+  </div>
+</div>
+
+<script src="lotus-menu-data.js?v=1"></script>
+<script>
+  const M = window.LOTUS_MENU;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const fmt = n => n.toLocaleString("tr-TR");
+  const norm = s => String(s).toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ı/g,"i");
+
+  // Ürünü olmayan grup ve alt kategoriler gizlenir.
+  const count = (g, a) => M.URUNLER.filter(u => u.grup === g && (!a || u.alt === a)).length;
+  const GROUPS = M.GRUPLAR.filter(g => count(g.id)).map(g => ({...g, altlar: g.altlar.filter(a => count(g.id, a.id))}));
+
+  let grup = GROUPS[0].id, alt = "all";
+  const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+
+  function card(u){
+    const img = u.foto ? `<div class="ph"><img src="${esc(u.foto)}" alt="${esc(u.ad)}" loading="lazy" width="104" height="104" onerror="this.parentNode.hidden=true"></div>` : "";
+    return `<article class="item">
+      <div class="info">
+        <h3>${esc(u.ad)}</h3>
+        ${u.aciklama ? `<p class="desc">${esc(u.aciklama)}</p>` : ""}
+        <span class="price">${fmt(u.fiyat)} ₺${u.fiyatNot ? `<small>${esc(u.fiyatNot)}</small>` : ""}</span>
+      </div>${img}</article>`;
+  }
+
+  function render(){
+    const q = norm($("#q").value.trim());
+    const g = GROUPS.find(x => x.id === grup);
+    $("#cur").textContent = g.ad;
+    const searching = q.length > 0;
+    let items;
+    if(searching){
+      items = M.URUNLER.filter(u => GROUPS.some(x => x.id === u.grup) && norm(u.ad + " " + (u.aciklama||"")).includes(q));
+    } else {
+      items = M.URUNLER.filter(u => u.grup === grup && (alt === "all" || u.alt === alt));
+    }
+    $("#title").textContent = searching ? "Arama sonuçları" : g.ad;
+    const chips = $("#chips");
+    chips.hidden = searching || g.altlar.length < 2;
+    if(!chips.hidden){
+      chips.innerHTML = [{id:"all", ad:"Tümü"}, ...g.altlar].map(a => `<button type="button" class="chip${a.id===alt?" on":""}" data-alt="${a.id}">${esc(a.ad)}</button>`).join("");
+    }
+    $("#note").hidden = searching || !g.not;
+    $("#note").textContent = g.not || "";
+    $("#list").innerHTML = items.map(card).join("");
+    $("#empty").hidden = items.length > 0;
+    $("#addons").hidden = searching || !g.ilaveler;
+  }
+
+  function openSheet(){
+    $("#groups").innerHTML = GROUPS.map(g => `<button type="button" data-g="${g.id}" class="${g.id===grup?"on":""}"><span>${esc(g.ad)}</span>${chevron}</button>`).join("");
+    $("#overlay").hidden = false; document.body.style.overflow = "hidden";
+  }
+  function closeSheet(){ $("#overlay").hidden = true; document.body.style.overflow = ""; }
+
+  $("#pick").addEventListener("click", openSheet);
+  $("#closeBtn").addEventListener("click", closeSheet);
+  $("#overlay").addEventListener("click", e => { if(e.target === $("#overlay")) closeSheet(); });
+  document.addEventListener("keydown", e => { if(e.key === "Escape" && !$("#overlay").hidden) closeSheet(); });
+  $("#groups").addEventListener("click", e => {
+    const b = e.target.closest("[data-g]"); if(!b) return;
+    grup = b.dataset.g; alt = "all"; $("#q").value = ""; closeSheet(); render(); scrollTo({top:0});
+  });
+  $("#chips").addEventListener("click", e => {
+    const b = e.target.closest("[data-alt]"); if(!b) return;
+    alt = b.dataset.alt; render();
+  });
+  $("#q").addEventListener("input", render);
+
+  $("#addonList").innerHTML = M.ILAVELER.map(i => `<li><span>${esc(i.ad)}</span><b>+${fmt(i.fiyat)} ₺</b></li>`).join("");
+  $("#alerjen").textContent = M.alerjen;
+  render();
+</script>
+</body>
+</html>
