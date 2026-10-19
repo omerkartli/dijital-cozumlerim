@@ -85,9 +85,10 @@
   .who{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin-top:auto;line-height:1.3}
   .who .av{width:36px;height:36px;border-radius:50%;background:var(--tint-strong);color:var(--heading);display:grid;place-items:center;font-weight:700}
   .rev-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius)}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gal img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
   .arch img{width:100%;height:100%;object-fit:contain;display:block}
+  .arch.a2 img{object-fit:cover}
   .logo b{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:.06em}
   .logo i{font-family:var(--display);font-size:19px;color:var(--gold)}
   .nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
@@ -172,7 +173,7 @@
   .salon h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,42px);line-height:1.1;color:var(--heading);margin:10px 0 14px}
   .salon p{color:var(--muted);margin-bottom:22px}
   a.info-item:hover{border-color:var(--accent)}
-  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
   .info-item{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
   .info-item svg{flex:none;width:22px;height:22px;color:var(--accent);margin-top:2px}
   .info-item b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:2px}
@@ -228,7 +229,8 @@
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .badge{left:12px}
-    .steps-grid,.why-grid,.contact-grid,.rev-grid,.gal{grid-template-columns:1fr}
+    .steps-grid,.why-grid,.contact-grid,.rev-grid{grid-template-columns:1fr}
+    .gal{grid-template-columns:repeat(2,1fr)}
     .salon{gap:28px}
     .steps-grid{gap:20px}
     .nav ul{display:none}
@@ -267,6 +269,7 @@
     <a href="#top" class="logo"><b>DİLARA TANRIVER</b><i>Beauty Studio</i></a>
     <ul>
       <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#calismalar">Çalışmalar</a></li>
       <li><a href="#yorumlar">Yorumlar</a></li>
       <li><a href="#iletisim">İletişim</a></li>
     </ul>
@@ -288,12 +291,12 @@
         <div class="trust">
           <div><b>4,9 ★</b>Google puanı</div>
           <div><b>12</b>Google yorumu</div>
-          <div><b>10:00</b>açılış saati</div>
+          <div><b>10–19</b>Pzt – Cmt</div>
         </div>
       </div>
       <div class="hero-art">
         <div class="arch a1"><img src="dilara-tanriver/logo.webp" alt="Dilara Tanrıver Beauty Studio logosu"></div>
-        <div class="arch a2" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l3.5 11.5L39 21l-11.5 3.5L24 36l-3.5-11.5L9 21l11.5-3.5z"/><path d="M38 34l1.2 3.8L43 39l-3.8 1.2L38 44l-1.2-3.8L33 39l3.8-1.2z"/></svg></div>
+        <div class="arch a2"><img src="dilara-tanriver/tirnak-1.webp" alt="Tırnak çalışması"></div>
         <div class="badge">Google'da<b>4,9 ★ · 12 yorum</b></div>
       </div>
     </div>
@@ -333,9 +336,12 @@
     <div class="wrap">
       <div class="head">
         <h2>Çalışmalarımız</h2>
-        <p>Yaptığımız işlerden bazıları.</p>
+        <p>Yaptığımız işlerden bazıları. Daha fazlası Instagram'da.</p>
       </div>
       <div class="gal" id="gal"></div>
+      <div class="rev-actions">
+        <a class="btn btn-ghost" href="https://www.instagram.com/dilaratanriverbeauty/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram'da Takip Et</a>
+      </div>
     </div>
   </section>
 
@@ -425,8 +431,12 @@
         </a>
         <div class="info-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div><b>Çalışma saatleri</b>Açılış 10:00<br>Diğer saatler için bize yazın</div>
+          <div><b>Çalışma saatleri</b>Pzt – Cmt 10:00 – 19:00<br>Pazar kapalı</div>
         </div>
+        <a class="info-item" href="https://www.instagram.com/dilaratanriverbeauty/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          <div><b>Instagram</b>@dilaratanriverbeauty</div>
+        </a>
       </div>
     </div>
   </section>
@@ -435,7 +445,7 @@
 <footer>
   <div class="wrap foot">
     <span class="logo"><b>DİLARA TANRIVER</b><i>Beauty Studio</i></span>
-    <span>Randevu talepleri WhatsApp üzerinden iletilir. · <a href="index.html"><u>Dijital Çözümlerim ile hazırlandı</u></a></span>
+    <span>Randevu talepleri WhatsApp üzerinden iletilir. · <a href="https://www.instagram.com/dilaratanriverbeauty/" target="_blank" rel="noopener"><u>Instagram</u></a> · <a href="index.html"><u>Dijital Çözümlerim ile hazırlandı</u></a></span>
   </div>
 </footer>
 
@@ -531,7 +541,7 @@
     { id:"kas",    label:"Kaş & Makyaj" }
   ];
   const SLOTS = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"];
-  const OPEN_HOUR = [10,10,10,10,10,10,10]; // açılış 10:00 (kapanış saati bilinmiyor, örnek saatler)
+  const OPEN_HOUR = [10,10,10,10,10,10,10]; // Pzt–Cmt 10:00–19:00, Pazar kapalı
 
   const $ = s => document.querySelector(s);
   const fmt = n => n.toLocaleString("tr-TR") + " ₺";
@@ -590,9 +600,10 @@
   function renderSlots(){
     const v = $("#fDate").value;
     const day = v ? new Date(v + "T00:00").getDay() : -1;
-    const closed = false;
+    const closed = day === 0;
     const now = new Date();
-    const first = day < 0 ? 7 : OPEN_HOUR[day];
+    const first = day < 0 ? 10 : OPEN_HOUR[day];
+    if(closed){ slot = null; slotsEl.innerHTML = '<span class="sub" style="margin:0">Pazar günleri kapalıyız, başka bir gün seçin.</span>'; return; }
     slotsEl.innerHTML = SLOTS.filter(s => +s.slice(0,2) >= first).map(s => {
       const h = +s.slice(0,2);
       const past = v === todayStr && h <= now.getHours();
@@ -687,9 +698,9 @@
     $("#waAsk").href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent("Merhaba, hizmet fiyatları hakkında bilgi almak istiyorum.");
   }
   // Çalışma fotoğrafları: dosyaları dilara-tanriver/ klasörüne koyup adlarını ekleyin (boşsa bölüm gizli kalır).
-  const GALERI = [];
+  const GALERI = [["tirnak-1.webp","Tırnak çalışması"],["tirnak-2.webp","Tırnak çalışması"],["kas-1.webp","Kaş çalışması"],["kas-kirpik.webp","Kaş ve kirpik çalışması"]];
   if(GALERI.length){
-    $("#gal").innerHTML = GALERI.map(f => `<img loading="lazy" src="dilara-tanriver/${f}" alt="Çalışma örneği">`).join("");
+    $("#gal").innerHTML = GALERI.map(([f, alt]) => `<img loading="lazy" src="dilara-tanriver/${f}" alt="${alt}">`).join("");
     $("#calismalar").hidden = false;
   }
   renderFilters("all"); renderGrid("all");
