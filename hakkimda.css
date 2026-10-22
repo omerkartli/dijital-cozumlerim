@@ -165,3 +165,22 @@
         padding-left: 18px;
     }
 }
+
+.vt-metin {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--soluk-koyu);
+    margin-bottom: 14px;
+}
+
+.vt-giris {
+    margin-bottom: 18px;
+}
+
+.hk-bolum .product-grid {
+    margin-top: 0;
+}
+
+.vt-iletisim {
+    padding-bottom: 16px;
+}
