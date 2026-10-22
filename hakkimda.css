@@ -184,3 +184,294 @@
 .vt-iletisim {
     padding-bottom: 16px;
 }
+
+/* --- Ana sayfa: çözümler, karşılaştırma, form, demo penceresi --- */
+
+.vt-sekmeler {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.vt-sekme {
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--cizgi-alan);
+    background: var(--kart);
+    color: var(--metin);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.vt-sekme:hover {
+    border-color: var(--baslik);
+}
+
+.vt-sekme.is-aktif {
+    background: var(--baslik);
+    border-color: var(--baslik);
+    color: var(--zemin);
+}
+
+.vt-kart-dugmeler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.vt-btn {
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--vurgu);
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+}
+
+.vt-btn:hover {
+    color: var(--vurgu-koyu);
+    text-decoration: underline;
+}
+
+.vt-link {
+    font-size: 0.8rem;
+    color: var(--silik);
+}
+
+.vt-karsi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.vt-karsi-kutu {
+    background: var(--kart);
+    border: 1px solid var(--cizgi);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+.vt-karsi-ben {
+    border-color: var(--vurgu);
+    box-shadow: 0 12px 24px var(--vurgu-soluk);
+}
+
+.vt-karsi-kutu h3 {
+    font-size: 1rem;
+    color: var(--baslik);
+    margin-bottom: 10px;
+}
+
+.vt-karsi-kutu ul {
+    margin-left: 18px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--soluk-koyu);
+}
+
+.vt-karsi-kutu li + li {
+    margin-top: 6px;
+}
+
+.vt-form {
+    background: var(--kart);
+    border-radius: var(--radius);
+    box-shadow: var(--golge-sm);
+    padding: clamp(18px, 4vw, 30px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vt-alan {
+    border: 0;
+    min-width: 0;
+}
+
+.vt-alan legend,
+.vt-etiket {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--baslik);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.vt-alan legend small {
+    font-weight: 400;
+    color: var(--silik);
+}
+
+.vt-secenekler {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.vt-secim {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--cizgi);
+    border-radius: 12px;
+    background: var(--kart-ic);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.vt-secim:has(input:checked) {
+    border-color: var(--vurgu);
+    background: var(--vurgu-soluk);
+}
+
+.vt-secim input {
+    accent-color: var(--vurgu);
+}
+
+.vt-secim small {
+    display: block;
+    color: var(--silik);
+    font-size: 0.78rem;
+}
+
+.vt-girdi {
+    width: 100%;
+    font: inherit;
+    font-size: 0.92rem;
+    padding: 11px 14px;
+    border: 1px solid var(--cizgi-alan);
+    border-radius: 12px;
+    background: var(--kart-ic);
+    color: var(--metin);
+}
+
+.vt-girdi:focus {
+    outline: 2px solid var(--vurgu);
+    outline-offset: 1px;
+}
+
+.vt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(31, 28, 26, 0.6);
+    backdrop-filter: blur(6px);
+}
+
+.vt-modal[hidden] {
+    display: none;
+}
+
+.vt-modal-kutu {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    max-height: 94vh;
+    overflow-y: auto;
+    background: var(--zemin);
+    border-radius: 24px;
+    padding: clamp(18px, 4vw, 32px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+}
+
+.vt-kapat {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--cizgi-alan);
+    background: var(--kart);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.vt-modal-yan h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--baslik);
+    margin-bottom: 8px;
+}
+
+.vt-demo-sekmeler {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 6px 0 20px;
+}
+
+.vt-demo-sekmeler button {
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--cizgi);
+    background: var(--kart);
+    color: var(--metin);
+    cursor: pointer;
+}
+
+.vt-demo-sekmeler button.is-aktif {
+    border-color: var(--vurgu);
+    background: var(--vurgu-soluk);
+    font-weight: 600;
+}
+
+.vt-telefon {
+    width: 320px;
+    height: min(620px, 78vh);
+    border: 9px solid #1f1c1a;
+    border-radius: 40px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: var(--golge);
+}
+
+.vt-telefon iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+body.vt-kilit {
+    overflow: hidden;
+}
+
+@media (max-width: 720px) {
+    .vt-modal-kutu {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .vt-modal-yan {
+        justify-self: stretch;
+    }
+
+    .vt-telefon {
+        width: min(320px, 100%);
+    }
+}
