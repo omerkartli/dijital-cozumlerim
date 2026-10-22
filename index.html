@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
     <link rel="stylesheet" href="style.css?v=29">
-    <link rel="stylesheet" href="hakkimda.css?v=2">
+    <link rel="stylesheet" href="hakkimda.css?v=3">
 </head>
 <body>
     <header class="site-bar">
         <a href="index.html" class="marka">Dijital Çözümlerim</a>
         <nav class="site-nav">
-            <a href="#calismalar" class="site-nav-link">Çalışmalar</a>
+            <a href="#calismalar" class="site-nav-link">Çözümler</a>
             <a href="hakkimda.html" class="site-nav-link">Hakkımda</a>
         </nav>
     </header>
@@ -31,7 +31,7 @@
                 için hazırladığım dijital çözümleri de bu sayfada bulabilirsin.
             </p>
             <div class="hk-dugmeler">
-                <a class="pill pill-koyu" href="#calismalar">Çalışmalarım</a>
+                <a class="pill pill-koyu" href="#calismalar">Çözümlerim</a>
                 <a class="pill pill-ana" href="hakkimda.html">Özgeçmişim</a>
                 <a class="pill pill-ana" href="https://github.com/omerkartli" target="_blank" rel="noopener">GitHub</a>
             </div>
@@ -73,64 +73,166 @@
         </section>
 
         <section class="hk-bolum" id="calismalar">
-            <h2>Web çalışmaları</h2>
-            <p class="vt-metin vt-giris">Etkinlikler ve küçük işletmeler için hazırladığım demo siteler. Bilgiler kurgusaldır.</p>
-    <div class="product-grid">
-        <a href="davetiye.html" class="product-card">
-            <span class="product-icon" aria-hidden="true">💌</span>
-            <span class="product-name">Dijital Davetiye</span>
-            <span class="product-desc">Zarfı açılan, geri sayımı canlı akan düğün davetiyesi.</span>
-            <span class="product-cta">Demoyu Aç →</span>
-        </a>
+            <h2>Çözümler</h2>
+            <p class="vt-metin vt-giris">Etkinlikler ve küçük işletmeler için hazırladığım demo siteler. Demolardaki bilgiler kurgusaldır.
+                Telefon çerçevesinde açıp deneyebilirsin.</p>
 
-        <a href="cicekci.html" class="product-card">
-            <span class="product-icon" aria-hidden="true">💐</span>
-            <span class="product-name">Çiçekçi Sitesi</span>
-            <span class="product-desc">Ürün kataloğu ve gel-al ya da adrese teslim seçenekli, WhatsApp'a düşen sipariş formu.</span>
-            <span class="product-cta">Demoyu Aç →</span>
-        </a>
+            <div class="vt-sekmeler" role="group" aria-label="Çözümleri filtrele">
+                <button type="button" class="vt-sekme is-aktif" data-filtre="hepsi" aria-pressed="true">Tümü</button>
+                <button type="button" class="vt-sekme" data-filtre="isletme" aria-pressed="false">İşletme siteleri</button>
+                <button type="button" class="vt-sekme" data-filtre="etkinlik" aria-pressed="false">Etkinlik ürünleri</button>
+            </div>
 
-        <a href="guzellik.html" class="product-card">
-            <span class="product-icon" aria-hidden="true">💆‍♀️</span>
-            <span class="product-name">Güzellik Merkezi Sitesi</span>
-            <span class="product-desc">Hizmet kataloğu ve saat seçmeli, WhatsApp'a düşen randevu formu.</span>
-            <span class="product-cta">Demoyu Aç →</span>
-        </a>
+            <div class="product-grid" id="urunGrid">
+                <div class="product-card" data-kategori="etkinlik">
+                    <span class="product-icon" aria-hidden="true">💌</span>
+                    <span class="product-name">Dijital Davetiye</span>
+                    <span class="product-desc">Zarfı açılan, geri sayımı canlı akan düğün davetiyesi.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="davetiye">Telefonda dene →</button>
+                        <a class="vt-link" href="davetiye.html">Tam sayfa</a>
+                    </span>
+                </div>
 
-        <a href="kuafor.html" class="product-card">
-            <span class="product-icon" aria-hidden="true">💇‍♀️</span>
-            <span class="product-name">Kadın Kuaförü Sitesi</span>
-            <span class="product-desc">Hizmet kataloğu ve uzmana göre saat seçmeli, WhatsApp'a düşen randevu formu.</span>
-            <span class="product-cta">Demoyu Aç →</span>
-        </a>
+                <div class="product-card" data-kategori="isletme">
+                    <span class="product-icon" aria-hidden="true">💐</span>
+                    <span class="product-name">Çiçekçi Sitesi</span>
+                    <span class="product-desc">Ürün kataloğu ve gel-al ya da adrese teslim seçenekli, WhatsApp'a düşen sipariş formu.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="cicekci">Telefonda dene →</button>
+                        <a class="vt-link" href="cicekci.html">Tam sayfa</a>
+                    </span>
+                </div>
 
-        <div class="product-card is-soon">
-            <span class="product-icon" aria-hidden="true">📷</span>
-            <span class="product-name">Etkinlikler</span>
-            <span class="product-desc">Davetlilerin anlık fotoğraf yüklediği, onaylı ortak galeri.</span>
-            <span class="product-cta">Yakında</span>
-        </div>
+                <div class="product-card" data-kategori="isletme">
+                    <span class="product-icon" aria-hidden="true">💆‍♀️</span>
+                    <span class="product-name">Güzellik Merkezi Sitesi</span>
+                    <span class="product-desc">Hizmet kataloğu ve saat seçmeli, WhatsApp'a düşen randevu formu.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="guzellik">Telefonda dene →</button>
+                        <a class="vt-link" href="guzellik.html">Tam sayfa</a>
+                    </span>
+                </div>
 
-        <div class="product-card is-soon">
-            <span class="product-icon" aria-hidden="true">🎟️</span>
-            <span class="product-name">Dijital Menü</span>
-            <span class="product-desc">QR ile açılan, mobil uyumlu etkinlik menüsü.</span>
-            <span class="product-cta">Yakında</span>
-        </div>
-    </div>
+                <div class="product-card" data-kategori="isletme">
+                    <span class="product-icon" aria-hidden="true">💇‍♀️</span>
+                    <span class="product-name">Kadın Kuaförü Sitesi</span>
+                    <span class="product-desc">Hizmet kataloğu ve uzmana göre saat seçmeli, WhatsApp'a düşen randevu formu.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="kuafor">Telefonda dene →</button>
+                        <a class="vt-link" href="kuafor.html">Tam sayfa</a>
+                    </span>
+                </div>
+
+                <div class="product-card is-soon" data-kategori="etkinlik">
+                    <span class="product-icon" aria-hidden="true">📷</span>
+                    <span class="product-name">Etkinlikler</span>
+                    <span class="product-desc">Davetlilerin anlık fotoğraf yüklediği, onaylı ortak galeri.</span>
+                    <span class="product-cta">Yakında</span>
+                </div>
+
+                <div class="product-card is-soon" data-kategori="etkinlik">
+                    <span class="product-icon" aria-hidden="true">🎟️</span>
+                    <span class="product-name">Dijital Menü</span>
+                    <span class="product-desc">QR ile açılan, mobil uyumlu etkinlik menüsü.</span>
+                    <span class="product-cta">Yakında</span>
+                </div>
+            </div>
         </section>
 
-        <section class="hk-bolum vt-iletisim">
-            <h2>İletişim</h2>
-            <p class="vt-metin vt-giris">Bir proje, iş birliği ya da sipariş için yazabilirsin.</p>
-            <div class="hk-dugmeler">
-                <a class="pill pill-koyu" href="mailto:omerkartli52@gmail.com">E-posta</a>
-                <a href="https://wa.me/905545520912?text=Merhaba%20dijital%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
-                   target="_blank" rel="noopener" class="pill pill-wa">WhatsApp</a>
+        <section class="hk-bolum" id="yaklasim">
+            <h2>Neden elle yazılmış site?</h2>
+            <p class="vt-metin vt-giris">Hazır şablon kötü değil; ama ihtiyacın şablonun sınırlarını aştığında işler değişiyor.
+                Burada gördüğün demolar tek bir yapı taşından, düz HTML, CSS ve JavaScript'ten oluşuyor.</p>
+            <div class="vt-karsi">
+                <div class="vt-karsi-kutu">
+                    <h3>Hazır şablon / site oluşturucu</h3>
+                    <ul>
+                        <li>Kullanmadığın özellikler de sayfayla birlikte yüklenir, mobilde yavaşlık yapabilir.</li>
+                        <li>Tasarım şablonun izin verdiği kadardır; rakiplerle aynı görünüme düşmek kolaydır.</li>
+                        <li>Eklentilerin güncellenmesi ve uyumu senin sorumluluğundadır.</li>
+                    </ul>
+                </div>
+                <div class="vt-karsi-kutu vt-karsi-ben">
+                    <h3>Elle yazılmış çözüm</h3>
+                    <ul>
+                        <li>Sadece ihtiyacın olan kod var: hafif, hızlı, mobil öncelikli.</li>
+                        <li>Randevu, sipariş, geri sayım gibi işlevler senin akışına göre kurulur.</li>
+                        <li>Başlık, açıklama ve yapısal işaretleme gibi temel SEO adımları baştan düşünülür.</li>
+                        <li>Dış eklentiye bağımlılık yoktur; bakım ihtiyacı azdır.</li>
+                    </ul>
+                </div>
             </div>
+        </section>
+
+        <section class="hk-bolum" id="proje">
+            <h2>Projeni başlat</h2>
+            <p class="vt-metin vt-giris">İhtiyacını seç, kısaca anlat. Mesaj WhatsApp'ta açılır, gönder tuşuna sen basarsın.
+                Kapsam ve fiyat görüşmede netleşir.</p>
+
+            <form class="vt-form" id="projeForm">
+                <fieldset class="vt-alan">
+                    <legend>1. Ne istiyorsun?</legend>
+                    <div class="vt-secenekler">
+                        <label class="vt-secim"><input type="radio" name="paket" value="Özel web sitesi" checked><span>Özel web sitesi</span></label>
+                        <label class="vt-secim"><input type="radio" name="paket" value="İşletme sitesi (randevu / sipariş formlu)"><span>İşletme sitesi <small>randevu / sipariş formlu</small></span></label>
+                        <label class="vt-secim"><input type="radio" name="paket" value="Dijital davetiye"><span>Dijital davetiye</span></label>
+                        <label class="vt-secim"><input type="radio" name="paket" value="Yapay zeka / yazılım projesi"><span>Yapay zeka / yazılım projesi</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="vt-alan">
+                    <legend>2. Ek istekler <small>(isteğe bağlı)</small></legend>
+                    <div class="vt-secenekler">
+                        <label class="vt-secim"><input type="checkbox" name="ek" value="Çoklu dil (TR/EN)"><span>Çoklu dil (TR/EN)</span></label>
+                        <label class="vt-secim"><input type="checkbox" name="ek" value="Yerel SEO ve harita kaydı"><span>Yerel SEO ve harita kaydı</span></label>
+                        <label class="vt-secim"><input type="checkbox" name="ek" value="Alan adı ve barındırma desteği"><span>Alan adı ve barındırma desteği</span></label>
+                        <label class="vt-secim"><input type="checkbox" name="ek" value="WhatsApp entegrasyonu"><span>WhatsApp entegrasyonu</span></label>
+                    </div>
+                </fieldset>
+
+                <div class="vt-satir">
+                    <label class="vt-etiket" for="fAd">Adın / marka adın</label>
+                    <input class="vt-girdi" id="fAd" name="ad" type="text" autocomplete="name" placeholder="Örn: Ayşe Yılmaz, Yılmaz Hukuk">
+                </div>
+                <div class="vt-satir">
+                    <label class="vt-etiket" for="fNot">Projeden kısaca bahset</label>
+                    <textarea class="vt-girdi" id="fNot" name="not" rows="3" placeholder="Ne yapmak istiyorsun, varsa tarih ya da referans site"></textarea>
+                </div>
+
+                <div class="hk-dugmeler">
+                    <button type="submit" class="pill pill-wa">WhatsApp'ta yaz</button>
+                    <a class="pill pill-ana" href="mailto:omerkartli52@gmail.com">E-posta</a>
+                </div>
+            </form>
         </section>
     </main>
 
+    <div class="vt-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoBaslik" hidden>
+        <div class="vt-modal-kutu">
+            <button type="button" class="vt-kapat" id="demoKapat" aria-label="Kapat">×</button>
+            <div class="vt-modal-yan">
+                <p class="hk-etiket">Canlı önizleme</p>
+                <h3 id="demoBaslik">Demo</h3>
+                <p class="vt-metin" id="demoAciklama"></p>
+                <div class="vt-demo-sekmeler" role="group" aria-label="Demolar">
+                    <button type="button" data-demo="davetiye">💌 Dijital Davetiye</button>
+                    <button type="button" data-demo="cicekci">💐 Çiçekçi</button>
+                    <button type="button" data-demo="guzellik">💆‍♀️ Güzellik Merkezi</button>
+                    <button type="button" data-demo="kuafor">💇‍♀️ Kuaför</button>
+                </div>
+                <div class="hk-dugmeler">
+                    <a class="pill pill-ana" id="demoTam" href="#">Tam sayfa aç</a>
+                    <a class="pill pill-koyu" id="demoIste" href="#proje">Benim için de yap</a>
+                </div>
+            </div>
+            <div class="vt-telefon">
+                <iframe id="demoCerceve" title="Demo önizlemesi" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js?v=7"></script>
+    <script src="vitrin.js?v=1"></script>
 </body>
 </html>
