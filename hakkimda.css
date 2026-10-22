@@ -1,0 +1,167 @@
+.hk {
+    max-width: 880px;
+}
+
+.hk-hero {
+    padding-bottom: clamp(28px, 5vw, 48px);
+    border-bottom: 1px solid var(--cizgi);
+}
+
+.hk-etiket {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--silik);
+    margin-bottom: 10px;
+}
+
+.hk h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    line-height: 1.05;
+    color: var(--baslik);
+}
+
+.hk-unvan {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    color: var(--vurgu);
+    margin: 8px 0 20px;
+}
+
+.hk-ozet {
+    max-width: 640px;
+    line-height: 1.65;
+    color: var(--soluk-koyu);
+}
+
+.hk-dugmeler {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.hk-konum {
+    font-size: 0.88rem;
+    color: var(--silik);
+}
+
+.hk-bolum {
+    padding-top: clamp(28px, 5vw, 44px);
+}
+
+.hk-bolum h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--baslik);
+    margin-bottom: 18px;
+}
+
+.hk-beceri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.hk-kutu {
+    background: var(--kart);
+    border-radius: var(--radius);
+    box-shadow: var(--golge-sm);
+    padding: 20px;
+}
+
+.hk-kutu h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--silik);
+    margin-bottom: 12px;
+}
+
+.hk-etiketler {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+.hk-etiketler li {
+    background: var(--etiket);
+    color: var(--metin);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+.hk-zaman {
+    list-style: none;
+    border-left: 1px solid var(--cizgi-alan);
+    margin-left: 4px;
+}
+
+.hk-zaman > li {
+    position: relative;
+    padding: 0 0 26px 24px;
+}
+
+.hk-zaman > li::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--vurgu);
+}
+
+.hk-tarih {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--silik);
+    margin-bottom: 4px;
+}
+
+.hk-zaman h3 {
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--metin-koyu);
+}
+
+.hk-zaman h3 small {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--soluk);
+    margin-top: 2px;
+}
+
+.hk-zaman ul,
+.hk-liste {
+    margin: 8px 0 0 18px;
+    line-height: 1.6;
+    color: var(--soluk-koyu);
+    font-size: 0.93rem;
+}
+
+.hk-zaman p {
+    margin-top: 6px;
+    font-size: 0.93rem;
+}
+
+.hk-zaman a {
+    color: var(--vurgu-koyu);
+}
+
+@media (max-width: 560px) {
+    .hk-zaman > li {
+        padding-left: 18px;
+    }
+}
