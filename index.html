@@ -3,71 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dijital Çözümlerim</title>
+    <title>Ömer Kartlı · Dijital Çözümlerim</title>
+    <meta name="description" content="Ömer Kartlı: Full Stack Web Developer ve AI Engineer. LLM/RAG araştırmaları ve web çalışmaları.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
     <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="hakkimda.css?v=2">
 </head>
 <body>
     <header class="site-bar">
-        <a href="index.html" class="marka marka-aktif">Dijital Çözümlerim</a>
+        <a href="index.html" class="marka">Dijital Çözümlerim</a>
         <nav class="site-nav">
-            <a href="https://wa.me/905545520912?text=Merhaba%20dijital%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
-               target="_blank" rel="noopener" class="pill pill-wa">WhatsApp</a>
+            <a href="#calismalar" class="site-nav-link">Çalışmalar</a>
+            <a href="hakkimda.html" class="site-nav-link">Hakkımda</a>
         </nav>
     </header>
 
-    <main class="icerik">
-        <div class="card card-wide">
-        <h1>Dijital Çözümlerim</h1>
-        <p class="bio">Etkinlikler, davetiyeler, küçük işletmeler ve benzeri işler için hazırladığım
-            dijital çözümler. Demoları buradan inceleyebilirsin.</p>
-
-        <div class="product-grid">
-            <a href="davetiye.html" class="product-card">
-                <span class="product-icon" aria-hidden="true">💌</span>
-                <span class="product-name">Dijital Davetiye</span>
-                <span class="product-desc">Zarfı açılan, geri sayımı canlı akan düğün davetiyesi.</span>
-                <span class="product-cta">Demoyu Aç →</span>
-            </a>
-
-            <a href="cicekci.html" class="product-card">
-                <span class="product-icon" aria-hidden="true">💐</span>
-                <span class="product-name">Çiçekçi Sitesi</span>
-                <span class="product-desc">Ürün kataloğu ve gel-al ya da adrese teslim seçenekli, WhatsApp'a düşen sipariş formu.</span>
-                <span class="product-cta">Demoyu Aç →</span>
-            </a>
-
-            <a href="guzellik.html" class="product-card">
-                <span class="product-icon" aria-hidden="true">💆‍♀️</span>
-                <span class="product-name">Güzellik Merkezi Sitesi</span>
-                <span class="product-desc">Hizmet kataloğu ve saat seçmeli, WhatsApp'a düşen randevu formu.</span>
-                <span class="product-cta">Demoyu Aç →</span>
-            </a>
-
-            <a href="kuafor.html" class="product-card">
-                <span class="product-icon" aria-hidden="true">💇‍♀️</span>
-                <span class="product-name">Kadın Kuaförü Sitesi</span>
-                <span class="product-desc">Hizmet kataloğu ve uzmana göre saat seçmeli, WhatsApp'a düşen randevu formu.</span>
-                <span class="product-cta">Demoyu Aç →</span>
-            </a>
-
-            <div class="product-card is-soon">
-                <span class="product-icon" aria-hidden="true">📷</span>
-                <span class="product-name">Etkinlikler</span>
-                <span class="product-desc">Davetlilerin anlık fotoğraf yüklediği, onaylı ortak galeri.</span>
-                <span class="product-cta">Yakında</span>
+    <main class="icerik hk">
+        <section class="hk-hero">
+            <p class="hk-etiket">Merhaba, ben</p>
+            <h1>Ömer Kartlı</h1>
+            <p class="hk-unvan">Full Stack Web Developer &amp; AI Engineer</p>
+            <p class="hk-ozet">
+                Büyük dil modelleri ve RAG sistemleri üzerine araştırma yapıyor, aynı zamanda
+                React ve Angular ile web uygulamaları geliştiriyorum. Küçük işletmeler ve etkinlikler
+                için hazırladığım dijital çözümleri de bu sayfada bulabilirsin.
+            </p>
+            <div class="hk-dugmeler">
+                <a class="pill pill-koyu" href="#calismalar">Çalışmalarım</a>
+                <a class="pill pill-ana" href="hakkimda.html">Özgeçmişim</a>
+                <a class="pill pill-ana" href="https://github.com/omerkartli" target="_blank" rel="noopener">GitHub</a>
             </div>
+        </section>
 
-            <div class="product-card is-soon">
-                <span class="product-icon" aria-hidden="true">🎟️</span>
-                <span class="product-name">Dijital Menü</span>
-                <span class="product-desc">QR ile açılan, mobil uyumlu etkinlik menüsü.</span>
-                <span class="product-cta">Yakında</span>
+        <section class="hk-bolum">
+            <h2>Ne yapıyorum</h2>
+            <div class="hk-beceri-grid">
+                <div class="hk-kutu">
+                    <h3>Yapay Zeka</h3>
+                    <p class="vt-metin">LLM, doğal dil işleme ve bilgi getirme destekli üretim (RAG). Python ile
+                        sistem kurma ve otomatik değerlendirme hatları. Doktora araştırmam da bu alanda.</p>
+                    <ul class="hk-etiketler"><li>Python</li><li>PyTorch</li><li>LangChain</li><li>RAGAS</li></ul>
+                </div>
+                <div class="hk-kutu">
+                    <h3>Full Stack Web</h3>
+                    <p class="vt-metin">Kurumsal web uygulamaları ve küçük işletmeler için hızlı, mobil uyumlu
+                        siteler. Arayüzden servis entegrasyonuna uçtan uca geliştirme.</p>
+                    <ul class="hk-etiketler"><li>React</li><li>Angular</li><li>TypeScript</li><li>HTML / CSS</li></ul>
+                </div>
             </div>
+        </section>
+
+        <section class="hk-bolum" id="arastirma">
+            <h2>Araştırma</h2>
+            <ol class="hk-zaman">
+                <li>
+                    <span class="hk-tarih">Eylül 2026</span>
+                    <h3>Evaluation of Retrieval-Augmented Generation on Various Types of Large Language Models
+                        <small>ASYU 2026 (IEEE), Özyeğin Üniversitesi</small></h3>
+                    <p><a href="https://github.com/omerkartli/ragopt" target="_blank" rel="noopener">github.com/omerkartli/ragopt</a></p>
+                </li>
+                <li>
+                    <span class="hk-tarih">Haziran 2025</span>
+                    <h3>Optimizing Large Language Models using Retrieval-Augmented Generation and Automated Evaluation
+                        <small>GITMA Konferansı, Sakarya Üniversitesi</small></h3>
+                </li>
+            </ol>
+        </section>
+
+        <section class="hk-bolum" id="calismalar">
+            <h2>Web çalışmaları</h2>
+            <p class="vt-metin vt-giris">Etkinlikler ve küçük işletmeler için hazırladığım demo siteler. Bilgiler kurgusaldır.</p>
+    <div class="product-grid">
+        <a href="davetiye.html" class="product-card">
+            <span class="product-icon" aria-hidden="true">💌</span>
+            <span class="product-name">Dijital Davetiye</span>
+            <span class="product-desc">Zarfı açılan, geri sayımı canlı akan düğün davetiyesi.</span>
+            <span class="product-cta">Demoyu Aç →</span>
+        </a>
+
+        <a href="cicekci.html" class="product-card">
+            <span class="product-icon" aria-hidden="true">💐</span>
+            <span class="product-name">Çiçekçi Sitesi</span>
+            <span class="product-desc">Ürün kataloğu ve gel-al ya da adrese teslim seçenekli, WhatsApp'a düşen sipariş formu.</span>
+            <span class="product-cta">Demoyu Aç →</span>
+        </a>
+
+        <a href="guzellik.html" class="product-card">
+            <span class="product-icon" aria-hidden="true">💆‍♀️</span>
+            <span class="product-name">Güzellik Merkezi Sitesi</span>
+            <span class="product-desc">Hizmet kataloğu ve saat seçmeli, WhatsApp'a düşen randevu formu.</span>
+            <span class="product-cta">Demoyu Aç →</span>
+        </a>
+
+        <a href="kuafor.html" class="product-card">
+            <span class="product-icon" aria-hidden="true">💇‍♀️</span>
+            <span class="product-name">Kadın Kuaförü Sitesi</span>
+            <span class="product-desc">Hizmet kataloğu ve uzmana göre saat seçmeli, WhatsApp'a düşen randevu formu.</span>
+            <span class="product-cta">Demoyu Aç →</span>
+        </a>
+
+        <div class="product-card is-soon">
+            <span class="product-icon" aria-hidden="true">📷</span>
+            <span class="product-name">Etkinlikler</span>
+            <span class="product-desc">Davetlilerin anlık fotoğraf yüklediği, onaylı ortak galeri.</span>
+            <span class="product-cta">Yakında</span>
+        </div>
+
+        <div class="product-card is-soon">
+            <span class="product-icon" aria-hidden="true">🎟️</span>
+            <span class="product-name">Dijital Menü</span>
+            <span class="product-desc">QR ile açılan, mobil uyumlu etkinlik menüsü.</span>
+            <span class="product-cta">Yakında</span>
         </div>
     </div>
+        </section>
+
+        <section class="hk-bolum vt-iletisim">
+            <h2>İletişim</h2>
+            <p class="vt-metin vt-giris">Bir proje, iş birliği ya da sipariş için yazabilirsin.</p>
+            <div class="hk-dugmeler">
+                <a class="pill pill-koyu" href="mailto:omerkartli52@gmail.com">E-posta</a>
+                <a href="https://wa.me/905545520912?text=Merhaba%20dijital%20%C3%BCr%C3%BCnler%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
+                   target="_blank" rel="noopener" class="pill pill-wa">WhatsApp</a>
+            </div>
+        </section>
     </main>
 
     <script src="script.js?v=7"></script>
