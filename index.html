@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
     <link rel="stylesheet" href="style.css?v=29">
-    <link rel="stylesheet" href="hakkimda.css?v=6">
+    <link rel="stylesheet" href="hakkimda.css?v=8">
 </head>
 <body>
     <header class="site-bar site-bar-ince">
@@ -22,7 +22,7 @@
 
     <div class="vt-hero-zemin">
     <section class="vt-hero">
-        <p class="vt-rozet">Web sitesi · Dijital davetiye · Yazılım</p>
+        <p class="vt-rozet">Web sitesi · QR menü · Dijital davetiye · Yazılım</p>
         <h1 data-no-type>İşletmene özel, <em>hızlı ve sade</em> bir web sitesi.</h1>
         <p class="vt-hero-metin">Randevu, sipariş ya da tanıtım: ihtiyacın neyse, telefonda şık açılan
             ve doğrudan WhatsApp'a bağlanan bir site hazırlıyorum.</p>
@@ -31,7 +31,6 @@
             <a class="pill pill-ana" href="#calismalar">Örnekleri incele</a>
         </div>
         <ul class="vt-hero-madde">
-            <li>📱 Mobil öncelikli</li>
             <li>💬 WhatsApp'a bağlı</li>
             <li>⚡ Hafif ve hızlı</li>
         </ul>
@@ -101,6 +100,26 @@
                 </div>
 
                 <div class="product-card" data-kategori="isletme">
+                    <span class="product-icon" aria-hidden="true">☕</span>
+                    <span class="product-name">Kafe &amp; Tatlıcı Sitesi</span>
+                    <span class="product-desc">Mekân galerisi, misafir yorumları ve saat seçmeli rezervasyon formu.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="kafe">Telefonda dene →</button>
+                        <a class="vt-link" href="ornek-kafe/index.html">Tam sayfa</a>
+                    </span>
+                </div>
+
+                <div class="product-card" data-kategori="isletme">
+                    <span class="product-icon" aria-hidden="true">📲</span>
+                    <span class="product-name">QR Menü</span>
+                    <span class="product-desc">Kategorili, aramalı, fotoğraflı ve fiyatlı menü. QR kodu okutunca telefonda açılır.</span>
+                    <span class="vt-kart-dugmeler">
+                        <button type="button" class="product-cta vt-btn" data-demo="qrmenu">Telefonda dene →</button>
+                        <a class="vt-link" href="ornek-kafe/menu.html">Tam sayfa</a>
+                    </span>
+                </div>
+
+                <div class="product-card" data-kategori="isletme">
                     <span class="product-icon" aria-hidden="true">💐</span>
                     <span class="product-name">Çiçekçi Sitesi</span>
                     <span class="product-desc">Ürün kataloğu ve gel-al ya da adrese teslim seçenekli, WhatsApp'a düşen sipariş formu.</span>
@@ -137,12 +156,6 @@
                     <span class="product-cta">Yakında</span>
                 </div>
 
-                <div class="product-card is-soon" data-kategori="etkinlik">
-                    <span class="product-icon" aria-hidden="true">🎟️</span>
-                    <span class="product-name">Dijital Menü</span>
-                    <span class="product-desc">QR ile açılan, mobil uyumlu etkinlik menüsü.</span>
-                    <span class="product-cta">Yakında</span>
-                </div>
             </div>
         </section>
 
@@ -162,7 +175,7 @@
                 <div class="vt-karsi-kutu vt-karsi-ben">
                     <h3>Elle yazılmış çözüm</h3>
                     <ul>
-                        <li>Sadece ihtiyacın olan kod var: hafif, hızlı, mobil öncelikli.</li>
+                        <li>Sadece ihtiyacın olan kod var: hafif ve hızlı.</li>
                         <li>Randevu, sipariş, geri sayım gibi işlevler senin akışına göre kurulur.</li>
                         <li>Başlık, açıklama ve yapısal işaretleme gibi temel SEO adımları baştan düşünülür.</li>
                         <li>Dış eklentiye bağımlılık yoktur; bakım ihtiyacı azdır.</li>
@@ -223,6 +236,8 @@
                 <p class="vt-metin" id="demoAciklama"></p>
                 <div class="vt-demo-sekmeler" role="group" aria-label="Demolar">
                     <button type="button" data-demo="davetiye">💌 Dijital Davetiye</button>
+                    <button type="button" data-demo="kafe">☕ Kafe &amp; Tatlıcı</button>
+                    <button type="button" data-demo="qrmenu">📲 QR Menü</button>
                     <button type="button" data-demo="cicekci">💐 Çiçekçi</button>
                     <button type="button" data-demo="guzellik">💆‍♀️ Güzellik Merkezi</button>
                     <button type="button" data-demo="kuafor">💇‍♀️ Kuaför</button>
@@ -239,6 +254,6 @@
     </div>
 
     <script src="script.js?v=8"></script>
-    <script src="vitrin.js?v=1"></script>
+    <script src="vitrin.js?v=2"></script>
 </body>
 </html>

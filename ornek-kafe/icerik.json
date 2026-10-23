@@ -1,0 +1,62 @@
+{
+  "galeri": [
+    {
+      "foto": "images/galeri-san-sebastian.webp",
+      "alt": "San Sebastian cheesecake, yanında sıcak çikolata sosuyla"
+    },
+    {
+      "foto": "images/galeri-affogato.webp",
+      "alt": "Cam kasede dondurmalı espresso tatlısı"
+    },
+    {
+      "foto": "images/galeri-mekan-masalar.webp",
+      "alt": "Kafenin mermer masaları ve rahat sandalyeleri"
+    },
+    {
+      "foto": "images/galeri-yaban-mersinli-milkshake.webp",
+      "alt": "Yaban mersinli pembe milkshake"
+    },
+    {
+      "foto": "images/galeri-fistikli-tatli.webp",
+      "alt": "Beyaz çikolata ve Antep fıstığı kaplı tatlı"
+    },
+    {
+      "foto": "images/yesilicece.webp",
+      "alt": "Buzlu matcha latte, yanında çilek sosu"
+    },
+    {
+      "foto": "images/karısık.webp",
+      "alt": "Kruvasan, waffle ve brownie karışık tabağı; meyve ve soslarla"
+    },
+    {
+      "foto": "images/köse.webp",
+      "alt": "Ahşap kemer formlu, minderli köşe oturma alanı"
+    },
+    {
+      "foto": "images/kruvas.webp",
+      "alt": "Tereyağlı sade kruvasan"
+    },
+    {
+      "foto": "images/maka.webp",
+      "alt": "Frambuazlı pankek kulesi"
+    },
+    {
+      "foto": "images/uzun.webp",
+      "alt": "Garson tabağında fıstıklı yeşil rulo tatlı ve soslar"
+    }
+  ],
+  "yorumlar": [
+    {
+      "yorum": "Tatlılar taze ve porsiyonlar cömert. Kahveyle çok iyi gidiyor, tekrar geleceğiz.",
+      "ad": "Ayşe T."
+    },
+    {
+      "yorum": "Mekân sakin ve ferah, servis hızlı. Hafta sonu kahvaltısı için ideal.",
+      "ad": "Mehmet D."
+    },
+    {
+      "yorum": "Çocuklarla geldik, rahat ettik. Menü net ve fotoğraflı olduğu için seçmek kolay.",
+      "ad": "Zeynep K."
+    }
+  ]
+}

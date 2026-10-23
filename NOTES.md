@@ -134,6 +134,14 @@ hattına (0533 422 29 94) açar. Ürün adları ve fiyatları (1.000–1.500 ₺
 şimdilik tarafımızdan konuldu; dükkânla teyit edilince `PRODUCTS` listesinden
 güncellenir.
 
+## Örnek kafe (`ornek-kafe/`)
+
+Vitrindeki kafe sitesi ve QR menü demosu. `omerkartli/lotus-atelier` gerçek müşteri
+sitesinin kopyası; fotoğraflar ve menü aynen duruyor ama marka adı, adres, telefon,
+Instagram, Google bağlantıları ve gerçek yorumlar kurgusalla değiştirildi. Rezervasyon
+formu hiçbir numaraya mesaj göndermez (`WA_NUMBER` boş), sayfalar `noindex`.
+Gerçek sitedeki menü ya da fiyat değişirse bu kopya kendiliğinden güncellenmez.
+
 ## Yapılmayanlar / sıradakiler
 
 - Etkinlik sahibine e-posta/bildirim yok; onay bekleyen fotoğrafı görmek için

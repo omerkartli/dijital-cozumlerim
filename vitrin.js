@@ -1,6 +1,8 @@
 // Ana sayfa: çözüm filtresi, telefon çerçevesinde demo penceresi, WhatsApp'a giden proje formu.
 const DEMOLAR = {
     davetiye: { baslik: 'Dijital Davetiye', sayfa: 'davetiye.html', aciklama: 'Zarf açılır, geri sayım canlı akar. Davetli isimleri kurgusaldır.' },
+    kafe: { baslik: 'Kafe & Tatlıcı Sitesi', sayfa: 'ornek-kafe/index.html', aciklama: 'Mekân galerisi, yorumlar ve saat seçmeli rezervasyon. Form bu demoda mesaj göndermez.' },
+    qrmenu: { baslik: 'QR Menü', sayfa: 'ornek-kafe/menu.html', aciklama: 'Kategorili ve aramalı menü. Gerçekte QR kodu okutunca açılır.' },
     cicekci: { baslik: 'Çiçekçi Sitesi', sayfa: 'cicekci.html', aciklama: 'Ürün kataloğu ve sipariş formu. Form bu demoda mesaj göndermez.' },
     guzellik: { baslik: 'Güzellik Merkezi Sitesi', sayfa: 'guzellik.html', aciklama: 'Hizmet kataloğu ve saat seçmeli randevu formu.' },
     kuafor: { baslik: 'Kadın Kuaförü Sitesi', sayfa: 'kuafor.html', aciklama: 'Uzmana göre saat seçmeli randevu formu.' },
