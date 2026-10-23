@@ -1,0 +1,1461 @@
+{
+  "gruplar": [
+    {
+      "ad": "Kahvaltı Tabakları",
+      "not": "Ürünlerimiz sizlere özel hazırlanmaktadır. Hazırlanma süresi 15-20 dakika sürebilmektedir. Şimdiden afiyet olsun, keyifli vakitler dileriz…",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "Serpme Kahvaltı",
+          "fiyat": 750,
+          "fiyatNot": "kişi başı",
+          "aciklama": "En az 2 kişilik servis edilir.\nSeçkin Peynir Çeşitleri · Mevsim Söğüş Tabağı · Siyah & Yeşil Zeytin · Bal & Tereyağı · Tahin & Pekmez · Ev Yapımı Reçel Çeşitleri · Kahvaltılık Acuka · Süzme Yoğurtlu Özel Sos · Biber ve Patlıcan Kızartması · Hindi Füme & Dana Jambon · Sahanda Yumurta · Patates Kızartması & El Açması Sigara Böreği · Mini Tereyağlı Kruvasan · Pancake & Sütlü Çikolata",
+          "aktif": true
+        },
+        {
+          "ad": "Akdeniz Klasiği",
+          "fiyat": 445,
+          "aciklama": "Dana Jambon, Labne, Beyaz Peynir, Roka, Domates, Nane, Kekik, Karabiber, Göbek Marul\nYancılar: Çeri Domates, Salatalık, Yeşil ve Siyah Zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/akdeniz-klasigi.webp"
+        },
+        {
+          "ad": "Yumurtalı Brunch",
+          "fiyat": 445,
+          "aciklama": "Labne, Çırpılmış Yumurta, Domates, Göbek Marul\nYancılar: Çeri Domates, Salatalık, Yeşil ve Siyah Zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/yumurtali-brunch.webp"
+        },
+        {
+          "ad": "Gurme Dörtlü",
+          "fiyat": 455,
+          "aciklama": "Beyaz Peynir, Kaşar Peyniri, Çedar Peyniri, Dana Jambon, Labne, Domates, Roka\nYancılar: Çeri Domates, Salatalık, Yeşil ve Siyah Zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/gurme-dortlu.webp"
+        },
+        {
+          "ad": "Sıcak Füme Tabağı",
+          "fiyat": 455,
+          "aciklama": "Hindi Füme, Çedar Peyniri, Göbek Marul, Domates, Labne, Kaşar Peyniri, Roka\nYancılar: Çeri Domates, Salatalık, Yeşil ve Siyah Zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/sicak-fume-tabagi.webp"
+        },
+        {
+          "ad": "Gün Tabağı",
+          "fiyat": 450,
+          "aciklama": "Bu ürün minimum 4 kişilik servis edilmektedir. Kaliteli hizmet sunabilmek adına siparişlerin en az 1 gün önceden verilmesi rica olunur.",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/gun-tabagi.webp"
+        },
+        {
+          "ad": "Lotus Lezzet Tabağı",
+          "fiyat": 480,
+          "aciklama": "Çift göz yumurta, peynir çeşitleri, hindi füme, taze yeşillikler, zeytinler, kuru domates, acuka, tereyağı, reçel ve taze ekmek dilimleriyle hazırlanan doyurucu kahvaltı tabağı.",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/lotus-lezzet-tabagi.webp"
+        },
+        {
+          "ad": "Füme Avokado",
+          "fiyat": 460,
+          "aciklama": "Labne, Pesto, Hindi füme, Avokado püre, Göz yumurta, Karışık salata, Yeşil zeytin, Siyah zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/fume-avokado.webp"
+        },
+        {
+          "ad": "Üç Peynir Rüyası",
+          "fiyat": 460,
+          "aciklama": "Labne, Çedar peyniri, Beyaz peynir, Biberli sos, Avokado püre, Göz yumurta, Karışık salata, Yeşil zeytin, Siyah zeytin",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/uc-peynir-ruyasi.webp"
+        },
+        {
+          "ad": "Menemen",
+          "fiyat": 250,
+          "aciklama": "Taze domates, yeşil biber ve yumurtanın enfes uyumu. Geleneksel tarifle hazırlanan sıcacık menemen.",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/menemen.webp"
+        },
+        {
+          "ad": "Sahanda Sucuklu Yumurta",
+          "fiyat": 290,
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/sahanda-sucuklu-yumurta.webp"
+        },
+        {
+          "ad": "Sahanda Yumurta",
+          "fiyat": 190,
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/sahanda-yumurta.webp"
+        },
+        {
+          "ad": "Kaşarlı Omlet",
+          "fiyat": 280,
+          "aktif": true
+        },
+        {
+          "ad": "Karışık Tost",
+          "fiyat": 330,
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/karisik-tost.webp"
+        },
+        {
+          "ad": "Kaşarlı Tost",
+          "fiyat": 300,
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/kasarli-tost.webp"
+        },
+        {
+          "ad": "Çıtır Patates Keyfi",
+          "fiyat": 190,
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/citir-patates-keyfi.webp"
+        },
+        {
+          "ad": "Hellim (3 Dilim)",
+          "fiyat": 100,
+          "aktif": true
+        },
+        {
+          "ad": "Sucuk (6 Dilim)",
+          "fiyat": 200,
+          "aktif": true
+        }
+      ]
+    },
+    {
+      "ad": "Special Tatlılar",
+      "ilaveler": true,
+      "urunler": [
+        {
+          "ad": "Fıstık Sufle",
+          "fiyat": 480,
+          "aciklama": "Antep Baklavasını Bir De Böyle Deneyin (Dondurma İle Servis Edilir)",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/fistik-sufle.webp"
+        },
+        {
+          "ad": "Fıstık Burger",
+          "fiyat": 560,
+          "aciklama": "Burger Keki, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/fistik-burger.webp"
+        },
+        {
+          "ad": "Adrenalin",
+          "fiyat": 690,
+          "aciklama": "Antep Fıstığı Ezmesi, Kesme Dondurma, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+          "aktif": true,
+          "fotoUrl": "",
+          "foto": "images/adrenalin.webp"
+        }
+      ]
+    },
+    {
+      "ad": "Tatlılar",
+      "ilaveler": true,
+      "altlar": [
+        {
+          "ad": "Tatlılar",
+          "urunler": [
+            {
+              "ad": "Strawberry Chocolate",
+              "fiyat": 380,
+              "aciklama": "Çilek, Sütlü Çikolata",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/strawberry-chocolate.webp"
+            },
+            {
+              "ad": "Tropical Chocolate",
+              "fiyat": 490,
+              "aciklama": "Ananas, Çilek, Muz, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı, Fransız Bisküvisi",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/tropical-chocolate.webp"
+            },
+            {
+              "ad": "Endorfin",
+              "fiyat": 485,
+              "aciklama": "Krema, Brownie, Muz, Çilek, Beyaz Çikolata, Sütlü Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/endorfin.webp"
+            },
+            {
+              "ad": "Çilekli Endorfin",
+              "fiyat": 485,
+              "aciklama": "Krema, Kadife Keki, Çilek, Ruby Çikolatası, Beyaz Çikolata, Sütlü Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/cilekli-endorfin.webp"
+            },
+            {
+              "ad": "Serotonin",
+              "fiyat": 495,
+              "aciklama": "Krep, Krema, Muz, Çilek, Brownie, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/serotonin.webp"
+            },
+            {
+              "ad": "Adını Sen Koy",
+              "fiyat": 495,
+              "aciklama": "Krep, Krema, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Fransız Bisküvisi, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/adini-sen-koy.webp"
+            },
+            {
+              "ad": "Pankek Tabağı",
+              "fiyat": 520,
+              "aciklama": "Pankek (Yirmi Adet), Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/pankek-tabagi.webp"
+            },
+            {
+              "ad": "Dopamin",
+              "fiyat": 480,
+              "aciklama": "Krema, Çilek, Lotus Crumble, Antep Fıstığı, Beyaz Çikolata, Sütlü Çikolata",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/dopamin.webp"
+            },
+            {
+              "ad": "Brownie",
+              "fiyat": 430,
+              "aciklama": "Brownie, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/brownie.webp"
+            },
+            {
+              "ad": "Lotus Brownie",
+              "fiyat": 495,
+              "aciklama": "İki Kat Brownie, Krema, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/lotus-brownie.webp"
+            },
+            {
+              "ad": "Dondurmalı Brownie",
+              "fiyat": 450,
+              "aciklama": "Brownie, Muz, Çilek, Kesme Dondurma, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/dondurmali-brownie.webp"
+            },
+            {
+              "ad": "Lotus Burger",
+              "fiyat": 490,
+              "aciklama": "Üç Kat Pankek, Krema, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/lotus-burger.webp"
+            },
+            {
+              "ad": "Kadife Burger",
+              "fiyat": 495,
+              "aciklama": "Üç Kat Kadife Keki, Krema, Çilek, Sütlü Çikolata, Beyaz Çikolata",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/kadife-burger.webp"
+            },
+            {
+              "ad": "Waffle",
+              "fiyat": 495,
+              "aciklama": "Waffle Ekmeği, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı, Fransız Bisküvisi",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/waffle.webp"
+            },
+            {
+              "ad": "Double Waffle (Paylaşmalık)",
+              "fiyat": 685,
+              "aciklama": "Çift Kat Waffle Ekmeği, Muz, Çilek, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı, Fransız Bisküvisi",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/double-waffle-paylasmalik.webp"
+            },
+            {
+              "ad": "Profiterol",
+              "fiyat": 370,
+              "aciklama": "Profiterol (Üç Adet), Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/profiterol.webp"
+            },
+            {
+              "ad": "Meyveli Profiterol",
+              "fiyat": 440,
+              "aciklama": "Profiterol (Üç Adet), Muz, Çilek, Ananas, Sütlü Çikolata, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/meyveli-profiterol.webp"
+            },
+            {
+              "ad": "Ekler",
+              "fiyat": 125,
+              "aciklama": "Bir Adet Ekler, Antep Fıstığı",
+              "aktif": true
+            },
+            {
+              "ad": "Ekler Porsiyon",
+              "fiyat": 240,
+              "aciklama": "Ekler (İki Adet), Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/ekler-porsiyon.webp"
+            },
+            {
+              "ad": "Meyveli Ekler",
+              "fiyat": 320,
+              "aciklama": "Ekler (İki Adet), Muz, Çilek, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/meyveli-ekler.webp"
+            },
+            {
+              "ad": "Lotus Mix",
+              "fiyat": 1245,
+              "aciklama": "Çilek, Muz, Brownie, Mini Kruvasan (Dört Adet), Pankek (Sekiz Adet), Waffle Ekmeği (Dört Adet), Sütlü Çikolata, Beyaz Çikolata, Fransız Bisküvisi, Antep Fıstığı",
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/lotus-mix.webp"
+            },
+            {
+              "ad": "Sufle",
+              "fiyat": 420,
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/sufle.webp"
+            },
+            {
+              "ad": "Fıstıklı Cookie (Adet)",
+              "fiyat": 230,
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/fistikli-cookie-adet.webp"
+            },
+            {
+              "ad": "Çikolatalı Cookie (Adet)",
+              "fiyat": 180,
+              "aktif": true,
+              "fotoUrl": "",
+              "foto": "images/cikolatali-cookie-adet.webp"
+            }
+          ]
+        },
+        {
+          "ad": "Cheesecake",
+          "urunler": [
+            {
+              "ad": "Çikolatalı Cheesecake",
+              "fiyat": 350,
+              "fiyatNot": "",
+              "foto": "images/cikolatali-cheesecake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Limonlu Cheesecake",
+              "fiyat": 350,
+              "fiyatNot": "",
+              "foto": "images/limonlu-cheesecake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Frambuazlı Cheesecake",
+              "fiyat": 350,
+              "fiyatNot": "",
+              "foto": "images/frambuazli-cheesecake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "San Sebastian",
+              "fiyat": 470,
+              "fiyatNot": "",
+              "foto": "images/san-sebastian.webp",
+              "fotoUrl": "",
+              "aciklama": "San Sebastian Cheesecake, Sütlü Çikolata, Antep Fıstığı",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Kruvasan",
+          "urunler": [
+            {
+              "ad": "Kruvasan Tabağı (2 Kişilik)",
+              "fiyat": 740,
+              "fiyatNot": "",
+              "foto": "images/kruvasan-tabagi-2-kisilik.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Mini Kruvasan (Altı Adet), Muz, Çilek, Beyaz Çikolata, Sütlü Çikolata, Antep Fıstığı",
+              "aktif": true
+            },
+            {
+              "ad": "Orman Meyveli Kruvasan",
+              "fiyat": 490,
+              "fiyatNot": "",
+              "foto": "images/orman-meyveli-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Kruvasan, Orman Meyveleri, Krema, Sütlü Çikolata, Beyaz Çikolata",
+              "aktif": true
+            },
+            {
+              "ad": "Meyveli Kruvasan",
+              "fiyat": 475,
+              "fiyatNot": "",
+              "foto": "images/meyveli-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Kruvasan, Krema, Muz, Çilek, Sütlü Çikolata, Antep Fıstığı, Fransız Bisküvisi",
+              "aktif": true
+            },
+            {
+              "ad": "Sade Kruvasan",
+              "fiyat": 220,
+              "fiyatNot": "",
+              "foto": "images/sade-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Kruvasan",
+              "aktif": true
+            },
+            {
+              "ad": "Lotuslu Roll Kruvasan",
+              "fiyat": 475,
+              "fiyatNot": "",
+              "foto": "images/lotuslu-roll-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Roll Kruvasan, Lotuslu Roll Kreması, Lotus Crumble",
+              "aktif": true
+            },
+            {
+              "ad": "Fıstıklı Roll Kruvasan",
+              "fiyat": 475,
+              "fiyatNot": "",
+              "foto": "images/fistikli-roll-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Roll Kruvasan, Fıstıklı Roll Kreması, Beyaz Çikolata, Antep Fıstığı",
+              "aktif": true
+            },
+            {
+              "ad": "Çikolatalı Roll Kruvasan",
+              "fiyat": 475,
+              "fiyatNot": "",
+              "foto": "images/cikolatali-roll-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "%100 Tereyağlı Roll Kruvasan, Çikolatalı Roll Kreması, Sütlü Çikolata, Beyaz Çikolata, Fransız Bisküvisi",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Sütlü Tatlılar",
+          "urunler": [
+            {
+              "ad": "Tiramisu",
+              "fiyat": 380,
+              "fiyatNot": "",
+              "foto": "images/tiramisu.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Mini Tatlar",
+          "urunler": [
+            {
+              "ad": "Mini Waffle",
+              "fiyat": 190,
+              "fiyatNot": "",
+              "foto": "images/mini-waffle.webp",
+              "fotoUrl": "",
+              "aciklama": "Waffle Ekmeği, Muz, Çilek, Sütlü Çikolata, Antep Fıstığı, Fransız Bisküvisi",
+              "aktif": true
+            },
+            {
+              "ad": "Mini Kruvasan",
+              "fiyat": 190,
+              "fiyatNot": "",
+              "foto": "images/mini-kruvasan.webp",
+              "fotoUrl": "",
+              "aciklama": "Mini Kruvasan, Sütlü Çikolata, Antep Fıstığı",
+              "aktif": true
+            },
+            {
+              "ad": "Mini Cookie Fıstıklı Porsiyon",
+              "fiyat": 300,
+              "fiyatNot": "",
+              "foto": "images/mini-cookie-fistikli-porsiyon.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Mini Cookie Porsiyon",
+              "fiyat": 280,
+              "fiyatNot": "",
+              "foto": "images/mini-cookie-porsiyon.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        }
+      ],
+      "urunler": []
+    },
+    {
+      "ad": "Filtre & Demleme Kahveler",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "Filtre Kahve",
+          "fiyat": 220,
+          "fiyatNot": "",
+          "foto": "images/filtre-kahve.webp",
+          "fotoUrl": "",
+          "aciklama": "Süt seçimi: Klasik Barista Sütü, Laktozsuz, Yulaf Sütü (+60 ₺)",
+          "aktif": true
+        },
+        {
+          "ad": "Colombia La Loma Caturra",
+          "fiyat": 370,
+          "fiyatNot": "",
+          "foto": "images/colombia-la-loma-caturra.webp",
+          "fotoUrl": "",
+          "aciklama": "Method: Washed\nHindistan Cevizi Yağı, Bubblegum, Kayısı, Ahududu",
+          "aktif": true
+        },
+        {
+          "ad": "Colombia La Loma Sidra",
+          "fiyat": 390,
+          "fiyatNot": "",
+          "foto": "images/colombia-la-loma-caturra.webp",
+          "fotoUrl": "",
+          "aciklama": "Method: Washed\nYasemin, Gül, Japon Şeftalisi, Şeker Kamışı",
+          "aktif": true
+        },
+        {
+          "ad": "Colombia Monteblanco Citrullus",
+          "fiyat": 370,
+          "fiyatNot": "",
+          "foto": "images/colombia-la-loma-caturra.webp",
+          "fotoUrl": "",
+          "aciklama": "Method: Washed\nKavun, Vanilya, Ananas, Muz, Karpuz, Lychee",
+          "aktif": true
+        }
+      ]
+    },
+    {
+      "ad": "Kahveler",
+      "ilaveler": false,
+      "altlar": [
+        {
+          "ad": "Espresso",
+          "urunler": [
+            {
+              "ad": "Espresso",
+              "fiyat": 170,
+              "fiyatNot": "",
+              "foto": "images/espresso.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Türk Kahvesi",
+              "fiyat": 150,
+              "fiyatNot": "",
+              "foto": "images/turk-kahvesi.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Americano",
+              "fiyat": 215,
+              "fiyatNot": "",
+              "foto": "images/americano.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Latte",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/latte.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Cappuccino",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/cappuccino.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Flat White",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/flat-white.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Cortado",
+              "fiyat": 215,
+              "fiyatNot": "",
+              "foto": "images/cortado.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Piccolo",
+              "fiyat": 215,
+              "fiyatNot": "",
+              "foto": "images/piccolo.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Mocha",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "images/mocha.webp",
+              "fotoUrl": "",
+              "aciklama": "Belçika Çikolatası İle Yapılmaktadır.",
+              "aktif": true
+            },
+            {
+              "ad": "White Mocha",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "images/white-mocha.webp",
+              "fotoUrl": "",
+              "aciklama": "Belçika Çikolatası İle Yapılmaktadır.",
+              "aktif": true
+            },
+            {
+              "ad": "Vanilya Latte",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Caramel Macchiato",
+              "fiyat": 280,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Caramel Latte",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Soğuk Kahveler",
+          "urunler": [
+            {
+              "ad": "Iced Latte",
+              "fiyat": 245,
+              "fiyatNot": "",
+              "foto": "images/iced-latte.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Iced Americano",
+              "fiyat": 225,
+              "fiyatNot": "",
+              "foto": "images/iced-americano.webp",
+              "fotoUrl": "",
+              "aciklama": "Brazil Carmo: Gövdeli, Çikolata Baskın ve Klasik Tat Arayanlara.\nEthiopia Chelbesa: Canlı, Asiditesi Yüksek ve Renkli Bir Tat Arayanlara.",
+              "aktif": true
+            },
+            {
+              "ad": "Ice Mocha",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "images/ice-mocha.webp",
+              "fotoUrl": "",
+              "aciklama": "Belçika Çikolatası İle Yapılmaktadır.",
+              "aktif": true
+            },
+            {
+              "ad": "Ice White Mocha",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "images/ice-white-mocha.webp",
+              "fotoUrl": "",
+              "aciklama": "Belçika Çikolatası İle Yapılmaktadır.",
+              "aktif": true
+            },
+            {
+              "ad": "Cold Brew",
+              "fiyat": 260,
+              "fiyatNot": "",
+              "foto": "images/cold-brew.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Affogato",
+              "fiyat": 260,
+              "fiyatNot": "",
+              "foto": "images/affogato.webp",
+              "fotoUrl": "",
+              "aciklama": "Kesme Dondurma, Espresso, Antep Fıstığı, Bal",
+              "aktif": true
+            },
+            {
+              "ad": "Ice Vanilya Latte",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Ice Caramel Latte",
+              "fiyat": 265,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Ice Caramel Macchiato",
+              "fiyat": 295,
+              "fiyatNot": "",
+              "foto": "images/ice-caramel-macchiato.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Japanese Iced Coffee",
+          "urunler": [
+            {
+              "ad": "Iced Colombia La Loma Caturra",
+              "fiyat": 370,
+              "fiyatNot": "",
+              "foto": "images/cold-brew.webp",
+              "fotoUrl": "",
+              "aciklama": "Method: Washed\nHindistan Cevizi Yağı, Bubblegum, Kayısı, Ahududu",
+              "aktif": true
+            },
+            {
+              "ad": "Iced Colombia La Loma Sidra",
+              "fiyat": 400,
+              "fiyatNot": "",
+              "foto": "images/cold-brew.webp",
+              "fotoUrl": "",
+              "aciklama": "Method: Washed\nYasemin, Gül, Japon Şeftalisi, Şeker Kamışı",
+              "aktif": true
+            },
+            {
+              "ad": "Iced Colombia Monteblanco Citrullus",
+              "fiyat": 370,
+              "fiyatNot": "",
+              "foto": "images/cold-brew.webp",
+              "fotoUrl": "",
+              "aciklama": "Method: Washed\nKavun, Vanilya, Ananas, Muz, Karpuz, Lychee",
+              "aktif": true
+            }
+          ]
+        }
+      ],
+      "urunler": [],
+      "not": "Süt seçimi: Klasik Barista Sütü ve Laktozsuz ücretsiz, Yulaf Sütü +60 ₺. Espresso seçimi: Brazil Carmo veya Ethiopia Chelbesa. Ekstra shot +35 ₺."
+    },
+    {
+      "ad": "Yeni Nesil Alternatifler",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "Lotus Latte",
+          "fiyat": 290,
+          "fiyatNot": "",
+          "foto": "images/lotus-latte.webp",
+          "fotoUrl": "",
+          "aciklama": "Lotus Bisküvi Kreması, Espresso, Süt",
+          "aktif": true
+        },
+        {
+          "ad": "Iced Lotus Latte",
+          "fiyat": 295,
+          "fiyatNot": "",
+          "foto": "images/iced-lotus-latte.webp",
+          "fotoUrl": "",
+          "aciklama": "Lotus Bisküvi Kreması, Espresso, Süt",
+          "aktif": true
+        },
+        {
+          "ad": "Honey Cinnamon Latte",
+          "fiyat": 240,
+          "fiyatNot": "",
+          "foto": "images/honey-cinnamon-latte.webp",
+          "fotoUrl": "",
+          "aciklama": "Bal, Tarçın, Süt, Espresso",
+          "aktif": true
+        },
+        {
+          "ad": "Matcha Latte",
+          "fiyat": 260,
+          "fiyatNot": "",
+          "foto": "images/matcha-latte.webp",
+          "fotoUrl": "",
+          "aciklama": "Matcha Çayı, Süt",
+          "aktif": true
+        },
+        {
+          "ad": "Ice Matcha Latte",
+          "fiyat": 265,
+          "fiyatNot": "",
+          "foto": "images/ice-matcha-latte.webp",
+          "fotoUrl": "",
+          "aciklama": "Matcha Çayı, Süt",
+          "aktif": true
+        },
+        {
+          "ad": "Iced Strawberry Matcha",
+          "fiyat": 300,
+          "fiyatNot": "",
+          "foto": "images/iced-strawberry-matcha.webp",
+          "fotoUrl": "",
+          "aciklama": "Çilek, Matcha Çayı, Süt",
+          "aktif": true
+        },
+        {
+          "ad": "Iced Green Apple Matcha",
+          "fiyat": 300,
+          "fiyatNot": "",
+          "foto": "images/iced-green-apple-matcha.webp",
+          "fotoUrl": "",
+          "aciklama": "Yeşil Elma, Matcha Çayı, Süt",
+          "aktif": true
+        }
+      ],
+      "not": "Süt seçimi: Klasik Barista Sütü ve Laktozsuz ücretsiz, Yulaf Sütü +60 ₺."
+    },
+    {
+      "ad": "İçecekler",
+      "ilaveler": false,
+      "altlar": [
+        {
+          "ad": "Soft İçecekler",
+          "urunler": [
+            {
+              "ad": "Uludağ Premium Su",
+              "fiyat": 65,
+              "fiyatNot": "",
+              "foto": "images/uludag-premium-su.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Uludağ Premium Maden Suyu",
+              "fiyat": 120,
+              "fiyatNot": "",
+              "foto": "images/uludag-premium-maden-suyu.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Soğuk İçecekler",
+          "urunler": [
+            {
+              "ad": "Sıkma Portakal Suyu",
+              "fiyat": 225,
+              "fiyatNot": "",
+              "foto": "images/sikma-portakal-suyu.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Churchill",
+              "fiyat": 150,
+              "fiyatNot": "",
+              "foto": "images/churchill.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Ev Yapımı Limonata",
+              "fiyat": 225,
+              "fiyatNot": "",
+              "foto": "images/ev-yapimi-limonata.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Strawberry Lemonade",
+              "fiyat": 250,
+              "fiyatNot": "",
+              "foto": "images/strawberry-lemonade.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Apple Green Lemonade",
+              "fiyat": 250,
+              "fiyatNot": "",
+              "foto": "",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Frozen",
+          "urunler": [
+            {
+              "ad": "Çarkıfelek Frozen",
+              "fiyat": 250,
+              "fiyatNot": "",
+              "foto": "images/carkifelek-frozen.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Elma Frozen",
+              "fiyat": 250,
+              "fiyatNot": "",
+              "foto": "images/elma-frozen.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Mango Frozen",
+              "fiyat": 250,
+              "fiyatNot": "",
+              "foto": "images/mango-frozen.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Milkshake",
+          "urunler": [
+            {
+              "ad": "Asuman",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/asuman.webp",
+              "fotoUrl": "",
+              "aciklama": "Çilek, Muz, Antep Fıstığı, Bal",
+              "aktif": true
+            },
+            {
+              "ad": "Orman Meyveli Milkshake",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/orman-meyveli-milkshake.webp",
+              "fotoUrl": "",
+              "aciklama": "Kırmızı Meyveler, Çilek, Dondurma, Süt",
+              "aktif": true
+            },
+            {
+              "ad": "Yaban Mersini Milkshake",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/yaban-mersini-milkshake.webp",
+              "fotoUrl": "",
+              "aciklama": "Dondurma, Orman Meyveleri, Süt",
+              "aktif": true
+            },
+            {
+              "ad": "Çikolatalı Milkshake",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/cikolatali-milkshake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Çilekli Milkshake",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/cilekli-milkshake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Lotus Milkshake",
+              "fiyat": 290,
+              "fiyatNot": "",
+              "foto": "images/lotus-milkshake.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Mocktails",
+          "urunler": [
+            {
+              "ad": "Berry Hibiscus",
+              "fiyat": 280,
+              "fiyatNot": "",
+              "foto": "images/berry-hibiscus.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Cool Lime",
+              "fiyat": 280,
+              "fiyatNot": "",
+              "foto": "images/cool-lime.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Sıcak İçecekler",
+          "urunler": [
+            {
+              "ad": "Ballı Süt",
+              "fiyat": 225,
+              "fiyatNot": "",
+              "foto": "images/balli-sut.webp",
+              "fotoUrl": "",
+              "aciklama": "",
+              "aktif": true
+            },
+            {
+              "ad": "Sıcak Çikolata",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/sicak-cikolata.webp",
+              "fotoUrl": "",
+              "aciklama": "Belçika Çikolatası Kullanılmaktadır.",
+              "aktif": true
+            }
+          ]
+        }
+      ],
+      "urunler": [],
+      "not": "Süt seçimi (milkshake ve ballı süt): Klasik Barista Sütü ve Laktozsuz ücretsiz, Yulaf Sütü +60 ₺. Sıcak çikolata: Sütlü, Bitter ve Beyaz ücretsiz, Ruby +30 ₺."
+    },
+    {
+      "ad": "Dondurmalar",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "Fıstıklı",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/fistikli.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Limon",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/limon.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Karamel",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/fistikli.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Çilek",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/fistikli.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Çikolata",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/limon.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "İtalyan Karamel",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/limon.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Sade",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/fistikli.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Kavun",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "images/limon.webp",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        }
+      ],
+      "not": "Tüm çeşitler 1 top 80 ₺."
+    },
+    {
+      "ad": "Çaylar",
+      "ilaveler": false,
+      "altlar": [
+        {
+          "ad": "Bitki Çayları",
+          "urunler": [
+            {
+              "ad": "Balance Tea - Detoks Yeşil Çay",
+              "fiyat": 200,
+              "fiyatNot": "",
+              "foto": "images/balance-tea-detoks-yesil-cay.webp",
+              "fotoUrl": "",
+              "aciklama": "Yeşil Çay, Limon Otu, Yerba Mate, Portakal Kabuğu",
+              "aktif": true
+            },
+            {
+              "ad": "Oolong Tea",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/oolong-tea.webp",
+              "fotoUrl": "",
+              "aciklama": "TI KUAN YIN Oolong Çayı",
+              "aktif": true
+            },
+            {
+              "ad": "Lemonade Tea",
+              "fiyat": 240,
+              "fiyatNot": "",
+              "foto": "images/lemonade-tea.webp",
+              "fotoUrl": "",
+              "aciklama": "Ev Yapımı Limonata, Çubuk Tarçın, Karanfil, Zencefil, Limon, Bal",
+              "aktif": true
+            }
+          ]
+        },
+        {
+          "ad": "Siyah Çaylar",
+          "urunler": [
+            {
+              "ad": "Siyah Çay",
+              "fiyat": 70,
+              "fiyatNot": "",
+              "foto": "images/siyah-cay.webp",
+              "fotoUrl": "",
+              "aciklama": "Klasik çay severlere, Karadeniz'in tepelerinden…",
+              "aktif": true
+            },
+            {
+              "ad": "Topkapı Tea - Elmalı Siyah Çay",
+              "fiyat": 200,
+              "fiyatNot": "",
+              "foto": "images/topkapi-tea-elmali-siyah-cay.webp",
+              "fotoUrl": "",
+              "aciklama": "Siyah Çay, Elma, Papaya, Zencefil, Keçiboynuzu, Gül Yaprakları, Böğürtlen Yaprakları, Frenk Üzümü Yaprakları",
+              "aktif": true
+            },
+            {
+              "ad": "Wake Up Tea - Earl Grey",
+              "fiyat": 195,
+              "fiyatNot": "",
+              "foto": "images/topkapi-tea-elmali-siyah-cay.webp",
+              "fotoUrl": "",
+              "aciklama": "Siyah Çay, Peygamber Çiçeği, Bergamot, Portakal Kabuğu",
+              "aktif": true
+            }
+          ]
+        }
+      ],
+      "urunler": [],
+      "not": "Demlik çaylar size özel potta demlenir. Siyah çay fincanda servis edilirse +20 ₺."
+    },
+    {
+      "ad": "Çikolata Kutuları",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "8'li Tasarım Kutu",
+          "fiyat": 490,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "24'lü Tasarım Kutu",
+          "fiyat": 1350,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "48'li Tasarım Kutu",
+          "fiyat": 2500,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Çikolata Adet",
+          "fiyat": 35,
+          "fiyatNot": "adet",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Çikolata KG",
+          "fiyat": 2600,
+          "fiyatNot": "kg",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        }
+      ]
+    },
+    {
+      "ad": "Ekstralar",
+      "ilaveler": false,
+      "urunler": [
+        {
+          "ad": "Sütlü Çikolata",
+          "fiyat": 95,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "%100 Belçika Çikolatası",
+          "aktif": true
+        },
+        {
+          "ad": "Beyaz Çikolata",
+          "fiyat": 95,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "%100 Belçika Çikolatası",
+          "aktif": true
+        },
+        {
+          "ad": "Bitter Çikolata",
+          "fiyat": 95,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "%100 Belçika Çikolatası",
+          "aktif": true
+        },
+        {
+          "ad": "Ruby Çikolata",
+          "fiyat": 125,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "%100 Belçika Çikolatası",
+          "aktif": true
+        },
+        {
+          "ad": "Muz",
+          "fiyat": 70,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Çilek",
+          "fiyat": 80,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Ananas",
+          "fiyat": 90,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Fransız Bisküvisi",
+          "fiyat": 50,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        },
+        {
+          "ad": "Antep Fıstığı",
+          "fiyat": 100,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "1. Sınıf Özel Antep Fıstığı",
+          "aktif": true
+        },
+        {
+          "ad": "Dondurma",
+          "fiyat": 75,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "Kesme Dondurma",
+          "aktif": true
+        },
+        {
+          "ad": "Espresso",
+          "fiyat": 35,
+          "fiyatNot": "",
+          "foto": "",
+          "fotoUrl": "",
+          "aciklama": "",
+          "aktif": true
+        }
+      ]
+    }
+  ],
+  "ilaveler": [
+    {
+      "ad": "Muz",
+      "fiyat": 70
+    },
+    {
+      "ad": "Dondurma",
+      "fiyat": 75
+    },
+    {
+      "ad": "Çilek",
+      "fiyat": 80
+    },
+    {
+      "ad": "Sütlü Çikolata",
+      "fiyat": 95
+    },
+    {
+      "ad": "Beyaz Çikolata",
+      "fiyat": 95
+    },
+    {
+      "ad": "Bitter Çikolata",
+      "fiyat": 95
+    },
+    {
+      "ad": "Ruby Çikolata",
+      "fiyat": 125
+    },
+    {
+      "ad": "Antep Fıstığı",
+      "fiyat": 100
+    },
+    {
+      "ad": "Fransız Bisküvisi",
+      "fiyat": 50
+    },
+    {
+      "ad": "Ananas",
+      "fiyat": 90
+    }
+  ],
+  "alerjen": "Alerjeniniz varsa lütfen sipariş verirken belirtiniz."
+}

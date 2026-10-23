@@ -462,6 +462,18 @@ body.vt-kilit {
 }
 
 @media (max-width: 720px) {
+    .vt-demo-sekmeler {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .vt-demo-sekmeler button {
+        padding: 9px 10px;
+        font-size: 0.82rem;
+    }
+
     .vt-modal-kutu {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -554,7 +566,7 @@ body.vt-kilit {
 }
 
 .vt-hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--vurgu);
 }
 
