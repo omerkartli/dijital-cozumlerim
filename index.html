@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
     <link rel="stylesheet" href="style.css?v=29">
-    <link rel="stylesheet" href="hakkimda.css?v=3">
+    <link rel="stylesheet" href="hakkimda.css?v=6">
 </head>
 <body>
-    <header class="site-bar">
+    <header class="site-bar site-bar-ince">
         <a href="index.html" class="marka">Dijital Çözümlerim</a>
         <nav class="site-nav">
             <a href="#calismalar" class="site-nav-link">Çözümler</a>
@@ -20,23 +20,29 @@
         </nav>
     </header>
 
-    <main class="icerik hk">
-        <section class="hk-hero">
-            <p class="hk-etiket">Merhaba, ben</p>
-            <h1>Ömer Kartlı</h1>
-            <p class="hk-unvan">Full Stack Web Developer &amp; AI Engineer</p>
-            <p class="hk-ozet">
-                Büyük dil modelleri ve RAG sistemleri üzerine araştırma yapıyor, aynı zamanda
-                React ve Angular ile web uygulamaları geliştiriyorum. Küçük işletmeler ve etkinlikler
-                için hazırladığım dijital çözümleri de bu sayfada bulabilirsin.
-            </p>
-            <div class="hk-dugmeler">
-                <a class="pill pill-koyu" href="#calismalar">Çözümlerim</a>
-                <a class="pill pill-ana" href="hakkimda.html">Özgeçmişim</a>
-                <a class="pill pill-ana" href="https://github.com/omerkartli" target="_blank" rel="noopener">GitHub</a>
-            </div>
-        </section>
+    <div class="vt-hero-zemin">
+    <section class="vt-hero">
+        <p class="vt-rozet">Web sitesi · Dijital davetiye · Yazılım</p>
+        <h1 data-no-type>İşletmene özel, <em>hızlı ve sade</em> bir web sitesi.</h1>
+        <p class="vt-hero-metin">Randevu, sipariş ya da tanıtım: ihtiyacın neyse, telefonda şık açılan
+            ve doğrudan WhatsApp'a bağlanan bir site hazırlıyorum.</p>
+        <div class="vt-hero-dugmeler">
+            <a class="pill pill-koyu" href="#proje">Web sitemi yaptır</a>
+            <a class="pill pill-ana" href="#calismalar">Örnekleri incele</a>
+        </div>
+        <ul class="vt-hero-madde">
+            <li>📱 Mobil öncelikli</li>
+            <li>💬 WhatsApp'a bağlı</li>
+            <li>⚡ Hafif ve hızlı</li>
+        </ul>
+        <p class="vt-imza">
+            <strong>Ömer Kartlı</strong> · Yüksek Bilgisayar Mühendisi<br>Full Stack Web Developer &amp; AI Engineer
+            <a href="hakkimda.html">Özgeçmişim →</a>
+        </p>
+    </section>
+    </div>
 
+    <main class="icerik hk">
         <section class="hk-bolum">
             <h2>Ne yapıyorum</h2>
             <div class="hk-beceri-grid">
@@ -232,7 +238,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
     <script src="vitrin.js?v=1"></script>
 </body>
 </html>
