@@ -475,3 +475,149 @@ body.vt-kilit {
         width: min(320px, 100%);
     }
 }
+
+/* --- İnce üst çubuk: tek satır, yumuşak çizgi, kaydırınca üstte kalır --- */
+
+.site-bar-ince {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 10px clamp(16px, 5vw, 64px);
+    border-bottom: 1px solid var(--cizgi);
+    background: rgba(244, 241, 236, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    flex-wrap: nowrap;
+}
+
+.site-bar-ince .marka {
+    font-size: 1.25rem;
+    white-space: nowrap;
+}
+
+.site-bar-ince .site-nav {
+    gap: clamp(14px, 4vw, 28px);
+}
+
+.site-bar-ince .site-nav-link {
+    font-size: 0.88rem;
+}
+
+/* --- Karşılama --- */
+
+.vt-hero-zemin {
+    position: relative;
+    isolation: isolate;
+}
+
+.vt-hero-zemin::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(70% 60% at 50% 0%, rgba(91, 85, 112, 0.09), transparent 75%),
+        linear-gradient(to right, rgba(31, 28, 26, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(to bottom, rgba(31, 28, 26, 0.035) 1px, transparent 1px) 0 0 / 40px 40px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+
+.vt-hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(36px, 10vw, 84px) clamp(20px, 5vw, 64px) clamp(32px, 6vw, 56px);
+    text-align: center;
+}
+
+.vt-rozet {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--vurgu-koyu);
+    background: var(--kart);
+    border: 1px solid var(--cizgi);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+}
+
+.vt-hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 11.5vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--baslik);
+    max-width: 14em;
+    margin: 0 auto;
+}
+
+.vt-hero h1 em {
+    font-style: italic;
+    color: var(--vurgu);
+}
+
+.vt-hero-metin {
+    max-width: 34em;
+    margin: 18px auto 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--soluk-koyu);
+}
+
+.vt-hero-dugmeler {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 340px;
+    margin: 26px auto 0;
+}
+
+.vt-hero-madde {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-top: 22px;
+    font-size: 0.82rem;
+    color: var(--soluk);
+}
+
+.vt-imza {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cizgi);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--soluk);
+}
+
+.vt-imza strong {
+    color: var(--baslik);
+}
+
+.vt-imza a {
+    display: block;
+    color: var(--vurgu-koyu);
+}
+
+@media (min-width: 640px) {
+    .vt-hero-dugmeler {
+        flex-direction: row;
+        justify-content: center;
+        max-width: none;
+    }
+
+    .vt-imza a {
+        display: inline;
+        margin-left: 10px;
+    }
+}
+
+.hk-derece {
+    font-size: 0.9rem;
+    color: var(--soluk);
+    margin: -8px 0 18px;
+}

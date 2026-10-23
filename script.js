@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const heading = document.querySelector('h1');
-    if (heading) {
+    if (heading && !heading.hasAttribute('data-no-type')) {
         let text = heading.textContent;
         if (heading.hasAttribute('data-greeting')) {
             text = text.replace(/^[^,]+/, getGreeting());
